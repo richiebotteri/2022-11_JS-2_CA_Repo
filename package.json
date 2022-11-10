@@ -1,0 +1,18 @@
+{
+   "name": "test",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "build": "sass src/scss:dist/css",
+      "watch": "sass --watch src/scss:dist/css",
+      "start": "live-server"
+   },
+   "author": "",
+   "license": "ISC",
+   "devDependencies": {
+      "bootstrap": "^5.2.2",
+      "live-server": "^1.1.0",
+      "sass": "^1.55.0"
+   }
+}
