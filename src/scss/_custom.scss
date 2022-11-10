@@ -1,0 +1,92 @@
+// -----------------------------------------------------------
+// Custom Skin Classes
+
+// Theme colors
+
+$white: #eff3f4;
+$cyan: #0dcaf0;
+$cyan-light: #8ce0eb;
+$red: #830713;
+$red-700: shade-color($red, 40%);
+
+$gray-900: #212529;
+$black: #152733;
+
+$primary: $cyan-light;
+$secondary: $black;
+$danger: $red;
+$body-color: $gray-900;
+$input-border-color: $gray-900;
+$component-active-bg: $gray-900;
+
+$btn-hover-bg-tint-amount: 20%;
+
+// Font classes
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+$p1-font-size: calc($font-size-base * 0.75);
+$p2-font-size: calc($font-size-base * 0.5);
+
+$font-sizes: (
+   1: $h1-font-size,
+   2: $h2-font-size,
+   3: $h3-font-size,
+   4: $h4-font-size,
+   5: $h5-font-size,
+   6: $h6-font-size,
+   7: $p1-font-size,
+   8: $p2-font-size,
+);
+
+// Border-radius
+
+$border-radius-none: none;
+$border-radius-sm: 0.25rem;
+$input-border-radius: $border-radius-sm;
+
+// Inputs validation
+
+// -----------------------------------------------------------
+// Custom Structure from Bootstrap Classes
+
+// Utilities
+
+$utilities: ();
+$utilities: map-merge(
+   (
+      // Sizing utilities
+      "width":
+         (
+            property: width,
+            class: w,
+            values: (
+               25: 25%,
+               50: 50%,
+               75: 75%,
+               90: 90%,
+               100: 100%,
+               auto: auto,
+            ),
+         )
+   ),
+   $utilities
+);
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+   0: 0,
+   1: $spacer * 0.25,
+   2: $spacer * 0.5,
+   3: $spacer * 0.75,
+   4: $spacer,
+   5: $spacer * 1.5,
+   6: $spacer * 3,
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";

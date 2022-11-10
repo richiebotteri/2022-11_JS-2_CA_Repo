@@ -1,0 +1,77 @@
+@use "custom";
+
+@import "../../fonts/scss/fontawesome.scss";
+@import "../../fonts/scss/solid.scss";
+@import "../../fonts/scss/brands.scss";
+@import "../../fonts/scss/v4-shims.scss";
+
+// -----------------------------------------------------------
+// Custom Structure Classes
+
+.box {
+   height: 100%;
+}
+
+.fa-star-of-life {
+   top: -5px;
+   left: -2px;
+}
+
+.login-box {
+   @extend .container;
+   --bs-gutter-x: 0;
+}
+
+.login-box-content {
+   height: fit-content;
+   min-width: 300px;
+}
+
+// Profile
+
+.search-btn {
+   right: 17px;
+}
+
+.searchfield {
+   display: none;
+}
+
+.header-menu {
+   top: 30px;
+}
+
+.header-dropdown-position {
+   top: 30px;
+}
+
+.mobile-nav-container {
+   @extend .container-xl;
+   height: 30vh;
+}
+
+.profile-icon {
+   width: 45px;
+   height: 45px;
+}
+
+.profile-img {
+   width: 150px;
+   height: 150px;
+   object-fit: cover;
+}
+
+// viewport height
+.vp-h-100 {
+   height: 100vh;
+}
+
+@media (min-width: 768px) {
+   .searchfield {
+      display: flex;
+   }
+
+   .menu-btn-hide {
+      display: none;
+   }
+}
