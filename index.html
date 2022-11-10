@@ -1,0 +1,57 @@
+<!-- 
+  The login page should have a form to login to the application. 
+  Ensure to include HTML form validation and use /profile as the action attribute.-->
+
+<!-- You will only be working on the visuals for this project at this stage;
+    forms do not need to submit data, for example. -->
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/dist/css/styles.css" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
+      <title>Login | Meetzy</title>
+   </head>
+   <body class="d-flex flex-column min-vh-100">
+      <main class="login-box flex-grow-1 d-lg-flex p-2 mt-sm-5">
+         <div class="login-box-content col d-flex w-100 px-4 px-lg-0 py-4 flex-column gap-4">
+            <h1 class="display-3 fw-semibold">Meetzy</h1>
+            <p class="fs-3 w-90">Meet new people trough activities you both like. Find millions of meetingspots around the world.</p>
+         </div>
+         <div class="login-box-content col d-flex px-3 px-lg-0 py-3 justify-content-center justify-content-md-start">
+            <div class="border card px-4 py-5 p-sm-5 border-2 border-dark bg-primary w-100 text-secondary">
+               <p class="fs-5">Start meeting new friends now, register below!</p>
+               <form action="profile-page.html" class="d-flex flex-column gap-5 needs-validation" novalidate>
+                  <div>
+                     <label for="user-name" class="form-label ps-1 mb-2">
+                        Email
+                        <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                     </label>
+                     <input type="email" class="form-control py-2" id="user-name" placeholder="example@email.com" required />
+                     <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold">Please type in correct email form: example@email.com</div>
+                     <div class="valid-feedback bg-success p-3 rounded-2 text-white fw-semibold">Looks good</div>
+                  </div>
+                  <div>
+                     <label for="password" class="form-label ps-1 mb-2">
+                        Password
+                        <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                     </label>
+                     <input type="password" class="form-control py-2" id="password" placeholder="write your password" required minlength="8" />
+                     <div class="valid-feedback bg-success p-3 rounded-2 text-white fw-semibold">Looks good</div>
+                     <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold">Password need at least 8 characters</div>
+                  </div>
+                  <input class="btn btn-dark py-2" type="submit" value="Submit" />
+               </form>
+            </div>
+         </div>
+      </main>
+      <footer class="mt-5 bg-dark">
+         <p class="text-center text-white mb-0 p-3">Copywrite &copy;</p>
+      </footer>
+      <script src="js/login-form.js"></script>
+   </body>
+</html>
