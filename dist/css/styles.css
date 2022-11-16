@@ -618,7 +618,7 @@ progress {
   color: #6c757d;
 }
 
-.container, .login-box,
+.container, .no-gutter-container,
 .container-fluid,
 .container-xxl,
 .container-xl,
@@ -635,27 +635,27 @@ progress {
 }
 
 @media (min-width: 576px) {
-  .container-sm, .container, .login-box {
+  .container-sm, .container, .no-gutter-container {
     max-width: 540px;
   }
 }
 @media (min-width: 768px) {
-  .container-md, .container-sm, .container, .login-box {
+  .container-md, .container-sm, .container, .no-gutter-container {
     max-width: 720px;
   }
 }
 @media (min-width: 992px) {
-  .container-lg, .container-md, .container-sm, .container, .login-box {
+  .container-lg, .container-md, .container-sm, .container, .no-gutter-container {
     max-width: 960px;
   }
 }
 @media (min-width: 1200px) {
-  .container-xl, .container-lg, .container-md, .container-sm, .container, .login-box {
+  .container-xl, .container-lg, .container-md, .container-sm, .container, .no-gutter-container {
     max-width: 1140px;
   }
 }
 @media (min-width: 1400px) {
-  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container, .login-box {
+  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container, .no-gutter-container {
     max-width: 1320px;
   }
 }
@@ -3761,7 +3761,7 @@ textarea.form-control-lg {
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 }
-.navbar > .container, .navbar > .login-box,
+.navbar > .container, .navbar > .no-gutter-container,
 .navbar > .container-fluid,
 .navbar > .container-sm,
 .navbar > .container-md,
@@ -24227,7 +24227,7 @@ readers do not read off random characters that represent icons */
   left: -2px;
 }
 
-.login-box {
+.no-gutter-container {
   --bs-gutter-x: 0;
 }
 
