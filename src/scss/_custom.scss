@@ -3,18 +3,17 @@
 
 // Theme colors
 
-$white: #eff3f4;
 $cyan: #0dcaf0;
 $cyan-light: #8ce0eb;
-$red: #830713;
-$red-700: shade-color($red, 40%);
-
-$gray-900: #212529;
 $black: #152733;
 
 $primary: $cyan-light;
 $secondary: $black;
+
+$red: #830713;
 $danger: $red;
+
+$gray-900: #212529;
 $body-color: $gray-900;
 $input-border-color: $gray-900;
 $component-active-bg: $gray-900;

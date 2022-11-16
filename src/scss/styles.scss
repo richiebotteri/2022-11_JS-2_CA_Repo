@@ -27,8 +27,6 @@
    min-width: 300px;
 }
 
-// Profile
-
 .search-btn {
    right: 17px;
 }
@@ -45,11 +43,6 @@
    top: 30px;
 }
 
-.mobile-nav-container {
-   @extend .container-xl;
-   height: 30vh;
-}
-
 .profile-icon {
    width: 45px;
    height: 45px;
@@ -61,10 +54,12 @@
    object-fit: cover;
 }
 
-// viewport height
 .vp-h-100 {
    height: 100vh;
 }
+
+// -----------------------------------------------------------
+// Custom Skin Classes
 
 @media (min-width: 768px) {
    .searchfield {
