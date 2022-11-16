@@ -9,138 +9,140 @@
       <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
       <title>Profile | Meetzy</title>
    </head>
-   <body class="d-flex flex-column min-vh-100">
-      <header class="bg-light shadow">
-         <div class="container-xl align-items-center d-flex px-6 px-md-5 py-4">
-            <div class="col-4">
-               <h1 class="display-4 fw-semibold">Meetzy</h1>
-            </div>
-            <div class="col d-flex navbar justify-content-end">
-               <form class="searchfield align-items-center justify-content-end w-75 pe-1" role="search">
-                  <input class="form-control me-2 py-3" type="search" placeholder="Search" aria-label="Search" />
-                  <button class="btn btn-outline-dark search-btn position-absolute" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-               </form>
-               <button class="btn btn-outline-dark d-md-none" aria-label="close-menu" data-mobile-nav-btn><i class="fa-solid fa-bars"></i></button>
-            </div>
-         </div>
-      </header>
-
-      <!-- Mobile Navbar -->
-      <div class="bg-dark d-flex flex-column d-md-none justify-content-center" data-mobile-nav>
-         <nav>
-            <ul class="nav flex-column">
-               <li class="nav-item d-flex justify-content-center border-bottom border-white py-4">
-                  <a class="nav-link link-light d-flex align-items-center" aria-current="page" href="profile-page.html">
-                     <span class="profile-icon bg-white d-inline-block rounded-circle me-2 text-black d-flex align-items-center justify-content-center fw-bold">RB</span>
-                     Profile
-                  </a>
-               </li>
-               <li class="nav-item d-flex justify-content-center py-5">
-                  <a class="nav-link link-light" href="homepage.html">
-                     <i class="fa-solid fa-house fs-2"></i>
-                     Home
-                  </a>
-               </li>
-            </ul>
-         </nav>
-      </div>
-
+   <body class="d-flex">
       <!-- Desktop Navbar -->
-      <main class="container-xl flex-grow-1 d-flex">
-         <nav class="col-3 col-lg-2 bg-secondary d-none d-md-flex flex-md-column justify-content-md-between align-items-md-center my-5 mx-0 pt-5">
-            <ul class="nav flex-column">
-               <li class="nav-item bg-white my-5">
-                  <a class="nav-link active d-flex align-items-center py-2 text-dark" aria-current="page" href="profile-page.html">
-                     <span class="profile-icon bg-dark d-inline-block rounded-circle me-4 text-white d-flex align-items-center justify-content-center fw-bold">RB</span>
-                     Profile
-                  </a>
-               </li>
-               <li class="nav-item my-5 border border-light">
-                  <a class="nav-link d-flex align-items-center ps-4 py-4 text-white" href="homepage.html">
-                     <i class="fa-solid fa-house me-4 fs-2"></i>
-                     Home
-                  </a>
-               </li>
-            </ul>
+      <nav class="col-lg-1 bg-secondary d-none d-md-flex flex-md-column justify-content-md-between align-items-md-center mx-0 pt-5">
+         <ul class="nav flex-column">
+            <li class="nav-item bg-white my-5">
+               <a class="nav-link active d-flex align-items-center py-2 text-dark" aria-current="page" href="profile-page.html">
+                  <span class="profile-icon bg-dark d-inline-block rounded-circle me-4 text-white d-flex align-items-center justify-content-center fw-bold">RB</span>
+                  Profile
+               </a>
+            </li>
+            <li class="nav-item my-5 border border-light">
+               <a class="nav-link d-flex align-items-center ps-4 py-4 text-white" href="homepage.html">
+                  <i class="fa-solid fa-house me-4 fs-2"></i>
+                  Home
+               </a>
+            </li>
+         </ul>
 
-            <a href="/index.html" class="nav-link bg-primary link-dark fw-bold w-100 py-5 text-center">logout</a>
-         </nav>
-         <div class="col">
-            <div class="d-flex flex-column flex-sm-row align-items-center align-items-sm-center m-0 p-5 m-5 bg-primary">
-               <img src="/images/profile.jpg" class="profile-img rounded-circle" alt="profile of Rick Boldwind" />
-               <h2 class="w-100 text-center text-sm-start mt-5 ms-sm-5">Rick Boldwind</h2>
-            </div>
-            <div class="row m-5 d-flex flex-column flex-lg-row gap-5 justify-content-between">
-               <div class="col-lg-4 p-5 bg-secondary text-white">
-                  <div class="row mb-5">
-                     <h3>About</h3>
-                     <p class="mt-2">Hi i'm Charlie, 23 years old from France currently studying in London, England. I'm looking to meet new friends where i live!</p>
-                  </div>
-                  <div class="row d-flex flex-column flex-md-row gap-1">
-                     <h3>Contacts</h3>
-                     <div class="col mt-2">
-                        <ul class="list-group">
-                           <li class="list-group-item d-flex align-items-center ju">
-                              <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">CB</span>
-                              Catharin Brown
-                           </li>
-                           <li class="list-group-item d-flex align-items-center">
-                              <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">BH</span>
-                              Brian Harper
-                           </li>
-                        </ul>
-                     </div>
-                     <div class="col mt-2">
-                        <ul class="list-group">
-                           <li class="list-group-item d-flex align-items-center ju">
-                              <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">LS</span>
-                              Lloyd Simson
-                           </li>
-                           <li class="list-group-item d-flex align-items-center">
-                              <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">JL</span>
-                              Justin Lewis
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
+         <a href="/index.html" class="nav-link bg-primary link-dark fw-bold w-100 py-5 text-center">logout</a>
+      </nav>
+      <div class="no-gutter-container">
+         <header class="bg-light shadow">
+            <div class="container-xl align-items-center d-flex px-6 px-md-5 py-4">
+               <div class="col-4">
+                  <h1 class="display-4 fw-semibold">Meetzy</h1>
                </div>
-               <div class="col">
-                  <form action="profile-page.html" class="row d-flex flex-column bg-primary p-5 mb-5 needs-validation" novalidate>
-                     <label for="text-area" class="form-label px-0"><h3>Create a post</h3></label>
-                     <textarea class="form-control" id="text-area" rows="5" placeholder="Whats on your mind?" required></textarea>
-                     <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold inline">Please type in a message</div>
-                     <button type="submit" class="btn btn-secondary border border-dark w-25 align-self-end mt-1">Post</button>
+               <div class="col d-flex navbar justify-content-end">
+                  <form class="searchfield align-items-center justify-content-end w-75 pe-1" role="search">
+                     <input class="form-control me-2 py-3" type="search" placeholder="Search" aria-label="Search" />
+                     <button class="btn btn-outline-dark search-btn position-absolute" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                   </form>
-                  <div class="row bg-secondary">
-                     <div class="p-5 d-flex flex-column">
-                        <h4 class="d-flex px-2 align-items-center text-white">
-                           <span class="profile-icon bg-white d-inline-block rounded-circle me-4 text-dark d-flex align-items-center justify-content-center fw-bold fs-6">RB</span>
-                           Rick Boldwind
-                        </h4>
-                        <p class="my-5 ms-5 w-100 border-start border-white text-white py-4 px-5">
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <div class="row d-flex flex-column flex-sm-row gap-3 px-2">
-                           <div class="col">
-                              <button class="btn btn-primary w-100">
-                                 Like
-                                 <i class="fa-regular fa-thumbs-up ms-2"></i>
-                              </button>
-                           </div>
+                  <button class="btn btn-outline-dark d-md-none" aria-label="close-menu" data-mobile-nav-btn><i class="fa-solid fa-bars"></i></button>
+               </div>
+            </div>
+         </header>
 
-                           <div class="col">
-                              <button class="btn btn-primary w-100">Comment</button>
+         <!-- Mobile Navbar -->
+         <div class="bg-dark d-flex flex-column d-md-none justify-content-center" data-mobile-nav>
+            <nav>
+               <ul class="nav flex-column">
+                  <li class="nav-item d-flex justify-content-center border-bottom border-white py-4">
+                     <a class="nav-link link-light d-flex align-items-center" aria-current="page" href="profile-page.html">
+                        <span class="profile-icon bg-white d-inline-block rounded-circle me-2 text-black d-flex align-items-center justify-content-center fw-bold">RB</span>
+                        Profile
+                     </a>
+                  </li>
+                  <li class="nav-item d-flex justify-content-center py-5">
+                     <a class="nav-link link-light" href="homepage.html">
+                        <i class="fa-solid fa-house fs-2"></i>
+                        Home
+                     </a>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+
+         <main class="container-xl flex-grow-1 d-flex">
+            <div class="col">
+               <div class="d-flex flex-column flex-sm-row align-items-center align-items-sm-center m-0 p-5 m-5 bg-primary">
+                  <img src="/images/profile.jpg" class="profile-img rounded-circle" alt="profile of Rick Boldwind" />
+                  <h2 class="w-100 text-center text-sm-start mt-5 ms-sm-5">Rick Boldwind</h2>
+               </div>
+               <div class="row m-5 d-flex flex-column flex-lg-row gap-5 justify-content-between">
+                  <div class="col-lg-4 p-5 bg-secondary text-white">
+                     <div class="row mb-5">
+                        <h3>About</h3>
+                        <p class="mt-2">Hi i'm Charlie, 23 years old from France currently studying in London, England. I'm looking to meet new friends where i live!</p>
+                     </div>
+                     <div class="row d-flex flex-column flex-md-row gap-1">
+                        <h3>Contacts</h3>
+                        <div class="col mt-2">
+                           <ul class="list-group">
+                              <li class="list-group-item d-flex align-items-center ju">
+                                 <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">CB</span>
+                                 Catharin Brown
+                              </li>
+                              <li class="list-group-item d-flex align-items-center">
+                                 <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">BH</span>
+                                 Brian Harper
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="col mt-2">
+                           <ul class="list-group">
+                              <li class="list-group-item d-flex align-items-center ju">
+                                 <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">LS</span>
+                                 Lloyd Simson
+                              </li>
+                              <li class="list-group-item d-flex align-items-center">
+                                 <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">JL</span>
+                                 Justin Lewis
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col">
+                     <form action="profile-page.html" class="row d-flex flex-column bg-primary p-5 mb-5 needs-validation" novalidate>
+                        <label for="text-area" class="form-label px-0"><h3>Create a post</h3></label>
+                        <textarea class="form-control" id="text-area" rows="5" placeholder="Whats on your mind?" required></textarea>
+                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold inline">Please type in a message</div>
+                        <button type="submit" class="btn btn-secondary border border-dark w-25 align-self-end mt-1">Post</button>
+                     </form>
+                     <div class="row bg-secondary">
+                        <div class="p-5 d-flex flex-column">
+                           <h4 class="d-flex px-2 align-items-center text-white">
+                              <span class="profile-icon bg-white d-inline-block rounded-circle me-4 text-dark d-flex align-items-center justify-content-center fw-bold fs-6">RB</span>
+                              Rick Boldwind
+                           </h4>
+                           <p class="my-5 ms-5 w-100 border-start border-white text-white py-4 px-5">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                           </p>
+                           <div class="row d-flex flex-column flex-sm-row gap-3 px-2">
+                              <div class="col">
+                                 <button class="btn btn-primary w-100">
+                                    Like
+                                    <i class="fa-regular fa-thumbs-up ms-2"></i>
+                                 </button>
+                              </div>
+
+                              <div class="col">
+                                 <button class="btn btn-primary w-100">Comment</button>
+                              </div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-         </div>
-      </main>
-      <footer class="bg-dark">
-         <p class="text-center text-white mb-0 p-3">Copywrite &copy;</p>
-      </footer>
+         </main>
+         <footer class="bg-dark">
+            <p class="text-center text-white mb-0 p-3">Copywrite &copy;</p>
+         </footer>
+      </div>
    </body>
    <script src="./js/hamburger-menu.js"></script>
    <script src="js/login-form.js"></script>
