@@ -34,7 +34,7 @@
       </header>
          
       <!-- Mobile Navbar -->
-      <div class="d-flex flex-column d-md-none justify-content-center" data-mobile-nav>
+      <div class="d-flex flex-column d-none d-md-none justify-content-center" data-mobile-nav>
       <nav>
          <ul class="nav flex-column border-2 border-top border-dark">
             
@@ -55,9 +55,9 @@
    </div>  
 
       <!-- Main Content-->
-      <main class="container flex-grow-1 d-flex justify-content-center">
-         <div class="col-10">
-            <div class="row m-5 d-flex flex-column gap-5 align-content-center">
+      <main class="container  flex-grow-1 d-flex flex-column justify-content-center p-6 gap-5">
+            <h1 class="fw-semibold">See what your contacts are writing</h1>
+            <div class="row d-flex flex-column gap-5 align-content-center">
                <div class="col">
                   <form action="profile-page.html" class="row d-flex flex-column bg-primary p-5 mb-5 needs-validation" novalidate>
                      <label for="text-area" class="form-label px-0"><h3>Create a post</h3></label>
@@ -65,8 +65,14 @@
                      <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold inline">Please type in a message</div>
                      <button type="submit" class="btn btn-secondary border border-dark w-25 align-self-end mt-1">Post</button>
                   </form>
-                  <div class="row d-flex gap-5">
-                     <div class="p-5 d-flex flex-column bg-secondary">
+                  
+                  <div class="border-2 border-top border-dark my-4 w-75 m-auto"></div>
+                  <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">
+                     Friends Post-Feed
+                  </div>
+                  
+                  <div class="row  d-flex gap-5 ">
+                     <div class="p-5 d-flex flex-column bg-secondary w-90 m-auto">
                         <h4 class="d-flex px-2 align-items-center text-white">
                            <span class="profile-icon bg-white d-inline-block rounded-circle me-4 text-dark d-flex align-items-center justify-content-center fw-bold fs-6">CB</span>
                            Catharin Brown
@@ -87,7 +93,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="p-5 d-flex flex-column bg-secondary">
+                     <div class="p-5 d-flex flex-column bg-secondary w-90 m-auto">
                         <h4 class="d-flex px-2 align-items-center text-white">
                            <span class="profile-icon bg-white d-inline-block rounded-circle me-4 text-dark d-flex align-items-center justify-content-center fw-bold fs-6">BH</span>
                            Brian Harper
@@ -110,7 +116,7 @@
                      </div>
                   </div>
                </div>
-            </div>
+           
          </div>
       </main>
       <footer class="bg-dark">
