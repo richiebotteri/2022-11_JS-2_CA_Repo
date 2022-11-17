@@ -2,12 +2,12 @@
 // Custom Skin Classes
 
 // Theme colors
-
+$white: #fff;
 $cyan: #0dcaf0;
 $cyan-light: #8ce0eb;
 
 $gray-900: #212529;
-$black: $gray-900;
+$black: #000;
 
 $primary: $cyan-light;
 $secondary: $black;
@@ -20,6 +20,18 @@ $input-border-color: $gray-900;
 $component-active-bg: $gray-900;
 
 $btn-hover-bg-tint-amount: 20%;
+
+.nav-item-hover {
+   background-color: $white;
+}
+
+.nav-item-hover:hover {
+   background-color: $primary;
+}
+
+.nav-link-hover:hover {
+   box-shadow: 0 5px 0px $primary;
+}
 
 // Font classes
 $font-size-base: 1rem; // Assumes the browser default, typically `16px`
