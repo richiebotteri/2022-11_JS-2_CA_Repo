@@ -5,7 +5,9 @@
 
 $cyan: #0dcaf0;
 $cyan-light: #8ce0eb;
-$black: #152733;
+
+$gray-900: #212529;
+$black: $gray-900;
 
 $primary: $cyan-light;
 $secondary: $black;
@@ -13,7 +15,6 @@ $secondary: $black;
 $red: #830713;
 $danger: $red;
 
-$gray-900: #212529;
 $body-color: $gray-900;
 $input-border-color: $gray-900;
 $component-active-bg: $gray-900;
