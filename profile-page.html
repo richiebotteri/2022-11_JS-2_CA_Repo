@@ -24,6 +24,9 @@
                   <li class="nav-item">
                      <a href="/profile-page.html" class="nav-link link-dark active">Profile</a>
                   </li>
+                  <li class="nav-item">
+                     <a href="/index.html" class="nav-link link-dark active">Logout</a>
+                  </li>
                </ul>
             </nav>
             <form class="col-4 searchfield align-items-center justify-content-end position-relative" role="search">
@@ -40,21 +43,28 @@
             <ul class="nav flex-column border-2">
                <li class="nav-item d-flex justify-content-center bg-dark py-4">
                   <a class="nav-link link-light d-flex align-items-center" aria-current="page" href="profile-page.html">
-                     <span class="profile-icon bg-light d-inline-block rounded-circle me-2 text-dark d-flex align-items-center justify-content-center fw-bold">RB</span>
+                     <span class="profile-icon bg-light d-inline-block rounded-circle me-3 text-dark d-flex align-items-center justify-content-center fw-bold">RB</span>
                      Profile
                   </a>
                </li>
                <li class="nav-item d-flex justify-content-center bg-light border-3 border-bottom border-dark py-5">
-                  <a class="nav-link link-dark" href="homepage.html">
-                     <i class="fa-solid fa-house fs-2"></i>
+                  <a class="nav-link link-dark d-flex align-items-center" href="homepage.html">
+                     <i class="fa-solid fa-house fs-2 me-3"></i>
                      Home
+                  </a>
+               </li>
+               <li class="nav-item d-flex justify-content-center bg-light border-3 border-bottom border-dark py-5">
+                  <a class="nav-link link-dark d-flex align-items-center" href="index.html">
+                     <i class="fa-solid fa-right-from-bracket fs-2 me-3"></i>
+                     Logout
                   </a>
                </li>
             </ul>
          </nav>
       </div>
 
-      <main class="container-xl d-flex">
+      <!-- Main Content -->
+      <main class="container-xl d-flex flex-column">
          <div class="col">
             <div class="d-flex flex-column flex-sm-row align-items-center align-items-sm-center m-0 p-5 m-5 bg-primary">
                <img src="/images/profile.jpg" class="profile-img rounded-circle" alt="profile of Rick Boldwind" />
@@ -66,7 +76,7 @@
                      <h3>About</h3>
                      <p class="mt-2">Hi i'm Charlie, 23 years old from France currently studying in London, England. I'm looking to meet new friends where i live!</p>
                   </div>
-                  <div class="row d-flex flex-column flex-md-row gap-1">
+                  <div class="row d-flex flex-column gap-2">
                      <h3>Contacts</h3>
                      <div class="col mt-2">
                         <ul class="list-group">
@@ -95,12 +105,22 @@
                   </div>
                </div>
                <div class="col">
+                  <!-- Create Posts -->
                   <form action="profile-page.html" class="row d-flex flex-column bg-primary p-5 mb-5 needs-validation" novalidate>
-                     <label for="text-area" class="form-label px-0"><h3>Create a post</h3></label>
+                     <label for="text-area" class="form-label px-0 fs-3">Create a post</label>
                      <textarea class="form-control" id="text-area" rows="5" placeholder="Whats on your mind?" required></textarea>
                      <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold inline">Please type in a message</div>
-                     <button type="submit" class="btn btn-secondary border border-dark w-25 align-self-end mt-1">Post</button>
+                     <div class="d-flex gap-3 justify-content-end mt-2">
+                        <button type="button" class="btn btn-outline-dark border border-dark align-self-end mt-1">Edit</button>
+                        <button type="submit" class="btn w-25 btn-secondary border border-dark align-self-end mt-1">Post</button>
+                     </div>
                   </form>
+
+                  <!-- Spacers -->
+                  <div class="border-2 border-top border-dark my-4 w-75 m-auto"></div>
+                  <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Friends Post-Feed</div>
+
+                  <!-- Profile Posts -->
                   <div class="row bg-secondary">
                      <div class="p-5 d-flex flex-column">
                         <h4 class="d-flex px-2 align-items-center text-white">
