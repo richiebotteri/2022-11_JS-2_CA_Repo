@@ -11,6 +11,10 @@
   box-shadow: 0 5px 0px #8ce0eb;
 }
 
+.no-gutter-container {
+  --bs-gutter-x: 0;
+}
+
 /*!
  * Bootstrap  v5.2.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
@@ -7273,6 +7277,10 @@ textarea.form-control-lg {
 
 .w-25 {
   width: 25% !important;
+}
+
+.w-49 {
+  width: 49% !important;
 }
 
 .w-50 {
@@ -24237,10 +24245,6 @@ readers do not read off random characters that represent icons */
 .fa-star-of-life {
   top: -5px;
   left: -2px;
-}
-
-.no-gutter-container {
-  --bs-gutter-x: 0;
 }
 
 .login-box-content {

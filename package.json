@@ -5,8 +5,8 @@
    "main": "index.js",
    "scripts": {
       "build": "sass src/scss:dist/css",
-      "watch": "sass --watch src/scss:dist/css",
-      "start": "live-server"
+      "watch": "sass --watch src/scss:dist/css & live-server",
+      "start": "npm run build && live-server"
    },
    "author": "",
    "license": "ISC",

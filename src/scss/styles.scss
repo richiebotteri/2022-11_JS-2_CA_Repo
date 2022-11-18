@@ -6,7 +6,7 @@
 @import "../../fonts/scss/v4-shims.scss";
 
 // -----------------------------------------------------------
-// Custom Structure Classes
+// Structure Classes (Not Bootstrap)
 
 .box {
    height: 100%;
@@ -15,11 +15,6 @@
 .fa-star-of-life {
    top: -5px;
    left: -2px;
-}
-
-.no-gutter-container {
-   @extend .container;
-   --bs-gutter-x: 0;
 }
 
 .login-box-content {
