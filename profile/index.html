@@ -11,12 +11,12 @@
    </head>
    <body>
       <!-- Header Navbar -->
-      <header class="container-fluid bg-light shadow">
-         <div class="container-xl d-flex justify-content-between px-5">
-            <a href="homepage.html" class="navbar-brand g-col-2 d-flex px-0 px-xl-2 align-items-center bg-light">
+      <header class="bg-light shadow">
+         <div class="container grid px-4 px-md-2">
+            <a href="homepage.html" class="navbar-brand g-col-6 g-col-md-2 d-flex px-0 px-xl-2 align-items-center bg-light">
                <p class="text-black fw-semibold fs-1 mt-2">Meetzy</p>
             </a>
-            <nav class="navbar d-none d-md-flex justify-content-center g-col-4">
+            <nav class="navbar g-col-6 d-none d-md-flex justify-content-center">
                <ul class="nav d-flex fs-5 gap-5">
                   <li class="nav-item">
                      <a href="/homepage/" class="nav-link link-dark p-1 nav-link-hover">Home</a>
@@ -33,7 +33,9 @@
                <input class="form-control me-2 py-3" type="search" placeholder="Search" aria-label="Search" />
                <button class="btn btn-outline-dark search-btn position-absolute" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
-            <button class="btn btn-outline-dark my-4 d-md-none" aria-label="close-menu" data-mobile-nav-btn><i class="fa-solid fa-bars"></i></button>
+            <div class="g-col-6 d-flex justify-content-end d-md-none">
+               <button class="btn btn-outline-dark my-4" aria-label="close-menu" data-mobile-nav-btn><i class="fa-solid fa-bars"></i></button>
+            </div>
          </div>
       </header>
 
@@ -68,16 +70,16 @@
          <div class="grid gap-5 m-5">
             <div class="g-col-12 d-flex flex-column flex-sm-row align-items-center align-items-sm-center m-0 p-5 bg-primary">
                <img src="/images/profile.jpg" class="profile-img rounded-circle" alt="profile of Rick Boldwind" />
-               <h2 class="w-100 text-center text-sm-start mt-5 ms-sm-5">Rick Boldwind</h2>
+               <h1 class="w-100 text-center text-sm-start mt-5 ms-sm-5">Rick Boldwind</h1>
             </div>
 
             <div class="g-col-12 g-col-md-4 p-5 bg-secondary text-white">
                <div class="d-flex flex-column mb-5">
-                  <h3>About</h3>
+                  <h2>About</h2>
                   <p class="mt-2">Hi i'm Charlie, 23 years old from France currently studying in London, England. I'm looking to meet new friends where i live!</p>
                </div>
                <div class="grid d-flex flex-column gap-2">
-                  <h3>Contacts</h3>
+                  <h2>Contacts</h2>
                   <div class="g-col mt-2">
                      <ul class="list-group">
                         <li class="list-group-item d-flex align-items-center ju">
@@ -161,4 +163,5 @@
    </body>
    <script src="../js/hamburger-menu.js"></script>
    <script src="../js/login-form.js"></script>
+   <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>
