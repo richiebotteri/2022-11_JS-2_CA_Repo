@@ -10,17 +10,17 @@
       <title>Login | Meetzy</title>
    </head>
    <body class="d-flex flex-column min-vh-100">
-      <div class="flex-grow-1 d-flex align-items-center">
-         <div class="container d-lg-flex p-2 bg-white h-50">
-            <div class="g-col login-box-content d-flex w-100 px-4 px-lg-0 py-4 flex-column gap-4">
+      <div class="container flex-grow-1 d-flex align-items-center">
+         <div class="grid p-2 p-md-5 bg-white h-50">
+            <div class="g-col-12 g-col-md-6 g-col-lg-7 login-box-content d-flex w-100 px-4 px-lg-0 py-4 flex-column gap-4">
                <h1 class="display-3 fw-semibold">Meetzy</h1>
                <p class="fw-semibold fs-3">A Noroff Social Media Platform</p>
                <p class="fs-3 w-90">This website gives noroff student the ability to login and communicate with other users trough a shared social media platform</p>
             </div>
-            <div class="g-col login-box-content d-flex px-3 px-lg-0 py-3 justify-content-center justify-content-md-start">
+            <div class="g-col-12 g-col-md-6 g-col-lg-5 login-box-content d-flex px-3 px-lg-0 py-3 justify-content-center justify-content-md-start">
                <div class="border card px-4 py-5 p-sm-5 border-2 border-dark bg-primary w-100 text-secondary">
-                  <p class="fs-4">Start meeting new friends now, register below!</p>
-                  <form action="profile-page.html" class="d-flex flex-column needs-validation" novalidate>
+                  <p class="fs-4">Start meeting other students now!</p>
+                  <form action="/profile/" class="d-flex flex-column needs-validation" novalidate>
                      <div class="mb-2">
                         <label for="user-name" class="form-label ps-1 mb-2">
                            Email
@@ -37,14 +37,62 @@
                         <input type="password" class="form-control py-2 mb-2" id="password" placeholder="write your password" required minlength="8" />
                         <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">Password need at least 8 characters</div>
                      </div>
-                     <input class="btn btn-dark py-2 mb-3" type="submit" value="Register" />
+                     <input class="btn btn-dark py-2 mb-3" type="submit" value="Login" />
 
                      <!-- Spacers -->
                      <div class="border-2 border-top border-dark mt-4 w-100 m-auto mb-3"></div>
 
-                     <p>Already have an account? Login below</p>
-                     <input class="btn btn-dark py-2" type="button" value="Login" />
+                     <p>No account yet? Register Below</p>
+                     <!-- Button trigger modal -->
+                     <button type="button" class="btn btn-dark py-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</button>
                   </form>
+               </div>
+            </div>
+         </div>
+
+         <!-- Modal -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content p-5">
+                  <div class="modal-header px-0">
+                     <h1 class="modal-title fs-5" id="exampleModalLabel">Register User</h1>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form action="/profile/" class="d-flex flex-column needs-validation pt-5" novalidate>
+                     <div class="mb-2">
+                        <label for="user-name" class="form-label ps-1 mb-2">
+                           Email
+                           <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                        </label>
+                        <input type="email" class="form-control py-2 mb-2" id="user-name" placeholder="example@email.com" required />
+                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">Please type in correct email form: example@email.com</div>
+                     </div>
+                     <div class="mb-5">
+                        <label for="password" class="form-label ps-1 mb-3">
+                           Password
+                           <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                        </label>
+                        <input type="password" class="form-control py-2 mb-2" id="password" placeholder="write your password" required minlength="8" />
+                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">Password need at least 8 characters</div>
+                     </div>
+                     <input class="btn btn-dark py-2 mb-3" type="submit" value="Login" />
+
+                     <!-- Spacers -->
+                     <div class="border-2 border-top border-dark mt-4 w-100 m-auto mb-3"></div>
+
+                     <p>No account yet? Register Below</p>
+                     <!-- Button trigger modal -->
+                     <button type="button" class="btn btn-dark py-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</button>
+                  </form>
+                  <!-- <div class="modal-header">
+                     <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">...</div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                     <button type="button" class="btn btn-primary">Save changes</button>
+                  </div> -->
                </div>
             </div>
          </div>
@@ -52,6 +100,7 @@
       <footer class="mt-5 bg-dark">
          <p class="text-center text-white mb-0 p-3">Copywrite &copy;</p>
       </footer>
-      <script src="js/login-form.js"></script>
+      <script src="../js/login-form.js"></script>
+      <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
    </body>
 </html>
