@@ -1,28 +1,33 @@
 // -----------------------------------------------------------
-// Custom Skin Classes
+// Redefined Skin Classes Varaibles
 
-// Colors
-$white: #fff;
-$cyan: #0dcaf0;
-$cyan-light: #8ce0eb;
+//My-Color-Pallet
+$color-light: #fff;
+$color-dark: #1a2238;
+$color-red: #830713;
+$accent-light-1: #a2e3f8;
+$accent-light-2: #9ce4c6;
 
-$gray-900: #212529;
-$black: #000;
+$teal: hsl(162, 73%, 46%);
 
-$primary: $cyan-light;
-$secondary: $black;
+// Theme-colors:
+$primary: #1a2238;
+$secondary: $color-light; // text color above primary
+$dark: $color-dark;
+$danger: $color-red;
+// -----------------------------------------------------------
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
 
-$red: #830713;
-$danger: $red;
+$custom-theme-colors: (
+   "accent-1": $accent-light-1,
+   "accent-2": $accent-light-2,
+);
 
-$body-color: $gray-900;
-$input-border-color: $gray-900;
-$component-active-bg: $gray-900;
-
-$btn-hover-bg-tint-amount: 20%;
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
 
 .nav-item-hover {
-   background-color: $white;
+   background-color: $secondary;
 }
 
 .nav-item-hover:hover {
