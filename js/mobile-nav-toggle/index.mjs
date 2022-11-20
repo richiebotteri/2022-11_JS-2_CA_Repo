@@ -1,5 +1,3 @@
-// Script toggle menu on and off when clicking
-
 const toggleMenuBtn = document.querySelector("[data-mobile-nav-btn]");
 const navMenu = document.querySelector("[data-mobile-nav]");
 
@@ -21,4 +19,3 @@ function toggleClass() {
 }
 
 toggleMenuBtn.addEventListener("click", toggleMenu);
-// navMenu.addEventListener("pointerleave", toggleClass);
