@@ -9,11 +9,11 @@
       <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
       <title>Profile | Meetzy</title>
    </head>
-   <body>
+   <body class="bg-light">
       <!-- Header Navbar -->
-      <header class="bg-light shadow">
+      <header class="shadow bg-white">
          <div class="container grid px-4 px-md-2">
-            <a href="homepage.html" class="navbar-brand g-col-6 g-col-md-2 d-flex px-0 px-xl-2 align-items-center bg-light">
+            <a href="homepage.html" class="navbar-brand g-col-6 g-col-md-2 d-flex px-0 px-xl-2 align-items-center">
                <p class="text-black fw-semibold fs-1 mt-2">Meetzy</p>
             </a>
             <nav class="navbar g-col-6 d-none d-md-flex justify-content-center">
@@ -67,13 +67,13 @@
 
       <!-- Main Content -->
       <main class="container d-flex flex-column">
-         <div class="grid gap-5 m-5">
-            <div class="g-col-12 d-flex flex-column flex-sm-row align-items-center align-items-sm-center m-0 p-5 bg-primary">
+         <div class="grid gap-0 gap-md-5 my-5">
+            <div class="g-col-12 d-flex flex-column align-items-center m-0 p-5 bg-primary shadow">
                <img src="/images/profile.jpg" class="profile-img rounded-circle" alt="profile of Rick Boldwind" />
-               <h1 class="w-100 text-center text-sm-start mt-5 ms-sm-5">Rick Boldwind</h1>
+               <h1 class="text-center text-sm-center mt-5 text-secondary fw-semibold">Rick Boldwind</h1>
             </div>
 
-            <div class="g-col-12 g-col-md-4 p-5 bg-secondary text-white">
+            <div class="g-col-12 g-col-md-4 p-5 bg-secondary shadow">
                <div class="d-flex flex-column mb-5">
                   <h2>About</h2>
                   <p class="mt-2">Hi i'm Charlie, 23 years old from France currently studying in London, England. I'm looking to meet new friends where i live!</p>
@@ -108,21 +108,23 @@
             </div>
             <div class="g-col-12 g-col-md-8">
                <!-- Create Posts -->
-               <form action="#" class="d-flex gap-2 flex-column bg-primary p-5 mb-5 needs-validation" novalidate>
-                  <label for="text-area" class="form-label px-0 fs-3">Create a post</label>
+               <form action="#" class="d-flex gap-2 flex-column bg-secondary shadow p-5 needs-validation" novalidate>
+                  <label for="text-area" class="form-label px-0 fs-2">Create a post</label>
                   <textarea class="form-control" id="text-area" rows="5" placeholder="Whats on your mind?" required></textarea>
                   <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold inline">Please type in a message</div>
-                  <button type="submit" class="btn w-25 btn-secondary border border-dark align-self-end">Post</button>
+                  <button type="submit" class="btn w-25 btn-accent-1 align-self-end">Post</button>
                </form>
 
                <!-- Spacers -->
-               <div class="border-2 border-top border-dark my-4 w-75 m-auto"></div>
-               <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Your Post-Feed</div>
+               <div class="my-6 my-md-5">
+                  <div class="border-2 border-top border-dark my-4 w-75 m-auto"></div>
+                  <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Your Post-Feed</div>
+               </div>
 
                <!-- Profile Posts -->
                <div class="container-fluid">
                   <div class="grid">
-                     <div class="g-col-12 p-5 d-flex flex-column bg-secondary">
+                     <div class="g-col-12 p-5 d-flex flex-column bg-primary shadow">
                         <div class="grid">
                            <h4 class="g-col-9 d-flex px-2 align-items-center text-white">
                               <span class="profile-icon bg-white d-inline-block rounded-circle me-4 text-dark d-flex align-items-center justify-content-center fw-bold fs-6">CB</span>
@@ -141,14 +143,14 @@
                         </p>
                         <div class="grid gap-3 px-2 border-2 border-top border-light pt-5">
                            <div class="g-col-6">
-                              <button class="btn btn-primary w-100">
+                              <button class="btn btn-accent-2 w-100">
                                  Like
                                  <i class="fa-regular fa-thumbs-up ms-2"></i>
                               </button>
                            </div>
 
                            <div class="g-col-6">
-                              <button class="btn btn-primary w-100">Comment</button>
+                              <button class="btn btn-accent-1 w-100">Comment</button>
                            </div>
                         </div>
                      </div>
