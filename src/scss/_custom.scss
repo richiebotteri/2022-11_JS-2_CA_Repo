@@ -2,19 +2,20 @@
 // Redefined Skin Classes Varaibles
 
 //My-Color-Pallet
-$color-light: #fff;
+$color-light-1: #fff;
+$color-light-2: #f8faff;
 $color-dark: #1a2238;
 $color-red: #830713;
 $accent-light-1: #a2e3f8;
 $accent-light-2: #9ce4c6;
 
-$teal: hsl(162, 73%, 46%);
-
 // Theme-colors:
 $primary: #1a2238;
-$secondary: $color-light; // text color above primary
+$secondary: $color-light-1; // text color above primary
 $dark: $color-dark;
+$light: $color-light-2;
 $danger: $color-red;
+
 // -----------------------------------------------------------
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
@@ -31,7 +32,7 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 }
 
 .nav-item-hover:hover {
-   background-color: $primary;
+   background-color: $accent-light-1;
 }
 
 .nav-link-hover:hover {
