@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/dist/css/styles.css" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
+      <title>Profile | Meetzy</title>
+   </head>
+   <body class="bg-light">
+      <!-- Header Navbar -->
+      <header class="shadow bg-white">
+         <div class="container grid px-4 px-md-2">
+            <a href="homepage.html" class="navbar-brand g-col-6 g-col-md-2 d-flex px-0 px-xl-2 align-items-center">
+               <p class="text-black fw-semibold fs-1 mt-2">Meetzy</p>
+            </a>
+            <nav class="navbar g-col-6 d-none d-md-flex justify-content-center">
+               <ul class="nav d-flex fs-5 gap-5">
+                  <li class="nav-item">
+                     <a href="/profile/home-feed/" class="nav-link link-dark p-1 nav-link-hover">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="/profile/view/" class="nav-link link-dark fw-semibold p-1">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="/profile/login/" class="nav-link link-dark nav-link-hover p-1">Logout</a>
+                  </li>
+               </ul>
+            </nav>
+            <form class="g-col-4 searchfield align-items-center justify-content-end position-relative" role="search">
+               <input class="form-control me-2 py-3" type="search" placeholder="Search" aria-label="Search" />
+               <button class="btn btn-outline-dark search-btn position-absolute" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div class="g-col-6 d-flex justify-content-end d-md-none">
+               <button class="btn btn-outline-dark my-4" aria-label="close-menu" data-mobile-nav-btn><i class="fa-solid fa-bars"></i></button>
+            </div>
+         </div>
+      </header>
+
+      <!-- Mobile Navbar -->
+      <div class="d-flex d-none flex-column d-md-none justify-content-center" data-mobile-nav>
+         <nav>
+            <ul class="nav flex-column border-2">
+               <li class="nav-item d-flex justify-content-center bg-dark py-4">
+                  <a class="nav-link link-light d-flex align-items-center justify-content-center w-100" aria-current="page" href="/profile/view/">
+                     <span class="profile-icon bg-light d-inline-block rounded-circle me-3 text-dark d-flex align-items-center justify-content-center fw-bold">RB</span>
+                     Profile
+                  </a>
+               </li>
+               <li class="nav-item nav-item-hover d-flex justify-content-center border-3 border-bottom border-dark py-5">
+                  <a class="nav-link link-dark d-flex align-items-center justify-content-center w-100" href="/profile/home-feed/">
+                     <i class="fa-solid fa-house fs-2 me-3"></i>
+                     Home
+                  </a>
+               </li>
+               <li class="nav-item nav-item-hover d-flex justify-content-center border-3 border-bottom border-dark py-5">
+                  <a class="nav-link link-dark d-flex align-items-center justify-content-center w-100" href="/profile/login/">
+                     <i class="fa-solid fa-right-from-bracket fs-2 me-3"></i>
+                     Logout
+                  </a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+
+      <!-- Main Content -->
+      <main class="container d-flex flex-column my-md-6">
+         <div class="grid gap-0 gap-md-5 my-5 p-4 p-md-0">
+            <div class="g-col-12 d-flex flex-column align-items-center m-0 p-5 bg-primary shadow">
+               <img src="/images/profile.jpg" class="profile-img rounded-circle" alt="profile of Rick Boldwind" />
+               <h1 class="text-center text-sm-center mt-5 text-secondary fw-semibold">Rick Boldwind</h1>
+            </div>
+
+            <div class="g-col-12 g-col-md-4 p-5 bg-secondary shadow">
+               <div class="d-flex flex-column mb-5">
+                  <h2>About</h2>
+                  <p class="mt-2">Hi i'm Charlie, 23 years old from France currently studying in London, England. I'm looking to meet new friends where i live!</p>
+               </div>
+               <div class="grid d-flex flex-column gap-2">
+                  <h2>Contacts</h2>
+                  <div class="g-col mt-2">
+                     <ul class="list-group">
+                        <li class="list-group-item d-flex align-items-center ju">
+                           <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">CB</span>
+                           Catharin Brown
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                           <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">BH</span>
+                           Brian Harper
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="g-col mt-2">
+                     <ul class="list-group">
+                        <li class="list-group-item d-flex align-items-center ju">
+                           <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">LS</span>
+                           Lloyd Simson
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                           <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">JL</span>
+                           Justin Lewis
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="g-col-12 g-col-md-8">
+               <!-- Create Posts -->
+               <form action="#" class="d-flex gap-2 flex-column bg-secondary shadow p-5 needs-validation" novalidate>
+                  <label for="text-area" class="form-label px-0 fs-2">Create a post</label>
+                  <textarea class="form-control" id="text-area" rows="5" placeholder="Whats on your mind?" required></textarea>
+                  <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold inline">Please type in a message</div>
+                  <button type="submit" class="btn w-25 btn-accent-1 align-self-end">Post</button>
+               </form>
+
+               <!-- Spacers -->
+               <div class="my-6 my-md-5">
+                  <div class="border-2 border-top border-dark my-4 w-75 m-auto"></div>
+                  <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Your Post-Feed</div>
+               </div>
+
+               <!-- Profile Posts -->
+               <div class="container-fluid">
+                  <div class="grid">
+                     <div class="g-col-12 p-5 d-flex flex-column bg-primary shadow">
+                        <div class="grid">
+                           <h4 class="g-col-9 d-flex px-2 align-items-center text-white">
+                              <span class="profile-icon bg-white d-inline-block rounded-circle me-4 text-dark d-flex align-items-center justify-content-center fw-bold fs-6">CB</span>
+                              Catharin Brown
+                           </h4>
+                           <div class="g-col-3 d-flex justify-content-end gap-3 align-content-center">
+                              <button type="button" class="btn btn-outline-light d-flex align-items-center h-75 p-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
+                              <ul class="dropdown-menu">
+                                 <li class="dropdown-item">Delete Post</li>
+                                 <li class="dropdown-item">Edit Post</li>
+                              </ul>
+                           </div>
+                        </div>
+                        <p class="my-5 w-100 py-4 px-5 text-white">
+                           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <div class="grid gap-3 px-2 border-2 border-top border-light pt-5">
+                           <div class="g-col-6">
+                              <button class="btn btn-accent-2 w-100">
+                                 Like
+                                 <i class="fa-regular fa-thumbs-up ms-2"></i>
+                              </button>
+                           </div>
+
+                           <div class="g-col-6">
+                              <button class="btn btn-accent-1 w-100">Comment</button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </main>
+      <footer class="bg-dark">
+         <p class="text-center text-white mb-0 p-3">Copywrite &copy;</p>
+      </footer>
+   </body>
+   <script type="module" src="/js/mobile-nav-toggle/index.mjs"></script>
+   <script type="module" src="/js/form-validation/index.mjs"></script>
+   <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</html>
