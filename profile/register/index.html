@@ -20,6 +20,7 @@
             <div class="g-col-12 g-col-md-6 g-col-lg-5 d-flex">
                <div class="p-6 bg-primary w-100 text-secondary">
                   <p class="fs-4">Start meeting other students now!</p>
+                  <!-- login form -->
                   <form action="/profile/" class="d-flex flex-column needs-validation" novalidate>
                      <div class="mb-2">
                         <label for="user-name" class="form-label ps-1 mb-2">
@@ -57,16 +58,25 @@
                      <h3 class="modal-title fw-semibold" id="exampleModalLabel">Register Account</h3>
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <form action="/profile/" class="d-flex flex-column needs-validation pt-5" novalidate>
-                     <div class="mb-2">
+                  <!-- register form -->
+                  <form action="/profile/view/" id="form-to-register" class="d-flex flex-column needs-validation pt-5 gap-3" novalidate>
+                     <div>
                         <label for="user-name" class="form-label ps-1 mb-2">
+                           Name
+                           <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                        </label>
+                        <input type="text" class="form-control py-2 mb-2" id="user-name" name="name" placeholder="noroff-username" required minlength="5" />
+                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">Name needs at least 5 characters</div>
+                     </div>
+                     <div>
+                        <label for="email" class="form-label ps-1 mb-2">
                            Email
                            <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
                         </label>
-                        <input type="email" class="form-control py-2 mb-2" id="user-name" placeholder="example@email.com" required />
-                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">Please type in correct email form: example@email.com</div>
+                        <input type="email" class="form-control py-2 mb-2" id="email" name="email" placeholder="username@stud.noroff.no" required />
+                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">Please type in correct email form: username@stud.noroff.no</div>
                      </div>
-                     <div class="mb-5">
+                     <div>
                         <label for="password" class="form-label ps-1 mb-3">
                            Password
                            <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
