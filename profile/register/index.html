@@ -58,40 +58,50 @@
                      <h3 class="modal-title fw-semibold" id="exampleModalLabel">Register Account</h3>
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
+
                   <!-- register form -->
-                  <form action="/profile/view/" id="form-to-register" class="d-flex flex-column needs-validation pt-5 gap-3" novalidate>
-                     <div>
+                  <form method="post" action="/auth/register" id="form-to-register" class="d-flex flex-column needs-validation pt-5 gap-3" novalidate>
+                     <div class="form-group">
                         <label for="user-name" class="form-label ps-1 mb-2">
-                           Name
+                           Username
                            <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
                         </label>
-                        <input type="text" class="form-control py-2 mb-2" id="user-name" name="name" placeholder="noroff-username" required minlength="5" />
-                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">Name needs at least 5 characters</div>
+                        <input type="text" class="form-control py-2 mb-2" id="user-name" name="name" placeholder="write your user_name" required pattern="^[\w]+$" maxlength="20" />
+                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">
+                           Username can only contain:
+                           <ul class="px-5 my-2">
+                              <li>20 characters, equivalent to lowercase (a-z), uppercase (A-Z), numbers (0-9) and underscore (_).</li>
+                              <li>Example: Ola_Normann99</li>
+                           </ul>
+                        </div>
                      </div>
-                     <div>
+                     <div class="form-group">
                         <label for="email" class="form-label ps-1 mb-2">
                            Email
                            <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
                         </label>
-                        <input type="email" class="form-control py-2 mb-2" id="email" name="email" placeholder="username@stud.noroff.no" required />
-                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">Please type in correct email form: username@stud.noroff.no</div>
+                        <input type="email" class="form-control py-2 mb-2" id="email" name="email" placeholder="user_name@stud.noroff.no" required pattern="^[\w\-.]+@(stud.)?noroff.no$" />
+                        <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                           <p class="p-3">Email must be a valid noroff email to register; user_name@stud.noroff.no</p>
+                        </div>
                      </div>
-                     <div>
+                     <div class="form-group">
                         <label for="password" class="form-label ps-1 mb-3">
                            Password
                            <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
                         </label>
                         <input type="password" class="form-control py-2 mb-2" id="password" placeholder="write your password" required minlength="8" />
-                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">Password need at least 8 characters</div>
+                        <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                           <p class="p-3">Password need at least 8 word characters</p>
+                        </div>
                      </div>
-
-                     <div>
+                     <div class="form-group">
                         <label for="banner" class="form-label ps-1 mb-3">Banner URL</label>
-                        <input type="banner" class="form-control py-2 mb-2" id="banner" placeholder="add banner url" />
+                        <input type="url" class="form-control py-2 mb-2" id="banner" placeholder="add banner url" />
                      </div>
-                     <div>
+                     <div class="form-group mb-3">
                         <label for="avatar" class="form-label ps-1 mb-3">Avatar URL</label>
-                        <input type="avatar" class="form-control py-2 mb-2" id="avatar" placeholder="add avatar url" />
+                        <input type="url" class="form-control py-2 mb-2" id="avatar" placeholder="add avatar url" />
                      </div>
                      <input class="btn btn-primary py-2 mb-3" type="submit" value="Register" />
                   </form>
