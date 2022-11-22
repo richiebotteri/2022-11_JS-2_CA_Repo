@@ -7,6 +7,11 @@
       <link rel="stylesheet" href="/dist/css/styles.css" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
+      <script type="module" src="/js/form-validation/index.mjs" defer></script>
+      <script type="module" src="/js/handlers/register-form-handler.mjs" defer></script>
+      <script type="module" src="/js/handlers/login-form-handler.mjs" defer></script>
+      <script type="module" src="/js/index.mjs" defer></script>
+      <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
       <title>Login | Meetzy</title>
    </head>
    <body class="d-flex flex-column min-vh-100 bg-light">
@@ -20,32 +25,35 @@
             <div class="g-col-12 g-col-md-6 g-col-lg-5 d-flex">
                <div class="p-6 bg-primary w-100 text-secondary">
                   <p class="fs-4">Start meeting other students now!</p>
+
                   <!-- login form -->
-                  <form action="/profile/" class="d-flex flex-column needs-validation" novalidate>
-                     <div class="mb-2">
-                        <label for="user-name" class="form-label ps-1 mb-2">
+                  <form id="test" method="post" action="" class="d-flex flex-column gap-2 needs-validation" novalidate>
+                     <div class="form-group mb-1">
+                        <label for="email" class="form-label ps-1 mb-2">
                            Email
                            <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
                         </label>
-                        <input type="email" class="form-control py-2 mb-2" id="user-name" placeholder="example@email.com" required />
-                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">Please type in correct email form: example@email.com</div>
+                        <input type="email" class="form-control py-2 mb-2" id="email" name="email" placeholder="user_name@stud.noroff.no" required pattern="^[\w\-.]+@(stud.)?noroff.no$" />
+                        <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                           <p class="p-3">Email must be a valid noroff email to register; user_name@stud.noroff.no</p>
+                        </div>
                      </div>
-                     <div class="mb-5">
+                     <div class="form-group mb-5">
                         <label for="password" class="form-label ps-1 mb-3">
                            Password
                            <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
                         </label>
                         <input type="password" class="form-control py-2 mb-2" id="password" placeholder="write your password" required minlength="8" />
-                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">Password need at least 8 characters</div>
+                        <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                           <p class="p-3">Password need at least 8 word characters</p>
+                        </div>
                      </div>
-                     <input class="btn btn-accent-1 py-2 mb-3 fw-semibold" type="submit" value="Login" />
-
-                     <div class="border-2 border-top border-dark mt-4 w-100 m-auto mb-3"></div>
-
-                     <p>No account yet? Register Below</p>
-                     <!-- Button trigger modal -->
-                     <button type="button" class="btn btn-accent-2 py-2 fw-semibold" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</button>
+                     <input type="submit" class="btn btn-accent-1 py-2 fw-semibold mb-5" value="Login" />
                   </form>
+                  <div class="border-2 border-top border-light w-100 m-auto my-3"></div>
+                  <p>No account yet? Register Below</p>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-accent-2 py-2 fw-semibold w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</button>
                </div>
             </div>
          </div>
@@ -113,9 +121,5 @@
       <footer class="mt-5 bg-dark">
          <p class="text-center text-white mb-0 p-3">Copywrite &copy;</p>
       </footer>
-      <script type="module" src="/js/form-validation/index.mjs"></script>
-      <script type="module" src="/js/handlers/register-form-handler.mjs"></script>
-      <script type="module" src="/js/index.mjs"></script>
-      <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
    </body>
 </html>
