@@ -31,8 +31,6 @@ export async function authenticateNewUser(newProfile, method, action) {
       }
 
       if (result.errors[0].message == "Profile already exists") {
-         console.log("PROFILE EXCIST");
-
          successFeedback.classList.remove("d-none");
          successFeedback.classList.replace("bg-success", "bg-info");
          successFeedback.innerHTML = `
@@ -40,8 +38,6 @@ export async function authenticateNewUser(newProfile, method, action) {
             <p class="text-center mb-0 ">Your account allready exists. You can log in</p>
             `;
       }
-
-      console.log("check error msg", result.errors[0].code);
    } catch (error) {
       console.log(error);
    }

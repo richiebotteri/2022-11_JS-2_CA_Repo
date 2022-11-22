@@ -1,9 +1,9 @@
 import { authenticateNewUser } from "../api/auth/authenticate-new-user.mjs";
 
-export function getRegisteredUserFromForm() {
+export function storeNewAccount() {
    const formToRegister = document.querySelector("#form-to-register");
 
-   const getFormData = (event) => {
+   const getAccountData = (event) => {
       event.preventDefault();
 
       const registeredFormData = event.target;
@@ -23,5 +23,5 @@ export function getRegisteredUserFromForm() {
       authenticateNewUser(newUserAccount, method, action);
    };
 
-   formToRegister.addEventListener("submit", getFormData);
+   formToRegister.addEventListener("submit", getAccountData);
 }
