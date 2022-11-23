@@ -1,4 +1,5 @@
 import { SOCIAL_URL } from "../api-environment.mjs";
+import * as storage from "../../storage/index.mjs";
 
 export async function authenticateProfile(profileCredentials, method, action) {
    try {
@@ -13,7 +14,6 @@ export async function authenticateProfile(profileCredentials, method, action) {
       const result = await response.json();
 
       console.log("check response", response);
-      console.log("fetch result: ", result);
 
       // Feedback on Register
       if (response.url == `${SOCIAL_URL}/auth/register`) {
@@ -30,7 +30,7 @@ export async function authenticateProfile(profileCredentials, method, action) {
             registerFeedback.classList.add("d-none");
          }
 
-         if (result.errors[0].message == "Profile already exists") {
+         if (result.errors && result.errors[0].message === "Profile already exists") {
             registerFeedback.classList.remove("d-none");
             registerFeedback.classList.replace("bg-success", "bg-info");
             registerFeedback.innerHTML = `
@@ -40,11 +40,15 @@ export async function authenticateProfile(profileCredentials, method, action) {
          }
       }
 
-      // Feedback on Login
       if (response.url == `${SOCIAL_URL}/auth/login`) {
+         // Save login token & profile
+         const { accessToken, ...profile } = result;
+         storage.saveItem("loginToken", accessToken);
+         storage.saveItem("profile", profile);
+         // Feedback on Login
          const loginFeedback = document.querySelector("#submit-feedback-login");
 
-         if (result.errors[0].message == "Invalid email or password") {
+         if (result.errors && result.errors[0].message === "Invalid email or password") {
             loginFeedback.classList.remove("d-none");
             loginFeedback.classList.replace("bg-info", "bg-success");
             loginFeedback.innerHTML = `
