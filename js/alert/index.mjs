@@ -1,19 +1,17 @@
-import * as storage from "../storage/index.mjs";
+import * as sessionStorage from "../storage/session-storage.mjs";
 
-const offlineFeedback = document.querySelector("#offline-feedback");
-const onlineFeedback = document.querySelector("#online-feedback");
+// Function that gives feedback when logging out of session
 
-if (storage.loadItem("loginToken")) {
-   onlineFeedback.classList.remove("d-none");
-
-   setTimeout(() => {
-      onlineFeedback.classList.add("d-none");
-   }, 3000);
-} else {
-   offlineFeedback.classList.remove("d-none");
-   setTimeout(() => {
-      offlineFeedback.classList.add("d-none");
-   }, 3000);
+export function offlineFeedback() {
+   if (sessionStorage.loadItem("online") === true) {
+      console.log("i am online");
+   } else if (sessionStorage.loadItem("online") === false) {
+      const offlineFeedback = document.querySelector("#offline-feedback");
+      offlineFeedback.classList.remove("d-none");
+      setInterval(() => {
+         offlineFeedback.classList.add("d-none");
+      }, 3500);
+   } else {
+      console.log("not logged in");
+   }
 }
-
-// How do i not show a message if the user does not exist?
