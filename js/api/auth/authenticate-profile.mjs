@@ -1,4 +1,5 @@
 import { SOCIAL_URL } from "../api-environment.mjs";
+import { redirectIfToken } from "../../api/auth/redirect-active-user.mjs";
 import * as storage from "../../storage/index.mjs";
 
 export async function authenticateProfile(profileCredentials, method, action) {
@@ -56,6 +57,9 @@ export async function authenticateProfile(profileCredentials, method, action) {
               <p class="text-center mb-0">Your typed in the wrong email or password</p>
               `;
          }
+
+         // Send user to view profile if token
+         redirectIfToken(accessToken);
       }
    } catch (error) {
       console.log(error);
