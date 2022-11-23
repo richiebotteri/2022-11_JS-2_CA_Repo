@@ -7,6 +7,11 @@
       <link rel="stylesheet" href="/dist/css/styles.css" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
+      <script type="module" src="/js/mobile-nav-toggle/index.mjs" defer></script>
+      <script type="module" src="/js/form-validation/index.mjs" defer></script>
+      <script type="module" src="/js/handlers/logout-anchor-handler.mjs" defer></script>
+      <script type="module" src="/js/index.mjs" defer></script>
+      <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
       <title>Profile | Meetzy</title>
    </head>
    <body class="bg-light">
@@ -25,7 +30,7 @@
                      <a href="/profile/view/" class="nav-link link-dark fw-semibold p-1">Profile</a>
                   </li>
                   <li class="nav-item">
-                     <a href="/profile/register/" class="nav-link link-dark nav-link-hover p-1">Logout</a>
+                     <a href="/profile/register/" id="desktop-logout-anchor" class="nav-link link-dark nav-link-hover p-1">Logout</a>
                   </li>
                </ul>
             </nav>
@@ -56,7 +61,7 @@
                   </a>
                </li>
                <li class="nav-item nav-item-hover d-flex justify-content-center border-3 border-bottom border-dark py-5">
-                  <a class="nav-link link-dark d-flex align-items-center justify-content-center w-100" href="/profile/register/">
+                  <a id="mobile-logout-anchor" class="nav-link link-dark d-flex align-items-center justify-content-center w-100" href="/profile/register/">
                      <i class="fa-solid fa-right-from-bracket fs-2 me-3"></i>
                      Logout
                   </a>
@@ -163,7 +168,4 @@
          <p class="text-center text-white mb-0 p-3">Copywrite &copy;</p>
       </footer>
    </body>
-   <script type="module" src="/js/mobile-nav-toggle/index.mjs"></script>
-   <script type="module" src="/js/form-validation/index.mjs"></script>
-   <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </html>
