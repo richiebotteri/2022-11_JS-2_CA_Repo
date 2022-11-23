@@ -56,9 +56,6 @@ export async function authenticateProfile(profileCredentials, method, action) {
               <p class="text-center mb-0">Your typed in the wrong email or password</p>
               `;
          }
-
-         // Redirect to view profile
-         window.location = "/profile/view/";
       }
    } catch (error) {
       console.log(error);
