@@ -1,4 +1,4 @@
-import { authenticateNewUser } from "../api/auth/authenticate-new-user.mjs";
+import { authenticateProfile } from "../api/auth/authenticate-profile.mjs";
 
 export function storeNewAccount() {
    const formToRegister = document.querySelector("#form-to-register");
@@ -20,7 +20,7 @@ export function storeNewAccount() {
       const action = registeredFormData.attributes.action.value;
 
       // Calling function to authenticate & register new useraccount on API
-      authenticateNewUser(newUserAccount, method, action);
+      authenticateProfile(newUserAccount, method, action);
    };
 
    formToRegister.addEventListener("submit", getAccountData);
