@@ -10,112 +10,117 @@
       <script type="module" src="/js/form-validation/index.mjs" defer></script>
       <script type="module" src="/js/handlers/register-form-handler.mjs" defer></script>
       <script type="module" src="/js/handlers/login-form-handler.mjs" defer></script>
-
+      <script type="module" src="/js/alert/index.mjs" defer></script>
       <script type="module" src="/js/index.mjs" defer></script>
       <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
       <title>Login | Meetzy</title>
    </head>
    <body class="d-flex flex-column min-vh-100 bg-light">
       <div class="container flex-grow-1 d-flex align-items-center">
-         <div class="grid bg-white h-50 shadow">
-            <div class="g-col-12 g-col-md-6 g-col-lg-7 d-flex flex-column gap-5 p-6">
-               <h1 class="display-3 fw-semibold">Meetzy</h1>
-               <p class="fw-semibold fs-3">A Noroff Social Media Platform</p>
-               <p class="fs-3 w-90">This website gives noroff student the ability to login and communicate with other users trough a shared social media platform</p>
+         <div class="d-flex flex-column align-items-center">
+            <div id="offline-feedback" class="bg-accent-2 p-3 w-100 mb-3 text-primary fw-semibold d-none">
+               <p class="p-3 m-0 text-center">You are logged out</p>
             </div>
-            <div class="g-col-12 g-col-md-6 g-col-lg-5 d-flex">
-               <div class="p-6 bg-primary w-100 text-secondary">
-                  <p class="fs-4">Start meeting other students now!</p>
+            <div class="grid bg-white h-50 shadow">
+               <div class="g-col-12 g-col-md-6 g-col-lg-7 d-flex flex-column gap-5 p-6">
+                  <h1 class="display-3 fw-semibold">Meetzy</h1>
+                  <p class="fw-semibold fs-3">A Noroff Social Media Platform</p>
+                  <p class="fs-3 w-90">This website gives noroff student the ability to login and communicate with other users trough a shared social media platform</p>
+               </div>
+               <div class="g-col-12 g-col-md-6 g-col-lg-5 d-flex">
+                  <div class="p-6 bg-primary w-100 text-secondary">
+                     <p class="fs-4">Start meeting other students now!</p>
 
-                  <!-- login form -->
-                  <form method="post" action="/auth/login" id="form-to-login" class="d-flex flex-column gap-2 needs-validation" novalidate>
-                     <div class="form-group mb-1">
-                        <label for="email" class="form-label ps-1 mb-2">
-                           Email
-                           <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
-                        </label>
-                        <input type="email" class="form-control py-2 mb-2" id="email" name="email" placeholder="user_name@stud.noroff.no" required pattern="^[\w\-.]+@(stud.)?noroff.no$" />
-                        <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
-                           <p class="p-3">Email must be a valid noroff email to register; user_name@stud.noroff.no</p>
+                     <!-- login form -->
+                     <form method="post" action="/auth/login" id="form-to-login" class="d-flex flex-column gap-2 needs-validation" novalidate>
+                        <div class="form-group mb-1">
+                           <label for="email" class="form-label ps-1 mb-2">
+                              Email
+                              <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                           </label>
+                           <input type="email" class="form-control py-2 mb-2" id="email" name="email" placeholder="user_name@stud.noroff.no" required pattern="^[\w\-.]+@(stud.)?noroff.no$" />
+                           <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                              <p class="p-3">Email must be a valid noroff email to register; user_name@stud.noroff.no</p>
+                           </div>
                         </div>
-                     </div>
-                     <div class="form-group">
-                        <label for="password" class="form-label ps-1 mb-3">
-                           Password
-                           <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
-                        </label>
-                        <input type="password" class="form-control py-2 mb-2" id="password" name="password" placeholder="write your password" required minlength="8" />
-                        <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
-                           <p class="p-3">Password need at least 8 word characters</p>
+                        <div class="form-group">
+                           <label for="password" class="form-label ps-1 mb-3">
+                              Password
+                              <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                           </label>
+                           <input type="password" class="form-control py-2 mb-2" id="password" name="password" placeholder="write your password" required minlength="8" />
+                           <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                              <p class="p-3">Password need at least 8 word characters</p>
+                           </div>
                         </div>
-                     </div>
-                     <div id="submit-feedback-login" class="card bg-danger p-5 rounded-2 text-white fw-semibold mb-2 d-none"></div>
-                     <input type="submit" class="btn btn-accent-1 py-2 fw-semibold my-5" value="Login" />
-                  </form>
-                  <div class="border-2 border-top border-secondary w-100 m-auto my-3"></div>
-                  <p>No account yet? Register Below</p>
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-accent-2 py-2 fw-semibold w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</button>
+                        <div id="submit-feedback-login" class="card bg-danger p-5 rounded-2 text-white fw-semibold mb-2 d-none"></div>
+                        <input type="submit" class="btn btn-accent-1 py-2 fw-semibold my-5" value="Login" />
+                     </form>
+                     <div class="border-2 border-top border-secondary w-100 m-auto my-3"></div>
+                     <p>No account yet? Register Below</p>
+                     <!-- Button trigger modal -->
+                     <button type="button" class="btn btn-accent-2 py-2 fw-semibold w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</button>
+                  </div>
                </div>
             </div>
-         </div>
 
-         <!-- Modal -->
-         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-               <div class="modal-content p-5 bg-light">
-                  <div class="modal-header px-0">
-                     <h3 class="modal-title fw-semibold" id="exampleModalLabel">Register Account</h3>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content p-5 bg-light">
+                     <div class="modal-header px-0">
+                        <h3 class="modal-title fw-semibold" id="exampleModalLabel">Register Account</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+
+                     <!-- register form -->
+                     <form method="post" action="/auth/register" id="form-to-register" class="d-flex flex-column needs-validation pt-5 gap-3" novalidate>
+                        <div class="form-group">
+                           <label for="user-name" class="form-label ps-1 mb-2">
+                              Username
+                              <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                           </label>
+                           <input type="text" class="form-control py-2 mb-2" id="user-name" name="name" placeholder="write your user_name" required pattern="^[\w]+$" maxlength="20" />
+                           <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">
+                              Username can only contain:
+                              <ul class="px-5 my-2">
+                                 <li>20 characters, equivalent to lowercase (a-z), uppercase (A-Z), numbers (0-9) and underscore (_).</li>
+                                 <li>Example: Ola_Normann99</li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="email" class="form-label ps-1 mb-2">
+                              Email
+                              <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                           </label>
+                           <input type="email" class="form-control py-2 mb-2" id="email" name="email" placeholder="user_name@stud.noroff.no" required pattern="^[\w\-.]+@(stud.)?noroff.no$" />
+                           <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                              <p class="p-3">Email must be a valid noroff email to register; user_name@stud.noroff.no</p>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="password" class="form-label ps-1 mb-3">
+                              Password
+                              <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                           </label>
+                           <input type="password" class="form-control py-2 mb-2" id="password" name="password" placeholder="write your password" required minlength="8" />
+                           <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                              <p class="p-3">Password need at least 8 word characters</p>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="banner" class="form-label ps-1 mb-3">Banner URL</label>
+                           <input type="url" class="form-control py-2 mb-2" id="banner" placeholder="add banner url" />
+                        </div>
+                        <div class="form-group mb-3">
+                           <label for="avatar" class="form-label ps-1 mb-3">Avatar URL</label>
+                           <input type="url" class="form-control py-2 mb-2" id="avatar" placeholder="add avatar url" />
+                        </div>
+                        <div id="submit-feedback-register" class="card bg-success p-5 rounded-2 text-white fw-semibold mb-2 d-none"></div>
+                        <input class="btn btn-primary py-2 mb-3" type="submit" value="Register" />
+                     </form>
                   </div>
-
-                  <!-- register form -->
-                  <form method="post" action="/auth/register" id="form-to-register" class="d-flex flex-column needs-validation pt-5 gap-3" novalidate>
-                     <div class="form-group">
-                        <label for="user-name" class="form-label ps-1 mb-2">
-                           Username
-                           <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
-                        </label>
-                        <input type="text" class="form-control py-2 mb-2" id="user-name" name="name" placeholder="write your user_name" required pattern="^[\w]+$" maxlength="20" />
-                        <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold mb-2">
-                           Username can only contain:
-                           <ul class="px-5 my-2">
-                              <li>20 characters, equivalent to lowercase (a-z), uppercase (A-Z), numbers (0-9) and underscore (_).</li>
-                              <li>Example: Ola_Normann99</li>
-                           </ul>
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <label for="email" class="form-label ps-1 mb-2">
-                           Email
-                           <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
-                        </label>
-                        <input type="email" class="form-control py-2 mb-2" id="email" name="email" placeholder="user_name@stud.noroff.no" required pattern="^[\w\-.]+@(stud.)?noroff.no$" />
-                        <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
-                           <p class="p-3">Email must be a valid noroff email to register; user_name@stud.noroff.no</p>
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <label for="password" class="form-label ps-1 mb-3">
-                           Password
-                           <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
-                        </label>
-                        <input type="password" class="form-control py-2 mb-2" id="password" name="password" placeholder="write your password" required minlength="8" />
-                        <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
-                           <p class="p-3">Password need at least 8 word characters</p>
-                        </div>
-                     </div>
-                     <div class="form-group">
-                        <label for="banner" class="form-label ps-1 mb-3">Banner URL</label>
-                        <input type="url" class="form-control py-2 mb-2" id="banner" placeholder="add banner url" />
-                     </div>
-                     <div class="form-group mb-3">
-                        <label for="avatar" class="form-label ps-1 mb-3">Avatar URL</label>
-                        <input type="url" class="form-control py-2 mb-2" id="avatar" placeholder="add avatar url" />
-                     </div>
-                     <div id="submit-feedback-register" class="card bg-success p-5 rounded-2 text-white fw-semibold mb-2 d-none"></div>
-                     <input class="btn btn-primary py-2 mb-3" type="submit" value="Register" />
-                  </form>
                </div>
             </div>
          </div>
