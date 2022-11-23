@@ -27,7 +27,7 @@
                   <p class="fs-4">Start meeting other students now!</p>
 
                   <!-- login form -->
-                  <form id="test" method="post" action="" class="d-flex flex-column gap-2 needs-validation" novalidate>
+                  <form method="post" action="/auth/login" id="form-to-login" class="d-flex flex-column gap-2 needs-validation" novalidate>
                      <div class="form-group mb-1">
                         <label for="email" class="form-label ps-1 mb-2">
                            Email
@@ -38,19 +38,20 @@
                            <p class="p-3">Email must be a valid noroff email to register; user_name@stud.noroff.no</p>
                         </div>
                      </div>
-                     <div class="form-group mb-5">
+                     <div class="form-group">
                         <label for="password" class="form-label ps-1 mb-3">
                            Password
                            <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
                         </label>
-                        <input type="password" class="form-control py-2 mb-2" id="password" placeholder="write your password" required minlength="8" />
+                        <input type="password" class="form-control py-2 mb-2" id="password" name="password" placeholder="write your password" required minlength="8" />
                         <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
                            <p class="p-3">Password need at least 8 word characters</p>
                         </div>
                      </div>
-                     <input type="submit" class="btn btn-accent-1 py-2 fw-semibold mb-5" value="Login" />
+                     <div id="submit-feedback-login" class="card bg-danger p-5 rounded-2 text-white fw-semibold mb-2 d-none"></div>
+                     <input type="submit" class="btn btn-accent-1 py-2 fw-semibold my-5" value="Login" />
                   </form>
-                  <div class="border-2 border-top border-light w-100 m-auto my-3"></div>
+                  <div class="border-2 border-top border-secondary w-100 m-auto my-3"></div>
                   <p>No account yet? Register Below</p>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-accent-2 py-2 fw-semibold w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</button>
@@ -98,7 +99,7 @@
                            Password
                            <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
                         </label>
-                        <input type="password" class="form-control py-2 mb-2" id="password" placeholder="write your password" required minlength="8" />
+                        <input type="password" class="form-control py-2 mb-2" id="password" name="password" placeholder="write your password" required minlength="8" />
                         <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
                            <p class="p-3">Password need at least 8 word characters</p>
                         </div>
@@ -111,7 +112,7 @@
                         <label for="avatar" class="form-label ps-1 mb-3">Avatar URL</label>
                         <input type="url" class="form-control py-2 mb-2" id="avatar" placeholder="add avatar url" />
                      </div>
-                     <div id="success-feedback" class="card bg-success p-5 rounded-2 text-white fw-semibold mb-2 d-none"></div>
+                     <div id="submit-feedback-register" class="card bg-success p-5 rounded-2 text-white fw-semibold mb-2 d-none"></div>
                      <input class="btn btn-primary py-2 mb-3" type="submit" value="Register" />
                   </form>
                </div>

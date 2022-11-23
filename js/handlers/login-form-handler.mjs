@@ -1,9 +1,19 @@
-export function loginAccount() {
-   const test = document.querySelector("#test");
+import { authenticateProfile } from "../api/auth/authenticate-profile.mjs";
 
-   test.addEventListener("submit", (event) => {
+export function loginAccount() {
+   const loginForm = document.querySelector("#form-to-login");
+
+   loginForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      const loginForm = event.target;
-      console.log(loginForm);
+      const formElements = event.target;
+      const loginCredentials = {
+         email: formElements.email.value,
+         password: formElements.password.value,
+      };
+      const method = formElements.method;
+      const action = formElements.attributes.action.value;
+
+      console.log(loginCredentials, method, action);
+      authenticateProfile(loginCredentials, method, action);
    });
 }
