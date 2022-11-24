@@ -1,4 +1,4 @@
-import { authenticateProfile } from "../api/auth/authenticate-profile.mjs";
+import { authenticateProfile } from "../../api/auth/authenticate-profile.mjs";
 
 export function storeNewAccount() {
    const formToRegister = document.querySelector("#form-to-register");

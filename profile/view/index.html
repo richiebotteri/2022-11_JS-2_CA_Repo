@@ -7,9 +7,9 @@
       <link rel="stylesheet" href="/dist/css/styles.css" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
-      <script type="module" src="/js/mobile-nav-toggle/index.mjs" defer></script>
+
       <script type="module" src="/js/form-validation/index.mjs" defer></script>
-      <script type="module" src="/js/handlers/logout-anchor-handler.mjs" defer></script>
+
       <script type="module" src="/js/index.mjs" defer></script>
       <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
       <title>Profile | Meetzy</title>
@@ -113,9 +113,33 @@
             </div>
             <div class="g-col-12 g-col-md-8">
                <!-- Create Posts -->
-               <form action="#" class="d-flex gap-2 flex-column bg-secondary shadow p-5 needs-validation" novalidate>
-                  <label for="text-area" class="form-label px-0 fs-2">Create a post</label>
-                  <textarea class="form-control" id="text-area" rows="5" placeholder="Whats on your mind?" required></textarea>
+               <form action="/posts" method="post" id="profile-form" class="d-flex gap-2 flex-column bg-secondary shadow p-5 needs-validation" novalidate>
+                  <h2>Create a post</h2>
+                  <div class="form-group mb-1">
+                     <label for="title" class="form-label ps-1 mb-2">
+                        Title
+                        <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                     </label>
+                     <input type="text" class="form-control py-2 mb-2" id="title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" />
+                  </div>
+                  <div class="form-group mb-1">
+                     <label for="textarea" class="form-label ps-1 mb-2">
+                        Content
+                        <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                     </label>
+                     <textarea class="form-control py-2 mb-2" id="textarea" rows="5" name="textarea" placeholder="Whats on your mind?" required></textarea>
+                  </div>
+                  <!-- media  -->
+                  <div class="form-group d-flex bg-light p-3 card">
+                     <button type="button" id="media-btn" class="btn btn-primary w-25">
+                        Media
+                        <i class="fa-solid fa-photo-film ms-2"></i>
+                     </button>
+
+                     <input type="text" class="form-control py-2 my-2 d-none" id="media-input" name="media" placeholder="url" />
+                  </div>
+                  <label for="text-area" class="form-label px-0 fs-2"></label>
+
                   <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold inline">Please type in a message</div>
                   <button type="submit" class="btn w-25 btn-accent-1 align-self-end">Post</button>
                </form>

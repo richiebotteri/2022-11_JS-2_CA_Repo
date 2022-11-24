@@ -1,4 +1,4 @@
-import { authenticateProfile } from "../api/auth/authenticate-profile.mjs";
+import { authenticateProfile } from "../../api/auth/authenticate-profile.mjs";
 
 export function loginAccount() {
    const loginForm = document.querySelector("#form-to-login");
