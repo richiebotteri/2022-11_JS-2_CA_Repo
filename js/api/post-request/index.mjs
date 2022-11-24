@@ -3,6 +3,7 @@ import * as localStorage from "../../storage/local-storage.mjs";
 
 export async function makePostRequest(postObject, method, action) {
    try {
+      console.log("INSIDE API REQUEST", postObject.media);
       const options = {
          method: method,
          headers: {
