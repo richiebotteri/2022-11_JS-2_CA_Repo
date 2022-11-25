@@ -69,13 +69,13 @@
 
       <!-- Main Content -->
       <main class="container d-flex flex-column my-2 p-4">
-         <div class="grid gap-0 gap-md-5 my-5 p-md-0">
+         <div class="grid gap-md-5 my-5 p-md-0">
             <div class="g-col-12 d-flex flex-column align-items-center m-0 p-5 bg-primary shadow">
                <img src="/images/profile.jpg" class="profile-img rounded-circle" alt="profile of Rick Boldwind" />
                <h1 class="text-center text-sm-center mt-5 text-secondary fw-semibold">Rick Boldwind</h1>
             </div>
 
-            <div class="g-col-12 g-col-md-4 p-5 bg-secondary shadow">
+            <div class="g-col-12 g-col-md-6 p-5 bg-secondary shadow">
                <div class="d-flex flex-column mb-5">
                   <h2>About</h2>
                   <p class="mt-2">Hi i'm Charlie, 23 years old from France currently studying in London, England. I'm looking to meet new friends where i live!</p>
@@ -94,21 +94,9 @@
                         </li>
                      </ul>
                   </div>
-                  <div class="g-col mt-2">
-                     <ul class="list-group">
-                        <li class="list-group-item d-flex align-items-center ju">
-                           <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">LS</span>
-                           Lloyd Simson
-                        </li>
-                        <li class="list-group-item d-flex align-items-center">
-                           <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">JL</span>
-                           Justin Lewis
-                        </li>
-                     </ul>
-                  </div>
                </div>
             </div>
-            <div class="g-col-12 g-col-md-8">
+            <div class="g-col-12 g-col-md-6">
                <!-- Create Posts -->
                <form action="/posts" method="post" id="profile-form" class="d-flex gap-2 flex-column bg-secondary shadow p-5 needs-validation" novalidate>
                   <h2>Create a post</h2>
@@ -154,68 +142,13 @@
                   <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold inline">Please type in a message</div>
                   <button type="submit" class="btn w-25 btn-accent-1 align-self-end">Post</button>
                </form>
-
-               <!-- Spacers -->
-               <div class="my-6 my-md-5">
-                  <div class="border-2 border-top border-dark my-4 w-75 m-auto"></div>
-                  <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Your Post-Feed</div>
-               </div>
-
-               <!-- Profile Posts -->
-               <div class="container-fluid">
-                  <div class="grid">
-                     <div class="g-col-12 d-flex flex-column bg-secondary shadow">
-                        <div class="grid">
-                           <div class="g-col-12 grid bg-primary p-5">
-                              <div class="g-col-10 d-flex align-items-center">
-                                 <div class="profile-icon bg-white d-inline-block rounded-circle me-4 text-dark d-flex align-items-center justify-content-center fw-bold fs-6">CB</div>
-                                 <h4 id="post-author" class="d-flex align-items-center text-white">Catharin Brown</h4>
-                              </div>
-                              <div class="g-col-2 d-flex justify-content-end align-items-center">
-                                 <button type="button" class="btn btn-outline-light d-flex h-75 align-items-center p-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
-                                 <ul class="dropdown-menu">
-                                    <li class="dropdown-item">Delete Post</li>
-                                    <li class="dropdown-item">Edit Post</li>
-                                 </ul>
-                              </div>
-                           </div>
-                           <div class="g-col-12 w-90 m-auto text-primary mt-4">
-                              <p class="fw-light border-bottom pb-3">Post Created: 2020</p>
-                              <div id="tags" class="mt-5 mb-4">
-                                 <span class="py-1 px-2 bg-light border rounded me-1">#cool</span>
-                              </div>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                              <div class="d-flex justify-content-between mb-4">
-                                 <div>
-                                    <button id="add-like-btn" class="btn btn-secondary me-3">
-                                       <i class="fa-regular fa-thumbs-up text-primary"><span class="px-2 fs-7">2</span></i>
-                                    </button>
-                                    <button id="show-comments-btn" class="btn btn-secondary">
-                                       <i class="fa-solid fa-comment text-primary"><span class="px-2 fs-7">2</span></i>
-                                    </button>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="g-col-12 p-5 border-top d-none" data-comments-field>
-                              <h4 class="mb-5">Comments</h4>
-                              <div id="comments" class="grid gap-5">
-                                 <div class="g-col-12 card">
-                                    <div class="card-header d-flex align-items-center">
-                                       <div class="profile-icon bg-primary d-inline-block rounded-circle me-4 text-secondary d-flex align-items-center justify-content-center fw-bold fs-6">CB</div>
-                                       <h4 id="post-author" class="d-flex align-items-center text-primary">Catharin Brown</h4>
-                                    </div>
-                                    <div class="card-body">
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                       <p class="fw-light border-top m-0 pt-2">Created: 2020</p>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
             </div>
+            <!-- Spacers -->
+            <div class="g-col-12 my-6 my-md-5">
+               <div class="border-2 border-top border-dark my-4 w-75 m-auto"></div>
+               <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Your Post-Feed</div>
+            </div>
+            <div id="profile-post-field" class="g-col-12 grid gap-5"></div>
          </div>
       </main>
       <footer class="bg-dark">

@@ -4,6 +4,7 @@
 //My-Color-Pallet
 $color-light-1: #fff;
 $color-light-2: #f8faff;
+$color-light-3: #f7f7f7;
 $color-dark: #1a2238;
 $color-red: #830713;
 $accent-light-1: #a2e3f8;
@@ -23,6 +24,7 @@ $danger: $color-red;
 $custom-theme-colors: (
    "accent-1": $accent-light-1,
    "accent-2": $accent-light-2,
+   "light-2": $color-light-3,
 );
 
 $theme-colors: map-merge($custom-theme-colors, $theme-colors);
@@ -129,8 +131,8 @@ $container-max-widths: (
    sm: 540px,
    md: 720px,
    lg: 960px,
-   xl: 1140px,
-   xxl: 1300px,
+   xl: 1000px,
+   xxl: 1140px,
 );
 
 // -----------------------------------------------------------

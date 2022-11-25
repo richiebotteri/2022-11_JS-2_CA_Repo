@@ -7,9 +7,9 @@ import { logoutAccount } from "./handlers/registration/logout-anchor-handler.mjs
 import { createPostObject } from "./handlers/posts/create-post-handler.mjs";
 import { toggleMediaBtn } from "./handlers/posts/media-btn-handler.mjs";
 import { toggleTagBtn } from "./handlers/posts/tag-btn-handler.mjs";
-import { toggleComments } from "./handlers/posts/comments-handler.mjs";
 import { offlineFeedback } from "./alert/index.mjs";
 import { getPost } from "./api/posts/get-post-request.mjs";
+import { displayPosts } from "./api/posts/display-posts.mjs";
 
 const path = location.pathname;
 
@@ -21,15 +21,15 @@ if (path === "/profile/view/") {
    toggleMobileNav();
    toggleMediaBtn();
    toggleTagBtn();
-   toggleComments();
    getPost();
+   displayPosts();
 } else if (path === "/profile/home-feed/") {
    validatedForms();
    createPostObject();
    toggleMobileNav();
    toggleMediaBtn();
    toggleTagBtn();
-   toggleComments();
+
    getPost();
 } else {
    validatedForms();
