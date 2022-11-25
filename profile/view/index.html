@@ -169,7 +169,7 @@
                            <div class="g-col-12 grid bg-primary p-5">
                               <div class="g-col-10 d-flex align-items-center">
                                  <div class="profile-icon bg-white d-inline-block rounded-circle me-4 text-dark d-flex align-items-center justify-content-center fw-bold fs-6">CB</div>
-                                 <h4 class="d-flex align-items-center text-white">Catharin Brown</h4>
+                                 <h4 id="post-author" class="d-flex align-items-center text-white">Catharin Brown</h4>
                               </div>
                               <div class="g-col-2 d-flex justify-content-end align-items-center">
                                  <button type="button" class="btn btn-outline-light d-flex h-75 align-items-center p-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
@@ -180,7 +180,10 @@
                               </div>
                            </div>
                            <div class="g-col-12 w-90 m-auto text-primary mt-4">
-                              <p class="fw-light border-bottom pb-2">Post Created: 2020</p>
+                              <p class="fw-light border-bottom pb-3">Post Created: 2020</p>
+                              <div id="tags" class="mt-5 mb-4">
+                                 <span class="py-1 px-2 bg-light border rounded me-1">#cool</span>
+                              </div>
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                               <div class="d-flex justify-content-between mb-4">
                                  <div>
@@ -193,16 +196,17 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="g-col-12 p-5 border-top d-none">
+                           <div class="g-col-12 p-5 border-top d-none" data-comments-field>
                               <h4 class="mb-5">Comments</h4>
                               <div id="comments" class="grid gap-5">
                                  <div class="g-col-12 card">
-                                    <div class="card-header">
-                                       <h5 class="g-col-9 d-flex m-0 align-items-center">Catharin Brown</h5>
+                                    <div class="card-header d-flex align-items-center">
+                                       <div class="profile-icon bg-primary d-inline-block rounded-circle me-4 text-secondary d-flex align-items-center justify-content-center fw-bold fs-6">CB</div>
+                                       <h4 id="post-author" class="d-flex align-items-center text-primary">Catharin Brown</h4>
                                     </div>
                                     <div class="card-body">
                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                       <p class="fw-light border-top m-0 pt-2">Post Created: 2020</p>
+                                       <p class="fw-light border-top m-0 pt-2">Created: 2020</p>
                                     </div>
                                  </div>
                               </div>

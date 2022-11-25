@@ -7,6 +7,7 @@ import { logoutAccount } from "./handlers/registration/logout-anchor-handler.mjs
 import { createPostObject } from "./handlers/posts/create-post-handler.mjs";
 import { toggleMediaBtn } from "./handlers/posts/media-btn-handler.mjs";
 import { toggleTagBtn } from "./handlers/posts/tag-btn-handler.mjs";
+import { toggleComments } from "./handlers/posts/comments-handler.mjs";
 import { offlineFeedback } from "./alert/index.mjs";
 import { getPost } from "./api/posts/get-post-request.mjs";
 
@@ -20,6 +21,7 @@ if (path === "/profile/view/") {
    toggleMobileNav();
    toggleMediaBtn();
    toggleTagBtn();
+   toggleComments();
    getPost();
 } else if (path === "/profile/home-feed/") {
    validatedForms();
@@ -27,6 +29,7 @@ if (path === "/profile/view/") {
    toggleMobileNav();
    toggleMediaBtn();
    toggleTagBtn();
+   toggleComments();
    getPost();
 } else {
    validatedForms();
