@@ -1,8 +1,9 @@
-export function createPostHandler() {
-   const profileForm = document.querySelector("#profile-form");
+import { createRequest } from "../../api/posts/request-type/create-request.mjs";
 
-   profileForm.addEventListener((event) => {
+export function createPostHandler() {
+   const createPostForm = document.querySelector("#create-post-form");
+   createPostForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      console.log(event);
+      createRequest(event);
    });
 }

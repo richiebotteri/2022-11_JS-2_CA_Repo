@@ -1,7 +1,8 @@
 import { SOCIAL_URL } from "../../constants/api-prefix-constants.mjs";
-import { displayPosts } from "../../../display/posts/display-posts.mjs";
+
 import { toggleComments } from "../../../handlers/posts/comments-handler.mjs";
 import * as localStorage from "../../../storage/local-storage.mjs";
+import { displayPosts } from "../../display/display-posts.mjs";
 
 export async function downloadPostData(method, action) {
    try {
@@ -15,7 +16,7 @@ export async function downloadPostData(method, action) {
 
       const response = await fetch(`${SOCIAL_URL}${action}`, options);
       const result = await response.json();
-      console.log(result);
+      console.log("Download Post Response", response);
       result.forEach((post) => {
          const profile = localStorage.loadItem("profile");
          if (post.author.name === profile.name) {

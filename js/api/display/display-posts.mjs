@@ -1,49 +1,15 @@
-export function displayPosts(post, index) {
-   const profilePostField = document.querySelector("#profile-post-field");
+import { changeToHtmlComments } from "./refactor/mutate-comments-data.mjs";
+import { changeToHtmlTags } from "./refactor/mutate-tags-data.mjs";
+import { changeMediaData } from "./refactor/mutate-media-data.mjs";
 
+export function displayPosts(post) {
    const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
-
-   const singleTags = tags.map((elements) => {
-      return `<span class="py-1 px-2 d-inline-block bg-light border rounded mb-3 me-1">${elements}</span>`;
-   });
-
-   const htmlComments = comments.map((elements) => {
-      const dateCreated = elements.created;
-      const newDateFormat = new Date(dateCreated);
-      const dateFormat = newDateFormat.toLocaleDateString();
-      return `
-            <div id="comments" class="grid gap-5 mb-5">
-               <div class="g-col-12 card">
-                  <div class="card-header d-flex align-items-center">
-                     <div class="profile-icon bg-primary d-inline-block rounded-circle me-4 text-secondary d-flex align-items-center justify-content-center fw-bold fs-6">RB</div>
-                     <h4 id="post-author" class="d-flex align-items-center text-primary">${elements.owner}</h4>
-                  </div>
-                  <div class="card-body">
-                     <p class="m-0">${elements.body}</p>
-                  </div>
-                  <div class="card-footer">
-                     <p class="fw-light m-0">Created:${dateFormat}</p>
-                  </div>
-               </div>
-            </div>
-      `;
-   });
-
-   let html = "";
-   htmlComments.forEach((comment) => {
-      html += comment;
-   });
-
+   const singleTags = changeToHtmlTags(tags);
+   const htmlComments = changeToHtmlComments(comments);
    const newDateCreated = new Date(created);
    const newDateUpdated = new Date(updated);
-
-   const cleanMedia = () => {
-      if (media === null || media === "") {
-         return "https://source.unsplash.com/random/300x300";
-      } else {
-         return media;
-      }
-   };
+   const cleanMedia = changeMediaData(media);
+   const profilePostField = document.querySelector("#profile-post-field");
 
    profilePostField.innerHTML += `
       <div class="g-col-12 grid bg-secondary shadow mb-6">
@@ -68,7 +34,7 @@ export function displayPosts(post, index) {
                   <h4 class="m-0 fw-semibold">${title}</h4>
                </div>
                <div class="d-flex justify-content-center">
-                  <img src="${cleanMedia()}" class="img-fluid" alt="" />
+                  <img src="${cleanMedia}" class="img-fluid" alt="" />
                </div>
                <div class="card-body d-flex flex-column">
                   <span id="tags">${singleTags}</span>
@@ -90,7 +56,7 @@ export function displayPosts(post, index) {
          </div>
          <div class="g-col-12 p-5 border-top d-none" data-comments-id="${id}">
             <h4 class="mb-5">Comments</h4>
-            ${html}
+            ${htmlComments}
          </div>
       </div>
    `;
