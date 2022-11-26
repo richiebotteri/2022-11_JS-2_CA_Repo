@@ -1,14 +1,13 @@
 import { removeProfileFromStorage } from "../../storage/delete-stored-profile.mjs";
 
 export function logoutAnchorAccount() {
-   const desktopNav = document.querySelector("#desktop-logout-anchor");
-   const mobileNav = document.querySelector("#mobile-logout-anchor");
-
-   desktopNav.addEventListener("click", () => {
+   const desktopLogoutBtn = document.querySelector("#desktop-logout-anchor");
+   const mobileLogoutBtn = document.querySelector("#mobile-logout-anchor");
+   desktopLogoutBtn.addEventListener("click", () => {
       removeProfileFromStorage();
    });
 
-   mobileNav.addEventListener("click", () => {
+   mobileLogoutBtn.addEventListener("click", () => {
       removeProfileFromStorage();
    });
 }

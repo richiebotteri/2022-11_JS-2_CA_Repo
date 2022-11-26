@@ -7,9 +7,9 @@ console.log(path);
 
 validatedForms();
 
-if (path === "/profile/view/index.html") {
+if (path === "/profile/view/index.html" || path === "/profile/view/") {
    postHandlers();
-} else if (path === "/profile/home-feed/") {
+} else if (path === "/profile/home-feed/index.html" || path === "/profile/home-feed/") {
    postHandlers();
 } else {
    offlineFeedback();
