@@ -7,6 +7,33 @@ export function displayPosts(post, index) {
       return `<span class="py-1 px-2 d-inline-block bg-light border rounded mb-3 me-1">${elements}</span>`;
    });
 
+   const htmlComments = comments.map((elements) => {
+      const dateCreated = elements.created;
+      const newDateFormat = new Date(dateCreated);
+      const dateFormat = newDateFormat.toLocaleDateString();
+      return `
+            <div id="comments" class="grid gap-5 mb-5">
+               <div class="g-col-12 card">
+                  <div class="card-header d-flex align-items-center">
+                     <div class="profile-icon bg-primary d-inline-block rounded-circle me-4 text-secondary d-flex align-items-center justify-content-center fw-bold fs-6">RB</div>
+                     <h4 id="post-author" class="d-flex align-items-center text-primary">${elements.owner}</h4>
+                  </div>
+                  <div class="card-body">
+                     <p class="m-0">${elements.body}</p>
+                  </div>
+                  <div class="card-footer">
+                     <p class="fw-light m-0">Created:${dateFormat}</p>
+                  </div>
+               </div>
+            </div>
+      `;
+   });
+
+   let html = "";
+   htmlComments.forEach((comment) => {
+      html += comment;
+   });
+
    const newDateCreated = new Date(created);
    const newDateUpdated = new Date(updated);
 
@@ -63,21 +90,8 @@ export function displayPosts(post, index) {
          </div>
          <div class="g-col-12 p-5 border-top d-none" data-comments-id="${id}">
             <h4 class="mb-5">Comments</h4>
-            <div id="comments" class="grid gap-5">
-               <div class="g-col-12 card">
-                  <div class="card-header d-flex align-items-center">
-                     <div class="profile-icon bg-primary d-inline-block rounded-circle me-4 text-secondary d-flex align-items-center justify-content-center fw-bold fs-6">RB</div>
-                     <h4 id="post-author" class="d-flex align-items-center text-primary">Daniel Bolten</h4>
-                  </div>
-                  <div class="card-body">
-                     <p>THis is a comment</p>
-                     <p class="fw-light border-top m-0 pt-2">Created:</p>
-                  </div>
-               </div>
-            </div>
+            ${html}
          </div>
       </div>
    `;
-
-   // console.log(profilePostField);
 }

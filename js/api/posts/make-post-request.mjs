@@ -28,7 +28,7 @@ export async function makePostRequest(postObject, method, action) {
       const result = await response.json();
 
       if (method === "get") {
-         result.forEach((post, index) => {
+         result.forEach((post) => {
             const profile = localStorage.loadItem("profile");
 
             if (post.author.name === profile.name) {
