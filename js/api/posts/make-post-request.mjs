@@ -30,7 +30,6 @@ export async function makePostRequest(postObject, method, action) {
          result.forEach((post) => {
             const profile = localStorage.loadItem("profile");
 
-            // sending posts to get displayed in html
             if (post.author.name === profile.name) {
                displayPosts(post);
             }

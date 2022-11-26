@@ -9,7 +9,6 @@ import { toggleMediaBtn } from "./handlers/posts/media-btn-handler.mjs";
 import { toggleTagBtn } from "./handlers/posts/tag-btn-handler.mjs";
 import { offlineFeedback } from "./alert/index.mjs";
 import { getPost } from "./api/posts/get-post-request.mjs";
-import { displayPosts } from "./api/posts/display-posts.mjs";
 
 const path = location.pathname;
 
@@ -22,7 +21,6 @@ if (path === "/profile/view/") {
    toggleMediaBtn();
    toggleTagBtn();
    getPost();
-   displayPosts();
 } else if (path === "/profile/home-feed/") {
    validatedForms();
    createPostObject();

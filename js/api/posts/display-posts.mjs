@@ -1,4 +1,4 @@
-import { toggleComments } from "../../handlers/posts/comments-handler.mjs";
+// import { toggleComments } from "../../handlers/posts/comments-handler.mjs";
 
 export function displayPosts(post) {
    const profilePostField = document.querySelector("#profile-post-field");
@@ -12,9 +12,16 @@ export function displayPosts(post) {
    const newDateCreated = new Date(created);
    const newDateUpdated = new Date(updated);
 
-   console.log(comments);
+   const cleanMedia = () => {
+      if (media === null) {
+         return "";
+      } else {
+         return media;
+      }
+   };
+
    profilePostField.innerHTML += `
-      <div class="g-col-12 grid bg-secondary shadow">
+      <div class="g-col-12 grid bg-secondary shadow mb-6">
          <!-- Post Header -->
          <div class="g-col-12 grid bg-primary p-5">
             <div class="g-col-10 d-flex align-items-center">
@@ -30,13 +37,13 @@ export function displayPosts(post) {
             </div>
          </div>
          <!-- Post Body -->
-         <div class="g-col-12 w-90 m-auto my-5 bg-secondary">
+         <div class="g-col-12 w-100 m-auto p-5 p-md-6 bg-secondary">
             <div class="card">
                <div class="card-header py-3">
                   <h4 class="m-0 fw-semibold">${title}</h4>
                </div>
                <div class="d-flex justify-content-center">
-                  <img src="${media}" class="img-fluid" alt="" />
+                  <img src="${cleanMedia()}" class="img-fluid" alt="" />
                </div>
                <div class="card-body d-flex flex-column">
                   <span id="tags">${singleTags}</span>
