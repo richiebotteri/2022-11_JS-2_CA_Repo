@@ -1,12 +1,16 @@
-export function toggleComments() {
-   const showCommentsBtn = document.querySelector("#show-comments-btn");
-   const commentsField = document.querySelector("[data-comments-field]");
+export function toggleComments(isPost) {
+   if (isPost) {
+      const showCommentBtns = document.querySelectorAll("#show-comments-btn");
+      const commentsFields = document.querySelectorAll("[data-comments-id]");
 
-   showCommentsBtn.addEventListener("click", () => {
-      commentsField.classList.toggle("d-none");
-      if (!commentsField.classList.contains("d-none")) {
-         window.location.href = "/profile/view/#comments";
-      }
-   });
-   console.log(showCommentsBtn);
+      showCommentBtns.forEach((commentBtn) => {
+         commentBtn.addEventListener("click", () => {
+            commentsFields.forEach((commentsField) => {
+               if (commentBtn.dataset.btnId === commentsField.dataset.commentsId) {
+                  commentsField.classList.toggle("d-none");
+               }
+            });
+         });
+      });
+   }
 }

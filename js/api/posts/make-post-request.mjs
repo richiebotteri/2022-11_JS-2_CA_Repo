@@ -1,6 +1,7 @@
 import { SOCIAL_URL } from "../api-environment.mjs";
 import * as localStorage from "../../storage/local-storage.mjs";
 import { displayPosts } from "./display-posts.mjs";
+import { toggleComments } from "../../handlers/posts/comments-handler.mjs";
 
 export async function makePostRequest(postObject, method, action) {
    try {
@@ -27,13 +28,14 @@ export async function makePostRequest(postObject, method, action) {
       const result = await response.json();
 
       if (method === "get") {
-         result.forEach((post) => {
+         result.forEach((post, index) => {
             const profile = localStorage.loadItem("profile");
 
             if (post.author.name === profile.name) {
                displayPosts(post);
             }
          });
+         toggleComments(response.ok);
       }
 
       console.log("response:", response);

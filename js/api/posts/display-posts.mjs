@@ -1,9 +1,7 @@
-// import { toggleComments } from "../../handlers/posts/comments-handler.mjs";
-
-export function displayPosts(post) {
+export function displayPosts(post, index) {
    const profilePostField = document.querySelector("#profile-post-field");
 
-   const { title, body, tags, media, created, updated, author, comments, reactions, _count } = post;
+   const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
 
    const singleTags = tags.map((elements) => {
       return `<span class="py-1 px-2 d-inline-block bg-light border rounded mb-3 me-1">${elements}</span>`;
@@ -52,7 +50,7 @@ export function displayPosts(post) {
                      <button id="add-like-btn" class="btn btn-secondary p-1">
                         <i class="fa-regular fa-thumbs-up text-primary"><span class="px-2 fs-7">${_count.reactions}</span></i>
                      </button>
-                     <button id="show-comments-btn" class="btn btn-secondary p-1">
+                     <button id="show-comments-btn" class="btn btn-secondary p-1" data-btn-id="${id}">
                         <i class="fa-solid fa-comment text-primary"><span class="px-2 fs-7">${_count.comments}</span></i>
                      </button>
                   </div>
@@ -63,16 +61,16 @@ export function displayPosts(post) {
                </div>
             </div>
          </div>
-         <div class="g-col-12 p-5 border-top d-none" data-comments-field>
+         <div class="g-col-12 p-5 border-top d-none" data-comments-id="${id}">
             <h4 class="mb-5">Comments</h4>
             <div id="comments" class="grid gap-5">
                <div class="g-col-12 card">
                   <div class="card-header d-flex align-items-center">
-                     <div class="profile-icon bg-primary d-inline-block rounded-circle me-4 text-secondary d-flex align-items-center justify-content-center fw-bold fs-6"></div>
-                     <h4 id="post-author" class="d-flex align-items-center text-primary">${author.name}</h4>
+                     <div class="profile-icon bg-primary d-inline-block rounded-circle me-4 text-secondary d-flex align-items-center justify-content-center fw-bold fs-6">RB</div>
+                     <h4 id="post-author" class="d-flex align-items-center text-primary">Daniel Bolten</h4>
                   </div>
                   <div class="card-body">
-                     <p></p>
+                     <p>THis is a comment</p>
                      <p class="fw-light border-top m-0 pt-2">Created:</p>
                   </div>
                </div>
@@ -81,6 +79,5 @@ export function displayPosts(post) {
       </div>
    `;
 
-   // toggleComments();
    // console.log(profilePostField);
 }
