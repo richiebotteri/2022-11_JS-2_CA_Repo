@@ -1,6 +1,6 @@
 import { removeProfileFromStorage } from "../../storage/delete-stored-profile.mjs";
 
-export function logoutAccount() {
+export function logoutAnchorAccount() {
    const desktopNav = document.querySelector("#desktop-logout-anchor");
    const mobileNav = document.querySelector("#mobile-logout-anchor");
 

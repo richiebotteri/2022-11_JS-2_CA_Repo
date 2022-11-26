@@ -1,5 +1,6 @@
 export function toggleMobileNav() {
    const toggleMenuBtn = document.querySelector("[data-mobile-nav-btn]");
+
    const navMenu = document.querySelector("[data-mobile-nav]");
 
    const toggleMenu = function (event) {

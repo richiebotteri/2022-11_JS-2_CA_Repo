@@ -1,4 +1,4 @@
-import { SOCIAL_URL } from "../api-environment.mjs";
+import { SOCIAL_URL } from "../constants/api-prefix-constants.mjs";
 import { redirectIfToken } from "../../api/auth/redirect-active-user.mjs";
 import * as storage from "../../storage/local-storage.mjs";
 import * as sessionStorage from "../../storage/session-storage.mjs";
