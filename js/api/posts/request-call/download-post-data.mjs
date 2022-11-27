@@ -17,10 +17,7 @@ export async function downloadPostData(method, action) {
       const result = await response.json();
       console.log("Download Post Response", response);
       result.forEach((post) => {
-         const profile = localStorage.loadItem("profile");
-         if (post.author.name === profile.name) {
-            displayPosts(post);
-         }
+         displayPosts(post);
       });
 
       toggleComments(response.ok);

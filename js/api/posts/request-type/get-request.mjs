@@ -4,10 +4,10 @@ export function getRequest() {
    const method = "get";
    const action = "/posts";
    //  optional data: author, comments, reactions
-   const withAuthor = `${action}/?_author=true`;
-   const withComments = `${action}/?_comments=true`;
-   const withReactions = `${action}/?_reactions=true`;
-   const withAllFlags = `${action}/?_author=true&_comments=true&_reactions=true`;
+   const withAuthor = `_author=true`;
+   const withComments = `_comments=true`;
+   const withReactions = `_reactions=true`;
+   const withAllFlags = `${action}/?${withAuthor}&${withComments}&${withReactions}`;
 
    downloadPostData(method, withAllFlags);
 }

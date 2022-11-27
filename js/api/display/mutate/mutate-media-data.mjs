@@ -1,6 +1,6 @@
 export function changeMediaData(media) {
    if (media === null || media === "") {
-      return "https://source.unsplash.com/random/300x300";
+      return "";
    } else {
       return media;
    }
