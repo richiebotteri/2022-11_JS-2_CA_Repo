@@ -1,5 +1,4 @@
 import { SOCIAL_URL } from "../../constants/api-prefix-constants.mjs";
-
 import { toggleComments } from "../../../handlers/posts/comments-handler.mjs";
 import * as localStorage from "../../../storage/local-storage.mjs";
 import { displayPosts } from "../../display/display-posts.mjs";

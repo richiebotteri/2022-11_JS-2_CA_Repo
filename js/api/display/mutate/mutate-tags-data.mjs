@@ -13,7 +13,5 @@ export function changeToHtmlTags(tags) {
       html += tag;
    });
 
-   console.log(html);
-
    return html;
 }

@@ -6,6 +6,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="/dist/css/styles.css" />
       <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
+      <script type="module" src="/js/index.mjs" defer></script>
+      <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
       <title>Homepage | Meetzy</title>
    </head>
    <body class="bg-light">
@@ -24,7 +26,7 @@
                      <a href="/profile/view/" class="nav-link link-dark p-1">Profile</a>
                   </li>
                   <li class="nav-item">
-                     <a href="/profile/register/" class="nav-link link-dark nav-link-hover p-1">Logout</a>
+                     <a href="/profile/register/" id="desktop-logout-anchor" class="nav-link link-dark nav-link-hover p-1">Logout</a>
                   </li>
                </ul>
             </nav>
@@ -49,7 +51,7 @@
                   </a>
                </li>
                <li class="nav-item nav-item-hover d-flex justify-content-center border-3 border-bottom border-dark py-4">
-                  <a class="nav-link link-dark d-flex align-items-center justify-content-center w-100" aria-current="page" href="/profile/view/">
+                  <a id="mobile-logout-anchor" class="nav-link link-dark d-flex align-items-center justify-content-center w-100" aria-current="page" href="/profile/view/">
                      <span class="profile-icon bg-dark d-inline-block rounded-circle me-3 text-light d-flex align-items-center justify-content-center fw-bold">RB</span>
                      Profile
                   </a>
@@ -67,22 +69,63 @@
       <!-- Main Content-->
       <main class="container flex-grow-1 d-flex flex-column justify-content-center p-4 gap-6 my-6">
          <div class="grid bg-primary shadow">
-            <h1 class="g-col-12 p-5 fw-semibold text-secondary">Home</h1>
+            <h1 class="g-col-12 px-5 py-3 fw-semibold text-secondary">Home</h1>
+            
             <!-- Create Posts -->
-            <form action="/posts/" method="post" id="home-form" class="g-col-12 bg-secondary d-flex gap-2 flex-column p-5 needs-validation" novalidate>
-               <label for="text-area" class="form-label px-0 fs-2">Create a post</label>
-               <textarea class="form-control" id="text-area" rows="5" placeholder="Whats on your mind?" required></textarea>
+            <form action="/posts" method="post" id="create-post-form" class="g-col-12 d-flex gap-2 flex-column bg-secondary shadow p-5 needs-validation" novalidate>
+               <h2>Create a post</h2>
+               <div class="form-group mb-1">
+                  <label for="title" class="form-label ps-1 mb-2">
+                     Title
+                     <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                  </label>
+                  <input type="text" class="form-control py-2 mb-2" id="title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" />
+               </div>
+               <div class="form-group mb-1">
+                  <label for="textarea" class="form-label ps-1 mb-2">
+                     Content
+                     <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                  </label>
+                  <textarea class="form-control py-2 mb-2" id="textarea" rows="5" name="textarea" placeholder="Whats on your mind?" required></textarea>
+               </div>
+               <!-- media  -->
+               <div class="bg-light p-3 rounded-2 border">
+                  <div class="grid gap-3">
+                     <div class="g-col-6">
+                        <button type="button" id="media-btn" class="btn btn-primary w-100">
+                           Media
+                           <i class="fa-solid fa-photo-film ms-2"></i>
+                        </button>
+                     </div>
+                     <div class="g-col-6">
+                        <button type="button" id="tag-btn" class="btn btn-primary w-100">
+                           tag
+                           <i class="fa-solid fa-photo-film ms-2"></i>
+                        </button>
+                     </div>
+                  </div>
+                  <div id="media-input-group" class="form-group d-none">
+                     <label for="media-input" class="form-label ps-1 mt-4 mb-2">Media</label>
+                     <input type="text" class="form-control py-2 my-2" id="media-input" name="media" placeholder="https://image.example/" />
+                  </div>
+                  <div id="tag-input-group" class="form-group d-none">
+                     <label for="tag-input" class="form-label ps-1 mt-1 mb-2">Tag</label>
+                     <input type="text" class="g-col-12 form-control py-2 my-2" id="tag-input" name="tags" placeholder="#sunny, #vacation" />
+                  </div>
+               </div>
                <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold inline">Please type in a message</div>
-               <button type="submit" class="btn w-25 btn-primary align-self-end">Post</button>
+               <button type="submit" class="btn w-25 btn-accent-1 align-self-end">Post</button>
             </form>
          </div>
-         <div class="grid gap-5">
+         </div>
+         <div class="gap-5">
             <!-- Spacers -->
-            <div class="g-col-12">
-               <div class="border-2 border-top border-dark my-4 w-75 m-auto"></div>
+            <div class="w-90 m-auto">
+               <div class="border-2 border-top border-dark my-4 m-auto"></div>
                <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Contact Post-Feed</div>
             </div>
-
+         
+            <div class="grid gap-5">
             <!-- Filter Button -->
             <div class="btn-group">
                <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Filter Names</button>
@@ -93,73 +136,12 @@
             </div>
 
             <!-- Post Feed from Contacts -->
-            <div class="g-col-12 grid gap-5">
-               <div class="g-col-12 g-col-lg-6 p-5 d-flex flex-column bg-primary">
-                  <div class="grid">
-                     <h4 class="g-col-9 d-flex px-2 align-items-center text-white">
-                        <span class="profile-icon bg-white d-inline-block rounded-circle me-4 text-dark d-flex align-items-center justify-content-center fw-bold fs-6">CB</span>
-                        Catharin Brown
-                     </h4>
-                     <div class="g-col-3 d-flex justify-content-end gap-3 align-content-center">
-                        <button type="button" class="btn btn-outline-light d-flex align-items-center h-75 p-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
-                        <ul class="dropdown-menu">
-                           <li class="dropdown-item">Delete Post</li>
-                           <li class="dropdown-item">Edit Post</li>
-                        </ul>
-                     </div>
-                  </div>
-                  <p class="my-5 w-100 py-4 px-5 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  <div class="grid gap-3 px-2 border-2 border-top border-light pt-5">
-                     <div class="g-col-6">
-                        <button class="btn btn-accent-2 w-100">
-                           Like
-                           <i class="fa-regular fa-thumbs-up ms-2"></i>
-                        </button>
-                     </div>
-
-                     <div class="g-col-6">
-                        <button class="btn btn-accent-1 w-100">Comment</button>
-                     </div>
-                  </div>
-               </div>
-               <div class="g-col-12 g-col-lg-6 p-5 d-flex flex-column bg-primary">
-                  <div class="grid">
-                     <h4 class="g-col-9 d-flex px-2 align-items-center text-white">
-                        <span class="profile-icon bg-white d-inline-block rounded-circle me-4 text-dark d-flex align-items-center justify-content-center fw-bold fs-6">CB</span>
-                        Catharin Brown
-                     </h4>
-                     <div class="g-col-3 d-flex justify-content-end gap-3 align-content-center">
-                        <button type="button" class="btn btn-outline-light d-flex align-items-center h-75 p-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
-                        <ul class="dropdown-menu">
-                           <li class="dropdown-item">Delete Post</li>
-                           <li class="dropdown-item">Edit Post</li>
-                        </ul>
-                     </div>
-                  </div>
-                  <p class="my-5 w-100 py-4 px-5 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  <div class="grid gap-3 px-2 border-2 border-top border-light pt-5">
-                     <div class="g-col-6">
-                        <button class="btn btn-accent-2 w-100">
-                           Like
-                           <i class="fa-regular fa-thumbs-up ms-2"></i>
-                        </button>
-                     </div>
-
-                     <div class="g-col-6">
-                        <button class="btn btn-accent-1 w-100">Comment</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
+            <div id="profile-post-field" class="g-col-12 w-100 m-auto grid"></div>
+         </div>
          </div>
       </main>
-
       <footer class="bg-dark">
          <p class="text-center text-white mb-0 p-3">Copywritee &copy;</p>
       </footer>
-
-      <script type="module" src="/js/mobile-nav-toggle/index.mjs"></script>
-      <script type="module" src="/js/form-validation/index.mjs"></script>
-      <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
    </body>
 </html>

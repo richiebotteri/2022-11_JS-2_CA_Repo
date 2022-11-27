@@ -1,10 +1,23 @@
 import { registerAccount } from "../../api/account/register-account.mjs";
+import { validateInputs } from "../../form-validation/validatedInput.mjs";
 
 export function registerFormHandler() {
    const formToRegister = document.querySelector("#form-to-register");
 
    formToRegister.addEventListener("submit", (event) => {
       event.preventDefault();
-      registerAccount(event.target);
+
+      const registerFormArray = [];
+      const { name, email, password } = event.target;
+      registerFormArray.push(name, email, password);
+
+      const isValid = validateInputs(registerFormArray);
+
+      if (isValid) {
+         console.log(isValid);
+         registerAccount(event.target);
+      } else {
+         console.log("form not valid");
+      }
    });
 }

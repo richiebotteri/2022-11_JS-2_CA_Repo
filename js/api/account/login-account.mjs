@@ -9,6 +9,5 @@ export function loginAccount(event) {
    const method = formElements.method;
    const action = formElements.attributes.action.value;
 
-   console.log(loginCredentials, method, action);
    authenticateProfile(loginCredentials, method, action);
 }

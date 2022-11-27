@@ -1,6 +1,6 @@
-import { changeToHtmlComments } from "./refactor/mutate-comments-data.mjs";
-import { changeToHtmlTags } from "./refactor/mutate-tags-data.mjs";
-import { changeMediaData } from "./refactor/mutate-media-data.mjs";
+import { changeToHtmlComments } from "./mutate/mutate-comments-data.mjs";
+import { changeToHtmlTags } from "./mutate/mutate-tags-data.mjs";
+import { changeMediaData } from "./mutate/mutate-media-data.mjs";
 
 export function displayPosts(post) {
    const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
@@ -28,7 +28,7 @@ export function displayPosts(post) {
             </div>
          </div>
          <!-- Post Body -->
-         <div class="g-col-12 w-100 m-auto p-5 p-md-6 bg-secondary">
+         <div class="g-col-12 w-100 m-auto p-5 p-md-5 bg-secondary">
             <div class="card">
                <div class="card-header py-3">
                   <h4 class="m-0 fw-semibold">${title}</h4>
