@@ -1,6 +1,6 @@
 export function changeMediaData(media) {
    if (media === null || media === "") {
-      return "";
+      return " ";
    } else {
       return media;
    }

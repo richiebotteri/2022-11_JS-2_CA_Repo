@@ -15,7 +15,6 @@ export async function downloadPostData(method, action) {
 
       const response = await fetch(`${SOCIAL_URL}${action}`, options);
       const result = await response.json();
-      console.log("Download Post Response", response);
       result.forEach((post) => {
          displayPosts(post);
       });
