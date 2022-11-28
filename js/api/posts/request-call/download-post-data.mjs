@@ -2,6 +2,7 @@ import { SOCIAL_URL } from "../../constants/api-prefix-constants.mjs";
 import { toggleComments } from "../../../handlers/posts/comments-handler.mjs";
 import * as localStorage from "../../../storage/local-storage.mjs";
 import { displayPosts } from "../../display/display-posts.mjs";
+import { postDropdownHandler } from "../../../handlers/posts/post-dropdown-handler.mjs";
 
 export async function downloadPostData(method, action) {
    try {
@@ -21,6 +22,7 @@ export async function downloadPostData(method, action) {
       });
 
       toggleComments(response.ok);
+      postDropdownHandler(response.ok);
    } catch (error) {
       console.log(error);
    }
