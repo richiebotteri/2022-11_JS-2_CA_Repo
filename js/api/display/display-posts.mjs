@@ -30,9 +30,9 @@ export function displayPosts(post) {
          </div>
          <div class="g-col-2 d-flex justify-content-end align-items-center">
             <button type="button" class="btn btn-outline-light d-flex h-75 align-items-center p-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
-            <ul id="post-dropdown-btn" class="dropdown-menu">
-               <li class="dropdown-item">Delete Post</li>
-               <li class="dropdown-item">Edit Post</li>
+            <ul id="post-dropdown-btn" class="dropdown-menu" data-post-id="${id}">
+               <li id="delete-post-btn" class="dropdown-item">Delete Post</li>
+               <li id="edit-post-btn" class="dropdown-item">Edit Post</li>
             </ul>
          </div>
       </div>
