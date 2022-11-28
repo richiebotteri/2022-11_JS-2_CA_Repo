@@ -1,4 +1,4 @@
-import { authenticateProfile } from "../auth/authenticate-profile.mjs";
+import { authenticateProfile } from "../authenticate/authenticate-profile.mjs";
 
 export function registerAccount(registeredFormData) {
    const newUserAccount = {

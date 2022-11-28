@@ -1,4 +1,4 @@
-// import { uploadPostData } from "../request-call/upload-post-data.mjs";
+import { uploadPostData } from "../request-call/upload-post-data.mjs";
 
 export function createRequest(event) {
    const form = event.target;
@@ -14,6 +14,5 @@ export function createRequest(event) {
    const method = form.method;
    const action = form.attributes.action.value;
 
-   console.log(postObject);
-   // uploadPostData(postObject, method, action);
+   uploadPostData(postObject, method, action);
 }
