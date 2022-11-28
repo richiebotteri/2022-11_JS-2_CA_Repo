@@ -3,18 +3,11 @@ import { toggleComments } from "../../../handlers/posts/comments-handler.mjs";
 import * as localStorage from "../../../storage/local-storage.mjs";
 import { displayPosts } from "../../display/display-posts.mjs";
 import { postDropdownHandler } from "../../../handlers/posts/post-dropdown-handler.mjs";
+import { optionWithToken } from "../../api-options/only-auth.mjs";
 
 export async function downloadPostData(method, action) {
    try {
-      let options = {
-         method: method,
-         headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${localStorage.loadItem("loginToken")}`,
-         },
-      };
-
-      const response = await fetch(`${SOCIAL_URL}${action}`, options);
+      const response = await fetch(`${SOCIAL_URL}${action}`, optionWithToken(method));
       const result = await response.json();
 
       result.forEach((post) => {

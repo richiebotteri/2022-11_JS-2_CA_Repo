@@ -1,3 +1,4 @@
+import { optionWithContent } from "../api-options/auth-with-content.mjs";
 import { SOCIAL_URL } from "../constants/api-prefix-constants.mjs";
 import { displayLoginFeedback } from "../display/display-login-feedback.mjs";
 import { displayRegisterFeedback } from "../display/display-register-feedback.mjs";
@@ -11,7 +12,7 @@ export async function authenticateProfile(profileCredentials, method, action) {
          },
          body: JSON.stringify(profileCredentials),
       };
-      const response = await fetch(`${SOCIAL_URL}${action}`, option);
+      const response = await fetch(`${SOCIAL_URL}${action}`, optionWithContent(profileCredentials, method));
       const result = await response.json();
 
       console.log("check result", result);

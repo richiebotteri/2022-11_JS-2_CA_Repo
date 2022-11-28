@@ -3,16 +3,22 @@ import { updateRequest } from "../../api/posts/request-type/update-request.mjs";
 
 export function postDropdownHandler(responseOk) {
    if (responseOk) {
-      const postDropdownBtn = document.querySelector("#post-dropdown-btn");
-      postDropdownBtn.addEventListener("click", (event) => {
-         const dropdownOption = event.target;
-         if (dropdownOption.id === "delete-post-btn") {
-            deleteRequest(dropdownOption);
-         }
+      let postDropdownBtn = document.querySelector("#post-dropdown-btn");
 
-         if (dropdownOption.id === "edit-post-btn") {
-            updateRequest(dropdownOption);
-         }
-      });
+      if (postDropdownBtn === null) {
+         console.log("No Posts");
+         postDropdownBtn = "";
+      } else {
+         postDropdownBtn.addEventListener("click", (event) => {
+            const dropdownOption = event.target;
+            if (dropdownOption.innerText === "Delete Post") {
+               console.log(dropdownOption);
+               deleteRequest(dropdownOption);
+            }
+            if (dropdownOption.innerText === "Edit Post") {
+               updateRequest(dropdownOption);
+            }
+         });
+      }
    }
 }
