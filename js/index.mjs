@@ -1,16 +1,20 @@
-import * as noroffAPI from "./api/api-environment.mjs";
-import { storeNewAccount } from "./handlers/register-form-handler.mjs";
-import { loginAccount } from "./handlers/login-form-handler.mjs";
-import { logoutAccount } from "./handlers/logout-anchor-handler.mjs";
+import { validatedForms } from "./form-validation/index.mjs";
 import { offlineFeedback } from "./alert/index.mjs";
+import { postHandlers, signupHandlers } from "./handlers/index.mjs";
+import { postRequests } from "./api/posts/index.mjs";
 
 const path = location.pathname;
+console.log(path);
 
-if (path === "/profile/view/") {
-   logoutAccount();
-   offlineFeedback();
+validatedForms();
+
+if (path === "/profile/view/index.html" || path === "/profile/view/") {
+   postHandlers();
+   postRequests();
+} else if (path === "/profile/home-feed/index.html" || path === "/profile/home-feed/") {
+   postHandlers();
+   postRequests();
 } else {
-   storeNewAccount();
-   loginAccount();
    offlineFeedback();
+   signupHandlers();
 }
