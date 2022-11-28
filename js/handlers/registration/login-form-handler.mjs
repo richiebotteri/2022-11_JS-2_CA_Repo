@@ -1,4 +1,4 @@
-import { loginAccount } from "../../api/account/login-account.mjs";
+import { loginAccount } from "../../api/signup/login-account.mjs";
 import { validateInputs } from "../../form-validation/validatedInput.mjs";
 
 export function loginFormHandler() {
