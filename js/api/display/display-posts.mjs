@@ -7,6 +7,7 @@ import { filterMediaUrl } from "./mutate/filter-media-url.mjs";
 
 export function displayPosts(post) {
    const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
+
    const singleTags = changeToHtmlTags(tags);
    const htmlComments = changeToHtmlComments(comments);
    const newDateCreated = new Date(created);
