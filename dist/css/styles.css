@@ -23840,6 +23840,10 @@ readers do not read off random characters that represent icons */
   height: 100vh;
 }
 
+.z-index {
+  z-index: 10;
+}
+
 @media (min-width: 768px) {
   .searchfield {
     display: flex;

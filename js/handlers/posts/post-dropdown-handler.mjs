@@ -16,7 +16,10 @@ export function postDropdownHandler(responseOk) {
                deleteRequest(dropdownOption);
             }
             if (dropdownOption.innerText === "Edit Post") {
-               updateRequest(dropdownOption);
+               const editPostForm = document.querySelector("#edit-post-form");
+               editPostForm.classList.replace("d-none", "d-flex");
+
+               // updateRequest(dropdownOption);
             }
          });
       }
