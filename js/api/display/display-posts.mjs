@@ -6,15 +6,20 @@ import { changeAvatarData } from "./mutate/mutate-avatar-data.mjs";
 import { filterMediaUrl } from "./mutate/filter-media-url.mjs";
 import { changeTagsToSingleTags } from "./mutate/change-tags-to-singletags.mjs";
 import { changeToHtmlTag } from "./mutate/change-tag-to-html.mjs";
+import { onlyShowRealUpdates } from "./mutate/only-show-real-updates.mjs";
+import { changeCreatedFormat } from "./mutate/change-created-format.mjs";
+import { changeUpdateFormat } from "./mutate/change-update-format.mjs";
 
 export function displayPosts(post) {
    const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
    const tag = changeTagsToSingleTags(tags);
    const htmlTag = changeToHtmlTag(tags);
-   console.log(htmlTag);
    const htmlComments = changeToHtmlComments(comments);
-   const newDateCreated = new Date(created);
-   const newDateUpdated = new Date(updated);
+
+   const realDateUpdates = onlyShowRealUpdates(created, updated);
+   const newDateCreated = changeCreatedFormat(created);
+   const newDateUpdated = changeUpdateFormat(realDateUpdates);
+
    const newMedia = changeMediaData(media);
    // const filteredMedia = filterMediaUrl(newMedia);
    const newAvatar = changeAvatarData(author.avatar, author.name);
@@ -96,8 +101,8 @@ export function displayPosts(post) {
                </div>
             </div>
             <div class="bg-light-2 border-top d-flex flex-wrap justify-content-between px-5 py-3">
-               <p class="fw-light m-0">Created: ${newDateCreated.toLocaleDateString()}</p>
-               <p class="fw-light m-0">Updated: ${newDateUpdated.toLocaleDateString()}</p>
+               <p class="fw-light mb-2">${newDateCreated}</p>
+               <p class="fw-light m-0">${newDateUpdated}</p>
             </div>
          </div>
       </div>
@@ -140,8 +145,8 @@ export function displayPosts(post) {
                   </div>
                </div>
                <div class="bg-light-2 border-top d-flex flex-wrap justify-content-between px-5 py-3">
-                  <p class="fw-light m-0">Created: ${newDateCreated.toLocaleDateString()}</p>
-                  <p class="fw-light m-0">Updated: ${newDateUpdated.toLocaleDateString()}</p>
+                  <p class="fw-light mb-2"><strong>${newDateCreated}</p>
+                  <p class="fw-light m-0"><strong>${newDateUpdated}</p>
                </div>
             </div>
          </div>
