@@ -20,7 +20,14 @@ export function postDropdownHandler(responseOk) {
                const editPostForm = document.querySelector("#edit-post-form");
                editPostForm.classList.replace("d-none", "d-flex");
                closeEditPostHandler(editPostForm);
-               // updateRequest(dropdownOption);
+
+               editPostForm.addEventListener("submit", (event) => {
+                  event.preventDefault();
+
+                  const editFormSubmit = event.target;
+
+                  updateRequest(editFormSubmit, dropdownOption);
+               });
             }
          });
       }

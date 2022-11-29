@@ -1,14 +1,16 @@
 import { changeToHtmlComments } from "./mutate/mutate-comments-data.mjs";
-import { changeToHtmlTags } from "./mutate/mutate-tags-data.mjs";
+
 import { changeMediaData } from "./mutate/mutate-media-data.mjs";
 import { loadItem } from "../../storage/local-storage.mjs";
 import { changeAvatarData } from "./mutate/mutate-avatar-data.mjs";
 import { filterMediaUrl } from "./mutate/filter-media-url.mjs";
+import { changeTagsToSingleTags } from "./mutate/change-tags-to-singletags.mjs";
+import { changeToHtmlTag } from "./mutate/change-tag-to-html.mjs";
 
 export function displayPosts(post) {
    const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
-
-   const singleTags = changeToHtmlTags(tags);
+   const tag = changeTagsToSingleTags(tags);
+   const htmlTags = changeToHtmlTag(tag);
    const htmlComments = changeToHtmlComments(comments);
    const newDateCreated = new Date(created);
    const newDateUpdated = new Date(updated);
@@ -21,7 +23,7 @@ export function displayPosts(post) {
 
    const editPostForm = `
    <!-- Edit Posts -->
-   <form action="/posts" method="patch" id="edit-post-form" class="w-100 h-100 d-none position-absolute flex-column bg-secondary shadow p-5 z-index needs-validation" novalidate>
+   <form action="/posts" method="put" id="edit-post-form" class="w-100 h-100 d-none position-absolute flex-column bg-secondary shadow p-5 z-index needs-validation" novalidate>
       <div class="form-group mb-3 d-flex justify-content-between align-items-center">
          <h2 class="mb-3">Edit post</h2>
          <button type="button" class="btn btn-outline-primary close-edit-btn rounded-circle"><i class="fa-solid fa-xmark"></i></button>
@@ -31,25 +33,25 @@ export function displayPosts(post) {
              Title
              <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
          </label>
-         <input type="text" class="form-control py-2" id="edit-title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" value="title"/>
+         <input type="text" class="form-control py-2" id="edit-title" name="title" placeholder="No title in the post." required maxlength="280" value="${title}"/>
        </div>
        <div class="form-group mb-3">
          <label for="textarea" class="form-label ps-1 mb-2">
              Content
              <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
          </label>
-         <textarea class="form-control py-2" id="edit-textarea" rows="5" name="textarea" placeholder="Whats on your mind?" required></textarea>
+         <textarea class="form-control py-2" id="edit-textarea" rows="5" name="textarea" placeholder="No content in the post." required>${body}</textarea>
        </div>
        <div id="media-input-group" class="form-group mb-3">
            <label for="media-input" class="form-label ps-1">Media</label>
-           <input type="text" class="form-control py-2" id="edit-media-input" name="media" placeholder="https://image.example/" />
+           <input type="text" class="form-control py-2" id="edit-media-input" name="media" placeholder="No media in the post." value="${newMedia}"/>
        </div>
        <div id="tag-input-group" class="form-group mb-3">
            <label for="tag-input" class="form-label ps-1 mb-2">Tag</label>
-           <input type="text" class="g-col-12 form-control py-2 " id="edit-tag-input" name="tags" placeholder="#sunny, #vacation" />
+           <input type="text" class="g-col-12 form-control py-2 " id="edit-tag-input" name="tags" placeholder="No tags in the post" value="${tag}"/>
        </div>
        <div class="invalid-feedback bg-danger p-3 mb-2 rounded-2 text-white fw-semibold inline">Please type in a message</div>
-       <button type="submit" class="btn w-100 btn-primary mt-3">Post</button>
+       <button type="submit" class="btn w-100 btn-primary mt-3">Update Post</button>
    </form>
 `;
 
@@ -81,7 +83,7 @@ export function displayPosts(post) {
                <img src="${newMedia}" class="img-fluid" alt="" />
             </div>
             <div class="card-body d-flex flex-column">
-               <span id="tags">${singleTags}</span>
+               <span id="tags">${htmlTags}</span>
                <p class="mb-3 fs-5">${body}</p>
                <div class="d-flex gap-1 flex-wrap border-top pt-3">
                   <button id="add-like-btn" class="btn btn-secondary p-1">
@@ -125,7 +127,7 @@ export function displayPosts(post) {
                   <img src="${newMedia}" class="img-fluid" alt="" />
                </div>
                <div class="card-body d-flex flex-column">
-                  <span id="tags">${singleTags}</span>
+                  <span id="tags">${htmlTags}</span>
                   <p class="mb-3 fs-5">${body}</p>
                   <div class="d-flex gap-1 flex-wrap border-top pt-3">
                      <button id="add-like-btn" class="btn btn-secondary p-1">
