@@ -1,9 +1,12 @@
-export function updateRequest(editFormSubmit, editBtn) {
-   const { title, textarea, media, tags, method } = editFormSubmit;
-   const tagArray = tags.value.split(" ");
-   const postId = editBtn.parentElement.dataset.postId;
-   const action = `/posts/${postId}`;
+import { uploadPostData } from "../request-call/upload-post-data.mjs";
 
+export function updateRequest(editFormSubmit, editBtn) {
+   const { title, textarea, media, tags } = editFormSubmit;
+   const tagArray = tags.value.split(" ");
+   const method = editFormSubmit.attributes.method.value;
+   const action = editFormSubmit.attributes.action.value;
+   const postId = editBtn.parentElement.dataset.postId;
+   const putAction = `${action}/${postId}`;
    const updatedPostData = {
       title: title.value,
       body: textarea.value,
@@ -11,5 +14,5 @@ export function updateRequest(editFormSubmit, editBtn) {
       media: media.value,
    };
 
-   console.log(method);
+   uploadPostData(updatedPostData, method, putAction);
 }
