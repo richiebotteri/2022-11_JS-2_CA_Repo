@@ -1,27 +1,35 @@
+import { changeAvatarData } from "./change-avatar-data.mjs";
+import { changeCreatedFormat } from "./date-changes/change-created-format.mjs";
+
 export function changeToHtmlComments(comments) {
    let commentsHtmlArray = "";
    let singleHtmlComments = "";
-
    commentsHtmlArray = comments.map((comment) => {
       const dateCreated = comment.created;
-      const newDateFormat = new Date(dateCreated);
-      const dateFormat = newDateFormat.toLocaleDateString();
+      const newDateFormat = changeCreatedFormat(dateCreated);
+      const avatar = changeAvatarData(comment.author.avatar, comment.author.name);
+      console.log(avatar);
       return `
-             <div id="comments" class="grid gap-5 mb-5">
-                <div class="g-col-12 card">
-                   <div class="card-header d-flex align-items-center">
-                      <div class="profile-icon bg-primary d-inline-block rounded-circle me-4 text-secondary d-flex align-items-center justify-content-center fw-bold fs-6">RB</div>
-                      <h4 id="post-author" class="d-flex align-items-center text-primary">${comment.owner}</h4>
+            
+                <div class="w-100 d-flex flex-column gap-5 mb-5 card">
+                   <div class="card-header bg-primary text-secondary d-flex align-items-center">
+                     ${avatar}
+                      <h4 id="post-author" class="d-flex align-items-center text-secondary">${comment.owner}</h4>
                    </div>
                    <div class="card-body">
                       <p class="m-0">${comment.body}</p>
                    </div>
                    <div class="card-footer">
-                      <p class="fw-light m-0">Created:${dateFormat}</p>
+                      <p class="fw-light m-0">${newDateFormat}</p>
                    </div>
                 </div>
-             </div>
+            
        `;
    });
-   return commentsHtmlArray;
+
+   commentsHtmlArray.forEach((htmlComment) => {
+      singleHtmlComments += htmlComment;
+   });
+
+   return singleHtmlComments;
 }

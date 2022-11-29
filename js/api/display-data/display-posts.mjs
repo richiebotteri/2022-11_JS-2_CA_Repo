@@ -140,8 +140,8 @@ export function displayPosts(post) {
                   </div>
                </div>
                <div class="bg-light-2 border-top d-flex flex-wrap justify-content-between px-5 py-3">
-                  <p class="fw-light mb-2"><strong>${newDateCreated}</p>
-                  <p class="fw-light m-0"><strong>${newDateUpdated}</p>
+                  <p class="fw-light mb-2">${newDateCreated}</p>
+                  <p class="fw-light m-0">${newDateUpdated}</p>
                </div>
             </div>
          </div>

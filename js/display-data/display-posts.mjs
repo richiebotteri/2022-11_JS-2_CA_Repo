@@ -103,7 +103,9 @@ export function displayPosts(post) {
       </div>
       <div class="g-col-12 p-5 border-top d-none" data-comments-id="${id}">
          <h4 class="mb-5">Comments</h4>
-         ${htmlComments}
+         <div class="d-flex flex-column align-items-center">
+            ${htmlComments}
+         </div>
       </div>
    </div>
 `;
@@ -140,14 +142,16 @@ export function displayPosts(post) {
                   </div>
                </div>
                <div class="bg-light-2 border-top d-flex flex-wrap justify-content-between px-5 py-3">
-                  <p class="fw-light mb-2"><strong>${newDateCreated}</p>
-                  <p class="fw-light m-0"><strong>${newDateUpdated}</p>
+                  <p class="fw-light mb-2">${newDateCreated}</p>
+                  <p class="fw-light m-0">${newDateUpdated}</p>
                </div>
             </div>
          </div>
          <div class="g-col-12 p-5 border-top d-none" data-comments-id="${id}">
-            <h4 class="mb-5">Comments</h4>
-            ${htmlComments}
+            <div class="d-flex flex-column p-5">
+               <h4 class="mb-5">Comments</h4>
+               ${htmlComments}
+            </div>
          </div>
       </div>
 `;
