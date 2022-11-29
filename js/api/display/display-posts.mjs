@@ -21,49 +21,35 @@ export function displayPosts(post) {
 
    const editPostForm = `
    <!-- Edit Posts -->
-   <form action="/posts" method="post" id="edit-post-form" class="w-100 h-100 d-none position-absolute gap-2 flex-column bg-secondary shadow p-5 z-index needs-validation" novalidate>
-       <h2>Create a post</h2>
-       <div class="form-group mb-1">
+   <form action="/posts" method="patch" id="edit-post-form" class="w-100 h-100 d-none position-absolute flex-column bg-secondary shadow p-5 z-index needs-validation" novalidate>
+      <div class="form-group mb-3 d-flex justify-content-between align-items-center">
+         <h2 class="mb-3">Edit post</h2>
+         <button type="button" class="btn btn-outline-primary close-edit-btn rounded-circle"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+       <div class="form-group mb-3">
          <label for="title" class="form-label ps-1 mb-2">
              Title
              <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
          </label>
-         <input type="text" class="form-control py-2 mb-2" id="title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" />
+         <input type="text" class="form-control py-2" id="edit-title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" value="title"/>
        </div>
-       <div class="form-group mb-1">
+       <div class="form-group mb-3">
          <label for="textarea" class="form-label ps-1 mb-2">
              Content
              <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
          </label>
-         <textarea class="form-control py-2 mb-2" id="textarea" rows="5" name="textarea" placeholder="Whats on your mind?" required></textarea>
+         <textarea class="form-control py-2" id="edit-textarea" rows="5" name="textarea" placeholder="Whats on your mind?" required></textarea>
        </div>
-       <!-- media  -->
-       <div class="bg-light p-3 rounded-2 border">
-         <div class="grid gap-3">
-             <div class="g-col-6">
-               <button type="button" id="media-btn" class="btn btn-primary w-100">
-                   Media
-                   <i class="fa-solid fa-photo-film ms-2"></i>
-               </button>
-             </div>
-             <div class="g-col-6">
-               <button type="button" id="tag-btn" class="btn btn-primary w-100">
-                   tag
-                   <i class="fa-solid fa-photo-film ms-2"></i>
-               </button>
-             </div>
-         </div>
-         <div id="media-input-group" class="form-group d-none">
-             <label for="media-input" class="form-label ps-1 mt-4 mb-2">Media</label>
-             <input type="text" class="form-control py-2 my-2" id="media-input" name="media" placeholder="https://image.example/" />
-         </div>
-         <div id="tag-input-group" class="form-group d-none">
-             <label for="tag-input" class="form-label ps-1 mt-1 mb-2">Tag</label>
-             <input type="text" class="g-col-12 form-control py-2 my-2" id="tag-input" name="tags" placeholder="#sunny, #vacation" />
-         </div>
+       <div id="media-input-group" class="form-group mb-3">
+           <label for="media-input" class="form-label ps-1">Media</label>
+           <input type="text" class="form-control py-2" id="edit-media-input" name="media" placeholder="https://image.example/" />
        </div>
-       <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold inline">Please type in a message</div>
-       <button type="submit" class="btn w-25 btn-accent-1 align-self-end">Post</button>
+       <div id="tag-input-group" class="form-group mb-3">
+           <label for="tag-input" class="form-label ps-1 mb-2">Tag</label>
+           <input type="text" class="g-col-12 form-control py-2 " id="edit-tag-input" name="tags" placeholder="#sunny, #vacation" />
+       </div>
+       <div class="invalid-feedback bg-danger p-3 mb-2 rounded-2 text-white fw-semibold inline">Please type in a message</div>
+       <button type="submit" class="btn w-100 btn-primary mt-3">Post</button>
    </form>
 `;
 

@@ -1,5 +1,6 @@
 import { deleteRequest } from "../../api/posts/request-type/delete-request.mjs";
 import { updateRequest } from "../../api/posts/request-type/update-request.mjs";
+import { closeEditPostHandler } from "./close-edit-post-handler.mjs";
 
 export function postDropdownHandler(responseOk) {
    if (responseOk) {
@@ -18,7 +19,7 @@ export function postDropdownHandler(responseOk) {
             if (dropdownOption.innerText === "Edit Post") {
                const editPostForm = document.querySelector("#edit-post-form");
                editPostForm.classList.replace("d-none", "d-flex");
-
+               closeEditPostHandler(editPostForm);
                // updateRequest(dropdownOption);
             }
          });
