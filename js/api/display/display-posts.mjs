@@ -10,7 +10,8 @@ import { changeToHtmlTag } from "./mutate/change-tag-to-html.mjs";
 export function displayPosts(post) {
    const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
    const tag = changeTagsToSingleTags(tags);
-   const htmlTags = changeToHtmlTag(tag);
+   const htmlTag = changeToHtmlTag(tags);
+   console.log(htmlTag);
    const htmlComments = changeToHtmlComments(comments);
    const newDateCreated = new Date(created);
    const newDateUpdated = new Date(updated);
@@ -83,7 +84,7 @@ export function displayPosts(post) {
                <img src="${newMedia}" class="img-fluid" alt="" />
             </div>
             <div class="card-body d-flex flex-column">
-               <span id="tags">${htmlTags}</span>
+               <span id="tags">${htmlTag}</span>
                <p class="mb-3 fs-5">${body}</p>
                <div class="d-flex gap-1 flex-wrap border-top pt-3">
                   <button id="add-like-btn" class="btn btn-secondary p-1">
@@ -127,7 +128,7 @@ export function displayPosts(post) {
                   <img src="${newMedia}" class="img-fluid" alt="" />
                </div>
                <div class="card-body d-flex flex-column">
-                  <span id="tags">${htmlTags}</span>
+                  <span id="tags">${htmlTag}</span>
                   <p class="mb-3 fs-5">${body}</p>
                   <div class="d-flex gap-1 flex-wrap border-top pt-3">
                      <button id="add-like-btn" class="btn btn-secondary p-1">
