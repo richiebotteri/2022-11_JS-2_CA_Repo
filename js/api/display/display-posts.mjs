@@ -1,12 +1,12 @@
-import { loadItem } from "../storage/local-storage.mjs";
-import { changeToHtmlComments } from "../api/change-api-data/change-comments-data.mjs";
-import { changeMediaData } from "../api/change-api-data/media-changes/change-media-data.mjs";
-import { changeAvatarData } from "../api/change-api-data/change-avatar-data.mjs";
-import { changeTagsToSingleTags } from "../api/change-api-data/tag-changes/change-tags-to-singletags.mjs";
-import { changeToHtmlTag } from "../api/change-api-data/tag-changes/change-tag-to-html.mjs";
-import { onlyShowRealUpdates } from "../api/change-api-data/date-changes/only-show-real-updates.mjs";
-import { changeCreatedFormat } from "../api/change-api-data/date-changes/change-created-format.mjs";
-import { changeUpdateFormat } from "../api/change-api-data/date-changes/change-update-format.mjs";
+import { loadItem } from "../../storage/local-storage.mjs";
+import { changeToHtmlComments } from "../change-api-data/change-comments-data.mjs";
+import { changeMediaData } from "../change-api-data/media-changes/change-media-data.mjs";
+import { changeAvatarData } from "../change-api-data/change-avatar-data.mjs";
+import { changeTagsToSingleTags } from "../change-api-data/tag-changes/change-tags-to-singletags.mjs";
+import { changeToHtmlTag } from "../change-api-data/tag-changes/change-tag-to-html.mjs";
+import { onlyShowRealUpdates } from "../change-api-data/date-changes/only-show-real-updates.mjs";
+import { changeCreatedFormat } from "../change-api-data/date-changes/change-created-format.mjs";
+import { changeUpdateFormat } from "../change-api-data/date-changes/change-update-format.mjs";
 
 export function displayPosts(post) {
    const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
