@@ -1,6 +1,6 @@
-import { SOCIAL_URL } from "../../constants/api-prefix-constants.mjs";
+import { SOCIAL_URL } from "../../api-constants/index.mjs";
 import { toggleComments } from "../../../handlers/posts/comments-handler.mjs";
-import { displayPosts } from "../../display/display-posts.mjs";
+import { displayPosts } from "../../../display-data/display-posts.mjs";
 import { postDropdownHandler } from "../../../handlers/posts/post-dropdown-handler.mjs";
 import { optionWithToken } from "../../api-options/only-auth.mjs";
 

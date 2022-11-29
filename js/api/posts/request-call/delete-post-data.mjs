@@ -1,4 +1,4 @@
-import { SOCIAL_URL } from "../../constants/api-prefix-constants.mjs";
+import { SOCIAL_URL } from "../../api-constants/index.mjs";
 import { optionWithToken } from "../../api-options/only-auth.mjs";
 
 export async function deletePostData(method, action) {

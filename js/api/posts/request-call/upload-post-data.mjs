@@ -1,4 +1,4 @@
-import { SOCIAL_URL } from "../../constants/api-prefix-constants.mjs";
+import { SOCIAL_URL } from "../../api-constants/index.mjs";
 import * as localStorage from "../../../storage/local-storage.mjs";
 import { optionWithContent } from "../../api-options/auth-with-content.mjs";
 

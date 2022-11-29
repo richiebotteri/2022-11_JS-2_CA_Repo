@@ -1,6 +1,6 @@
-import { redirectIfToken } from "../authenticate/redirect-active-user.mjs";
-import * as storage from "../../storage/local-storage.mjs";
-import * as sessionStorage from "../../storage/session-storage.mjs";
+import { redirectIfToken } from "../api/api-authenticate/redirect-active-user.mjs";
+import * as storage from "../storage/local-storage.mjs";
+import * as sessionStorage from "../storage/session-storage.mjs";
 
 export function displayLoginFeedback(response, result) {
    // Save login token & profile
