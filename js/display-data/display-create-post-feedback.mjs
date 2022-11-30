@@ -4,8 +4,8 @@ export function displayCreatePostFeedback(responseOk) {
    const parseDocument = parser.parseFromString(
       `
       <div id="create-success">
-        <h4 class="card-title text-center fw-semibold">Your post has been created</h4>
-        <p class="card-body text-center mb-0">Redirecting to new post</p>
+         <h4 class="card-title text-center fw-semibold">Your post has been created</h4>
+         <p class="card-body text-center mb-0">Redirecting to new post</p>
       </div>
   `,
       "text/html"
