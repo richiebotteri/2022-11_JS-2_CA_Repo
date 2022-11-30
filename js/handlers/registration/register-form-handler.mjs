@@ -14,7 +14,6 @@ export function registerFormHandler() {
       const isValid = validateInputs(registerFormArray);
 
       if (isValid) {
-         console.log(isValid);
          registerAccount(event.target);
       } else {
          console.log("form not valid");

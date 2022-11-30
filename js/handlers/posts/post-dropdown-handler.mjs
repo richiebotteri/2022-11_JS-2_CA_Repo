@@ -13,7 +13,6 @@ export function postDropdownHandler(responseOk) {
          postDropdownBtn.addEventListener("click", (event) => {
             const dropdownOption = event.target;
             if (dropdownOption.innerText === "Delete Post") {
-               console.log(dropdownOption);
                deleteRequest(dropdownOption);
             }
             if (dropdownOption.innerText === "Edit Post") {

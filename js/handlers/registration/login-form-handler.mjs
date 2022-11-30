@@ -13,7 +13,6 @@ export function loginFormHandler() {
       const isValid = validateInputs(loginFormArray);
 
       if (isValid) {
-         console.log(isValid);
          loginAccount(event);
       } else {
          console.log("form not valid");

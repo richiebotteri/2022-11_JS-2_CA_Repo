@@ -5,13 +5,10 @@ export function toggleMobileNav() {
 
    const toggleMenu = function (event) {
       if (event.target.classList.contains("btn")) {
-         console.log(event.target);
          toggleClass();
       } else if (event.target.classList.contains("fa-solid")) {
-         console.log(event.target);
          toggleClass();
       } else if (event.target.classList.contains("fa-solid")) {
-         console.log(event.target);
          toggleClass();
       }
    };

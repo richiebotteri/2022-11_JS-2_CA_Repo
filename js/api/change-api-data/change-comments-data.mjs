@@ -8,10 +8,9 @@ export function changeToHtmlComments(comments) {
       const dateCreated = comment.created;
       const newDateFormat = changeCreatedFormat(dateCreated);
       const avatar = changeAvatarData(comment.author.avatar, comment.author.name);
-      console.log(avatar);
       return `
             
-                <div class="w-100 d-flex flex-column gap-5 mb-5 card">
+                <div class="w-100 d-flex flex-column gap-5 card">
                    <div class="card-header bg-primary text-secondary d-flex align-items-center">
                      ${avatar}
                       <h4 id="post-author" class="d-flex align-items-center text-secondary">${comment.owner}</h4>

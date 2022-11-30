@@ -12,7 +12,6 @@ export function createPostHandler() {
       const isValid = validateInputs(createPostArray);
 
       if (isValid) {
-         console.log(isValid);
          createRequest(event);
       } else {
          console.log("form not valid");
