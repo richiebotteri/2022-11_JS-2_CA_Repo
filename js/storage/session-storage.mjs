@@ -1,10 +1,10 @@
-// Save to local storage
-export function saveItem(key, value) {
+// Save to session storage
+export function saveSessionItem(key, value) {
    sessionStorage.setItem(key, JSON.stringify(value));
 }
 
-// load local storage item
-export function loadItem(key) {
+// load session storage item
+export function loadSessionItem(key) {
    try {
       const storedValue = sessionStorage.getItem(key);
       return JSON.parse(storedValue);
@@ -13,7 +13,7 @@ export function loadItem(key) {
    }
 }
 
-// delete local storage item
-export function deleteItem(key) {
+// delete session storage item
+export function deleteSessionItem(key) {
    sessionStorage.removeItem(key);
 }

@@ -26,8 +26,6 @@ export function displayLoginFeedback(response, result) {
       "text/html"
    );
 
-   console.log(loginFeedback);
-
    if (response.ok) {
       loginFeedback.classList.remove("d-none");
       loginFeedback.classList.replace("bg-danger", "bg-success");

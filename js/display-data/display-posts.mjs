@@ -7,6 +7,7 @@ import { changeToHtmlTag } from "../api/change-api-data/tag-changes/change-tag-t
 import { onlyShowRealUpdates } from "../api/change-api-data/date-changes/only-show-real-updates.mjs";
 import { changeCreatedFormat } from "../api/change-api-data/date-changes/change-created-format.mjs";
 import { changeUpdateFormat } from "../api/change-api-data/date-changes/change-update-format.mjs";
+import { loadSessionItem } from "../storage/session-storage.mjs";
 
 export function displayPosts(post) {
    const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
@@ -29,7 +30,7 @@ export function displayPosts(post) {
    const parser = new DOMParser();
    const parseDocument = parser.parseFromString(
       `
-      <div id="author-post" class="g-col-12 grid bg-secondary shadow mb-6 position-relative">
+      <div id="author-post" class="g-col-12 grid bg-secondary shadow mb-6 position-relative" data-id="${id}">
          <form action="/posts" method="put" id="edit-post-form" class="w-100 h-100 d-none position-absolute flex-column bg-secondary shadow p-5 z-index needs-validation" novalidate>
             <div class="form-group mb-3 d-flex justify-content-between align-items-center">
                <h2 class="mb-3">Edit post</h2>
@@ -109,7 +110,7 @@ export function displayPosts(post) {
          </div>
       </div>
 
-      <div id="contact-post" class="g-col-12 grid bg-secondary shadow mb-6">
+      <div id="contact-post" class="g-col-12 grid bg-secondary shadow mb-6" data-id="${id}">
          <!-- Post Header -->
             <div class="g-col-12 grid bg-primary p-5">
                <div class="g-col-10 d-flex align-items-center">
