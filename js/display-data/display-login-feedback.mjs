@@ -7,7 +7,7 @@ export function displayLoginFeedback(response, result) {
    const { accessToken, ...profile } = result;
    storage.saveItem("loginToken", accessToken);
    storage.saveItem("profile", profile);
-   sessionStorage.saveItem("online", true);
+   sessionStorage.saveSessionItem("online", true);
    // Feedback on Login
    const loginFeedback = document.querySelector("#submit-feedback-login");
    const parser = new DOMParser();
