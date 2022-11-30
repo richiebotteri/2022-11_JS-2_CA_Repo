@@ -10,6 +10,8 @@ import { changeUpdateFormat } from "../api/change-api-data/date-changes/change-u
 
 export function displayPosts(post) {
    const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
+
+   // Manipulate data For display
    const tag = changeTagsToSingleTags(tags);
    const htmlTag = changeToHtmlTag(tags);
    const htmlComments = changeToHtmlComments(comments);
@@ -18,9 +20,12 @@ export function displayPosts(post) {
    const newDateUpdated = changeUpdateFormat(realDateUpdates);
    const newMedia = changeMediaData(media);
    const newAvatar = changeAvatarData(author.avatar, author.name);
+
+   // Getting output elements to display data
    const profilePostField = document.querySelector("#profile-post-field");
    const homePostField = document.querySelector("#home-post-field");
-   const profile = loadItem("profile");
+
+   // Creating Document with new html wrapped with post data
    const parser = new DOMParser();
    const parseDocument = parser.parseFromString(
       `
@@ -149,6 +154,8 @@ export function displayPosts(post) {
       `,
       "text/html"
    );
+
+   const profile = loadItem("profile");
 
    // Post with button to edit and delete post on profile
    if (author.name === profile.name && window.location.pathname === "/profile/view/") {
