@@ -15,7 +15,9 @@ export function postHandlers() {
    toggleTagBtn();
    createPostHandler();
    logoutAnchorAccount();
-   filterPostHandler();
+   if (window.location.pathname === "/profile/home-feed/") {
+      filterPostHandler();
+   }
 }
 
 export function signupHandlers() {

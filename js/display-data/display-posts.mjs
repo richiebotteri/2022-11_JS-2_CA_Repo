@@ -157,19 +157,34 @@ export function displayPosts(post) {
    );
 
    const profile = loadItem("profile");
+   const filterOptionName = loadSessionItem("filterOptionName");
+   if (filterOptionName && window.location.pathname === "/profile/home-feed/") {
+      // Post with button to edit and delete post on profile
+      if (author.name === filterOptionName) {
+         homePostField.appendChild(parseDocument.getElementById("author-post"));
+         console.log(profile.name);
+      }
+   } else {
+      // Post with button to edit and delete post on profile
+      if (author.name === profile.name && window.location.pathname === "/profile/view/") {
+         console.log("I'm in C");
+         profilePostField.appendChild(parseDocument.getElementById("author-post"));
+      }
 
-   // Post with button to edit and delete post on profile
-   if (author.name === profile.name && window.location.pathname === "/profile/view/") {
-      profilePostField.appendChild(parseDocument.getElementById("author-post"));
+      // Post with button to edit and delete post on profile
+      if (author.name === profile.name && window.location.pathname === "/profile/home-feed/") {
+         console.log("I'm in D");
+         homePostField.appendChild(parseDocument.getElementDyId("author-post"));
+      }
+
+      if (author.name !== profile.name && window.location.pathname === "/profile/home-feed/") {
+         console.log("I'm in E");
+         homePostField.appendChild(parseDocument.getElementById("contact-post"));
+      }
    }
 
-   // Post with button to edit and delete post on home-feed
-   if (author.name === profile.name && window.location.pathname === "/profile/home-feed/") {
-      homePostField.appendChild(parseDocument.getElementById("author-post"));
-   }
-
+   // else if (author.name !== filterOptionName) {
+   //    homePostField.appendChild(parseDocument.getElementById("contact-post"));
+   // }
    // contact post without edit and delete option on home-feed
-   if (author.name !== profile.name && window.location.pathname === "/profile/home-feed/") {
-      homePostField.appendChild(parseDocument.getElementById("contact-post"));
-   }
 }
