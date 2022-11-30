@@ -1,4 +1,4 @@
-import { registerAccount } from "../../api/account/register-account.mjs";
+import { registerAccount } from "../../api/signup/register-account.mjs";
 import { validateInputs } from "../../form-validation/validatedInput.mjs";
 
 export function registerFormHandler() {
@@ -14,7 +14,6 @@ export function registerFormHandler() {
       const isValid = validateInputs(registerFormArray);
 
       if (isValid) {
-         console.log(isValid);
          registerAccount(event.target);
       } else {
          console.log("form not valid");

@@ -18,7 +18,7 @@
                <p class="text-black fw-semibold fs-1 mt-2">Meetzy</p>
             </a>
             <nav class="navbar g-col-6 d-none d-md-flex justify-content-center">
-               <ul class="nav d-flex fs-5 gap-5">
+               <ul class="nav d-flex  gap-5">
                   <li class="nav-item">
                      <a href="/profile/home-feed/" class="nav-link link-dark p-1 nav-link-hover fw-semibold">Home</a>
                   </li>
@@ -74,22 +74,21 @@
             <!-- Create Posts -->
             <form action="/posts" method="post" id="create-post-form" class="g-col-12 d-flex gap-2 flex-column bg-secondary shadow p-5 needs-validation" novalidate>
                <h2>Create a post</h2>
-               <div class="form-group mb-1">
-                  <label for="title" class="form-label ps-1 mb-2">
-                     Title
-                     <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
-                  </label>
-                  <input type="text" class="form-control py-2 mb-2" id="title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" />
-               </div>
-               <div class="form-group mb-1">
-                  <label for="textarea" class="form-label ps-1 mb-2">
-                     Content
-                     <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
-                  </label>
-                  <textarea class="form-control py-2 mb-2" id="textarea" rows="5" name="textarea" placeholder="Whats on your mind?" required></textarea>
-               </div>
-               <!-- media  -->
                <div class="bg-light p-3 rounded-2 border">
+                  <div class="form-group mb-5">
+                     <label for="title" class="form-label ps-1 ">
+                        Title
+                        <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                     </label>
+                     <input type="text" class="form-control py-2 " id="title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" />
+                  </div>
+                  <div class="form-group mb-5">
+                     <label for="textarea" class="form-label ps-1 mb-2">
+                        Content
+                        <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                     </label>
+                     <textarea class="form-control py-2 mb-2" id="textarea" rows="5" name="textarea" placeholder="Whats on your mind?" required></textarea>
+                  </div>
                   <div class="grid gap-3">
                      <div class="g-col-6">
                         <button type="button" id="media-btn" class="btn btn-primary w-100">
@@ -113,8 +112,8 @@
                      <input type="text" class="g-col-12 form-control py-2 my-2" id="tag-input" name="tags" placeholder="#sunny, #vacation" />
                   </div>
                </div>
-               <div class="invalid-feedback bg-danger p-3 rounded-2 text-white fw-semibold inline">Please type in a message</div>
-               <button type="submit" class="btn w-25 btn-accent-1 align-self-end">Post</button>
+               <div class="create-post-feedback card bg-success p-5 rounded-2 text-white fw-semibold mb-2 d-none"></div>
+               <button type="submit" class="btn w-100 mt-3 btn-accent-1 align-self-end">Post</button>
             </form>
          </div>
          </div>

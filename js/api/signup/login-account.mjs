@@ -1,4 +1,4 @@
-import { authenticateProfile } from "../auth/authenticate-profile.mjs";
+import { authenticateProfile } from "../api-authenticate/authenticate-profile.mjs";
 
 export function loginAccount(event) {
    const formElements = event.target;

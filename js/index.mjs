@@ -1,10 +1,9 @@
 import { validatedForms } from "./form-validation/index.mjs";
-import { offlineFeedback } from "./alert/index.mjs";
+import { offlineFeedback } from "./display-data/display-logout-feedback.mjs";
 import { postHandlers, signupHandlers } from "./handlers/index.mjs";
 import { postRequests } from "./api/posts/index.mjs";
 
 const path = location.pathname;
-console.log(path);
 
 validatedForms();
 

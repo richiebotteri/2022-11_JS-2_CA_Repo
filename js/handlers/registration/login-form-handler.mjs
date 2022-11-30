@@ -1,4 +1,4 @@
-import { loginAccount } from "../../api/account/login-account.mjs";
+import { loginAccount } from "../../api/signup/login-account.mjs";
 import { validateInputs } from "../../form-validation/validatedInput.mjs";
 
 export function loginFormHandler() {
@@ -13,7 +13,6 @@ export function loginFormHandler() {
       const isValid = validateInputs(loginFormArray);
 
       if (isValid) {
-         console.log(isValid);
          loginAccount(event);
       } else {
          console.log("form not valid");
