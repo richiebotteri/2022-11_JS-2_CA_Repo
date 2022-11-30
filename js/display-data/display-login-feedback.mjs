@@ -42,5 +42,5 @@ export function displayLoginFeedback(response, result) {
    // Send user to view profile if valid token
    setTimeout(() => {
       redirectIfToken(accessToken);
-   }, 3500);
+   }, 2000);
 }
