@@ -68,6 +68,7 @@
 
       <!-- Main Content-->
       <main class="container flex-grow-1 d-flex flex-column justify-content-center p-4 gap-6 my-6">
+         <div class="post-change-feedback bg-accent-1 p-3 w-100 mb-3 text-primary fw-semibold d-none shadow"></div>
          <div class="grid bg-primary shadow">
             <h1 class="g-col-12 px-5 py-3 fw-semibold text-secondary">Home</h1>
             
@@ -119,18 +120,17 @@
          </div>
          <div class="gap-5">
             <!-- Spacers -->
-            <div class="w-90 m-auto">
+            <div  class="w-90 m-auto">
                <div class="border-2 border-top border-dark my-4 m-auto"></div>
                <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Contact Post-Feed</div>
             </div>
          
-            <div class="grid gap-5">
+            <div id="contact-feed" class="grid pt-5 gap-5">
             <!-- Filter Button -->
             <div class="btn-group">
-               <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Filter Names</button>
+               <button id="filter-btn" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Filter Names</button>
                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li class="dropdown-item">Show all posts</li>
                </ul>
             </div>
 

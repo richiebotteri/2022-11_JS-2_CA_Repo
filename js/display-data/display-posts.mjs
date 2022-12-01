@@ -11,7 +11,8 @@ import { loadSessionItem } from "../storage/session-storage.mjs";
 
 export function displayPosts(post) {
    const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
-
+   const authorName = author.name;
+   const authorAvatar = author.avatar;
    // Manipulate data For display
    const tag = changeTagsToSingleTags(tags);
    const htmlTag = changeToHtmlTag(tags);
@@ -20,7 +21,7 @@ export function displayPosts(post) {
    const newDateCreated = changeCreatedFormat(created);
    const newDateUpdated = changeUpdateFormat(realDateUpdates);
    const newMedia = changeMediaData(media);
-   const newAvatar = changeAvatarData(author.avatar, author.name);
+   const newAvatar = changeAvatarData(authorAvatar, authorName);
 
    // Getting output elements to display data
    const profilePostField = document.querySelector("#profile-post-field");
@@ -65,7 +66,7 @@ export function displayPosts(post) {
       <div class="g-col-12 grid bg-primary p-5">
          <div class="g-col-10 d-flex align-items-center">
             ${newAvatar}
-            <h4 id="post-author" class="text-white m-0">${author.name}</h4>
+            <h4 id="post-author" class="text-white m-0">${authorName}</h4>
          </div>
          <div class="g-col-2 d-flex justify-content-end align-items-center">
             <button type="button" class="btn btn-outline-light d-flex h-75 align-items-center p-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
@@ -115,7 +116,7 @@ export function displayPosts(post) {
             <div class="g-col-12 grid bg-primary p-5">
                <div class="g-col-10 d-flex align-items-center">
                   ${newAvatar}
-                  <h4 id="post-author" class="text-white m-0">${author.name}</h4>
+                  <h4 id="post-author" class="text-white m-0">${authorName}</h4>
                </div>
             </div>
             <!-- Post Body -->
@@ -157,19 +158,34 @@ export function displayPosts(post) {
    );
 
    const profile = loadItem("profile");
+   const filterOptionClicked = loadSessionItem("filterOptionName");
+   const homePage = "/profile/home-feed/";
+   const viewPage = "/profile/view/";
 
-   // Post with button to edit and delete post on profile
-   if (author.name === profile.name && window.location.pathname === "/profile/view/") {
-      profilePostField.appendChild(parseDocument.getElementById("author-post"));
-   }
-
-   // Post with button to edit and delete post on home-feed
-   if (author.name === profile.name && window.location.pathname === "/profile/home-feed/") {
-      homePostField.appendChild(parseDocument.getElementById("author-post"));
-   }
-
-   // contact post without edit and delete option on home-feed
-   if (author.name !== profile.name && window.location.pathname === "/profile/home-feed/") {
-      homePostField.appendChild(parseDocument.getElementById("contact-post"));
+   if (filterOptionClicked && window.location.pathname === homePage) {
+      if (filterOptionClicked === authorName) {
+         if (authorName === profile.name) {
+            // Generates author-post (with filter-btn) on home-page
+            // if filter-name is clicked and sign-in has made a post
+            homePostField.appendChild(parseDocument.getElementById("author-post"));
+         } else {
+            // Generates contact-post (without filter-btn) on home-page
+            // if filter-name is clicked and contact has made a post on homepage
+            homePostField.appendChild(parseDocument.getElementById("contact-post"));
+         }
+      }
+   } else {
+      if (authorName === profile.name && window.location.pathname === viewPage) {
+         // Generates author-post (with filter-btn) on view-page
+         // if sign-in has made a post
+         profilePostField.appendChild(parseDocument.getElementById("author-post"));
+      } else if (authorName === profile.name && window.location.pathname === homePage) {
+         // Generates author-post (with filter-btn) if it exist on home-page
+         homePostField.appendChild(parseDocument.getElementById("author-post"));
+      } else if (authorName !== profile.name && window.location.pathname === homePage) {
+         // Generates contact-post (without filter-btn) on view-page,
+         // if there is a post not made by the signed in user.
+         homePostField.appendChild(parseDocument.getElementById("contact-post"));
+      }
    }
 }

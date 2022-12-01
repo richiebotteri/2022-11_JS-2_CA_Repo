@@ -5,6 +5,7 @@ import { postDropdownHandler } from "../../../handlers/posts/post-dropdown-handl
 import { optionWithToken } from "../../api-options/only-auth.mjs";
 import { deleteSessionItem, loadSessionItem } from "../../../storage/session-storage.mjs";
 import { displayPostChangeFeedback } from "../../../display-data/display-post-change-feedback.mjs";
+import { displayFilterPostOptions } from "../../../display-data/display-filter-post-options.mjs";
 
 export async function downloadPostData(method, action) {
    try {
@@ -12,16 +13,30 @@ export async function downloadPostData(method, action) {
       const result = await response.json();
       const isPostId = parseFloat(loadSessionItem("postId"));
       const isPostDeleted = loadSessionItem("delete");
+      const isFilterClicked = loadSessionItem("filterOptionName");
 
+      // looping all posts in result array
       result.forEach((post) => {
          displayPosts(post);
+         if (window.location.pathname === "/profile/home-feed/") {
+            displayFilterPostOptions(post.author.name);
+         }
+
+         // Scroll to created post
          if (post.id === isPostId) {
             const element = document.querySelector(`[data-id="${isPostId}"]`);
             element.scrollIntoView();
             deleteSessionItem("postId");
          }
+
+         // Scroll to filter post
+         if (post.author.name === isFilterClicked && window.location.pathname === "/profile/home-feed/") {
+            const homeFeed = document.querySelector("#contact-feed");
+            homeFeed.scrollIntoView();
+         }
       });
 
+      // display deleted post message
       if (isPostDeleted) {
          displayPostChangeFeedback(response.ok);
          deleteSessionItem("delete");

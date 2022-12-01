@@ -1,5 +1,5 @@
 export function displayPostChangeFeedback(responseOk) {
-   const feedbackContainer = document.querySelector("#post-change-feedback");
+   const feedbackContainer = document.querySelector(".post-change-feedback");
    const parser = new DOMParser();
    const parseDocument = parser.parseFromString(
       `
