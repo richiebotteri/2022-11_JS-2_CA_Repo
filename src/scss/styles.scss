@@ -23,11 +23,8 @@
 }
 
 .search-btn {
-   right: 17px;
-}
-
-.searchfield {
-   display: none;
+   right: 7px;
+   top: 7px;
 }
 
 .header-menu {
@@ -41,6 +38,7 @@
 .profile-icon {
    width: 45px;
    height: 45px;
+   object-fit: cover;
 }
 
 .profile-img {
@@ -69,10 +67,6 @@
 // Custom Skin Classes
 
 @media (min-width: 768px) {
-   .searchfield {
-      display: flex;
-   }
-
    .menu-btn-hide {
       display: none;
    }

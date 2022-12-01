@@ -11,7 +11,7 @@ export function displayProfileData() {
       `
       ${newAvatarElement}
       <h1 class="text-center text-sm-center mt-5 text-secondary fw-semibold">${profileName}</h1>
-      <p id="about-description"class="mt-2">Hi i'm <span class="fw-semibold">${profileName}</span>, I'm a new goose in town looking to find some new friends to float on water with. Looking forward to meeting new, Quack Quack!!</p>
+      <p id="about-description"class="mt-2">Hi i'm <span class="fw-semibold">${profileName}</span>, I'm a new on this platform, looking to find some new friends. See you!</p>
    `,
       "text/html"
    );
@@ -23,7 +23,6 @@ export function displayProfileData() {
    const profileHeaderSection = document.querySelector("#profile-header");
    const profileAboutSection = document.querySelector("#profile-about");
 
-   console.log(profileAboutElement);
    profileHeaderSection.appendChild(profileAvatarElement);
    profileHeaderSection.appendChild(profileNameElement);
    profileAboutSection.appendChild(profileAboutElement);

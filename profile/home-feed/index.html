@@ -18,7 +18,7 @@
                <p class="text-black fw-semibold fs-1 mt-2">Meetzy</p>
             </a>
             <nav class="navbar g-col-6 d-none d-md-flex justify-content-center">
-               <ul class="nav d-flex  gap-5">
+               <ul class="nav d-flex gap-5">
                   <li class="nav-item">
                      <a href="/profile/home-feed/" class="nav-link link-dark p-1 nav-link-hover fw-semibold">Home</a>
                   </li>
@@ -30,10 +30,7 @@
                   </li>
                </ul>
             </nav>
-            <form class="g-col-4 searchfield align-items-center justify-content-end position-relative" role="search">
-               <input class="form-control me-2 py-3" type="search" placeholder="Search" aria-label="Search" />
-               <button class="btn btn-outline-dark search-btn position-absolute" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
+
             <div class="g-col-6 d-flex justify-content-end d-md-none">
                <button class="btn btn-outline-dark my-4" aria-label="close-menu" data-mobile-nav-btn><i class="fa-solid fa-bars"></i></button>
             </div>
@@ -71,17 +68,17 @@
          <div class="post-change-feedback bg-accent-1 p-3 w-100 mb-3 text-primary fw-semibold d-none shadow"></div>
          <div class="grid bg-primary shadow">
             <h1 class="g-col-12 px-5 py-3 fw-semibold text-secondary">Home</h1>
-            
+
             <!-- Create Posts -->
             <form action="/posts" method="post" id="create-post-form" class="g-col-12 d-flex gap-2 flex-column bg-secondary shadow p-5 needs-validation" novalidate>
                <h2>Create a post</h2>
                <div class="bg-light p-3 rounded-2 border">
                   <div class="form-group mb-5">
-                     <label for="title" class="form-label ps-1 ">
+                     <label for="title" class="form-label ps-1">
                         Title
                         <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
                      </label>
-                     <input type="text" class="form-control py-2 " id="title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" />
+                     <input type="text" class="form-control py-2" id="title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" />
                   </div>
                   <div class="form-group mb-5">
                      <label for="textarea" class="form-label ps-1 mb-2">
@@ -117,26 +114,32 @@
                <button type="submit" class="btn w-100 mt-3 btn-accent-1 align-self-end">Post</button>
             </form>
          </div>
-         </div>
+
          <div class="gap-5">
+            <div id="contact-feed" class="grid gap-3 gap-sm-3 justify-content-between border">
+               <!-- Filter Button -->
+               <div class="g-col-3 g-col-sm-3 btn-group">
+                  <button id="filter-btn" type="button" class="btn btn-outline-dark dropdown-toggle py-3" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
+                  <ul class="dropdown-menu">
+                     <li class="dropdown-item">Show all posts</li>
+                  </ul>
+               </div>
+               <!-- Search Button -->
+               <form class="g-col-9 g-col-sm-9 searchfield align-items-center justify-content-end position-relative" role="search" data-search-form>
+                  <input class="form-control me-2 py-3 border-dark rounded-2" type="search" name="search" placeholder="Search" aria-label="Search" />
+                  <button class="btn btn-outline-dark search-btn position-absolute" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+               </form>
+            </div>
             <!-- Spacers -->
-            <div  class="w-90 m-auto">
+            <div class="w-90 m-auto">
                <div class="border-2 border-top border-dark my-4 m-auto"></div>
                <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Contact Post-Feed</div>
             </div>
-         
-            <div id="contact-feed" class="grid pt-5 gap-5">
-            <!-- Filter Button -->
-            <div class="btn-group">
-               <button id="filter-btn" type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Filter Names</button>
-               <ul class="dropdown-menu">
-                  <li class="dropdown-item">Show all posts</li>
-               </ul>
-            </div>
 
             <!-- Post Feed from Contacts -->
-            <div id="home-post-field" class="g-col-12 w-100 m-auto grid"></div>
-         </div>
+            <div class="grid pt-5 gap-5">
+               <div id="home-post-field" class="g-col-12 w-100 m-auto grid"></div>
+            </div>
          </div>
       </main>
       <footer class="bg-dark">
