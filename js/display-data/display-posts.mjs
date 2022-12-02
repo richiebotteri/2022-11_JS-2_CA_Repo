@@ -13,6 +13,7 @@ export function displayPosts(post) {
    const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
    const authorName = author.name;
    const authorAvatar = author.avatar;
+
    // Manipulate data For display
    const tag = changeTagsToSingleTags(tags);
    const htmlTag = changeToHtmlTag(tags);

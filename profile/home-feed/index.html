@@ -115,11 +115,19 @@
             </form>
          </div>
 
-         <div class="gap-5">
-            <div id="contact-feed" class="grid gap-3 gap-sm-3 justify-content-between border">
+         <div>
+            <!-- Spacers -->
+            <div class="w-90 m-auto mb-6">
+               <div class="border-2 border-top border-dark my-4 m-auto"></div>
+               <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Contact Post-Feed</div>
+            </div>
+            <div id="contact-feed" class="grid p-5 gap-3 bg-secondary shadow gap-sm-3 justify-content-between rounded-top">
                <!-- Filter Button -->
                <div class="g-col-3 g-col-sm-3 btn-group">
-                  <button id="filter-btn" type="button" class="btn btn-outline-dark dropdown-toggle py-3" data-bs-toggle="dropdown" aria-expanded="false">Filter</button>
+                  <button id="filter-btn" type="button" class="btn btn-outline-dark dropdown-toggle py-3" data-bs-toggle="dropdown" aria-expanded="false">
+                     <span class="d-none d-sm-inline">Filter</span>
+                  </button>
+
                   <ul class="dropdown-menu">
                      <li class="dropdown-item">Show all posts</li>
                   </ul>
@@ -129,11 +137,6 @@
                   <input class="form-control me-2 py-3 border-dark rounded-2" type="search" name="search" placeholder="Search" aria-label="Search" />
                   <button class="btn btn-outline-dark search-btn position-absolute" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                </form>
-            </div>
-            <!-- Spacers -->
-            <div class="w-90 m-auto">
-               <div class="border-2 border-top border-dark my-4 m-auto"></div>
-               <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Contact Post-Feed</div>
             </div>
 
             <!-- Post Feed from Contacts -->
