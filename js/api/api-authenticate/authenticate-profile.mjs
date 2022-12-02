@@ -14,7 +14,6 @@ export async function authenticateProfile(profileCredentials, method, action) {
       };
       const response = await fetch(`${SOCIAL_URL}${action}`, optionWithContent(profileCredentials, method));
       const result = await response.json();
-      console.log(result);
       // Feedback on Register
       if (response.url == `${SOCIAL_URL}/auth/register`) {
          displayRegisterFeedback(response, result, profileCredentials);
