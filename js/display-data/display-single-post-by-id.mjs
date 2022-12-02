@@ -1,4 +1,4 @@
-import { homePostContainer, profilePostContainer, singlePostField } from "../html-data/html-containers/post/post-containers.mjs";
+import { singlePostField } from "../html-data/post/post-containers.mjs";
 import { loadItem } from "../storage/local-storage.mjs";
 
 export function displaySinglePostById(authorPost, contactPost, postId, postAuthor) {

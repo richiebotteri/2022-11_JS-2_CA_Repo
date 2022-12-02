@@ -1,4 +1,4 @@
-import { changeToHtmlPost } from "../../html-data/html-content/post/html-post.mjs";
+import { changeToHtmlPost } from "../../html-data/post/html-post-content.mjs";
 import { changeAvatarData } from "./change-avatar-data.mjs";
 import { changeToHtmlComments } from "./change-comments-data.mjs";
 import { changeCreatedFormat } from "./date-changes/change-created-format.mjs";

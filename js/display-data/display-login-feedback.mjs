@@ -25,17 +25,16 @@ export function displayLoginFeedback(response, result) {
    `,
       "text/html"
    );
-
    if (response.ok) {
       loginFeedback.classList.remove("d-none");
-      loginFeedback.replaceWith(parseDocument.getElementById("login-success"));
+      loginFeedback.replaceChildren(parseDocument.getElementById("login-success"));
    } else {
       loginFeedback.classList.add("d-none");
    }
 
    if (result.errors && result.errors[0].message === "Invalid email or password") {
       loginFeedback.classList.remove("d-none");
-      loginFeedback.replaceWith(parseDocument.getElementById("login-failed"));
+      loginFeedback.replaceChildren(parseDocument.getElementById("login-failed"));
    }
 
    // Send user to view profile if valid token
