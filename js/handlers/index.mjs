@@ -7,6 +7,7 @@ import { logoutAnchorAccount } from "./registration/logout-anchor-handler.mjs";
 import { loginFormHandler } from "./registration/login-form-handler.mjs";
 import { registerFormHandler } from "./registration/register-form-handler.mjs";
 import { filterPostHandler } from "./posts/filter-posts-handler.mjs";
+import { searchInputHandler } from "./search/search-input-handler.mjs";
 
 export function postHandlers() {
    toggleMobileNav();
@@ -15,6 +16,10 @@ export function postHandlers() {
    toggleTagBtn();
    createPostHandler();
    logoutAnchorAccount();
+}
+
+export function findPostsHandlers() {
+   searchInputHandler();
    if (window.location.pathname === "/profile/home-feed/") {
       filterPostHandler();
    }

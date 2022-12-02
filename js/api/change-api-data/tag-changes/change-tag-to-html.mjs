@@ -3,7 +3,7 @@ export function changeToHtmlTag(tags) {
       if (element === "") {
          return "";
       } else {
-         return `<span class="py-1 px-2 d-inline-block bg-light border rounded mb-3 me-1">${element}</span>`;
+         return `<span class="py-1 px-2 bg-light border rounded mb-3 me-2">${element}</span>`;
       }
    });
 

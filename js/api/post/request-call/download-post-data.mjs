@@ -6,6 +6,8 @@ import { optionWithToken } from "../../api-options/only-auth.mjs";
 import { deleteSessionItem, loadSessionItem } from "../../../storage/session-storage.mjs";
 import { displayPostChangeFeedback } from "../../../display-data/display-post-change-feedback.mjs";
 import { displayFilterPostOptions } from "../../../display-data/display-filter-post-options.mjs";
+import { displaySinglePostById } from "../../../display-data/display-single-post-by-id.mjs";
+import { changePostVariables } from "../../change-api-data/change-post-variables.mjs";
 
 export async function downloadPostData(method, action) {
    try {
@@ -17,7 +19,7 @@ export async function downloadPostData(method, action) {
 
       // looping all posts in result array
       result.forEach((post) => {
-         displayPosts(post);
+         changePostVariables(post, response.ok);
          if (window.location.pathname === "/profile/home-feed/") {
             displayFilterPostOptions(post.author.name);
          }
