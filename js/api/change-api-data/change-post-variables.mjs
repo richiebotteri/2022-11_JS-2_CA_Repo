@@ -28,6 +28,7 @@ export function changePostVariables(post, responseOk) {
          title: title,
          body: body,
          tag: htmlTags,
+         editTag: tag,
          dateCreated: newDateCreated,
          dateUpdated: newDateUpdated,
          media: newMedia,
