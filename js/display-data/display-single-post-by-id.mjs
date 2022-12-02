@@ -1,7 +1,13 @@
-export function displaySinglePostById() {
+export function displaySinglePostById(post, responseOk) {
+   // Get clicked post id from queryString
    const urlParameterString = window.location.search;
-   console.log(urlParameterString);
    const params = new URLSearchParams(urlParameterString);
-   const id = params.get("id");
-   console.log(id);
+   const queryStringId = params.get("id");
+
+   if (responseOk) {
+      const { id } = post;
+      const singlePostField = document.querySelector("#single-post-field");
+      console.log(singlePostField);
+      // Display single-post if id match
+   }
 }

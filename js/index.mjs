@@ -17,8 +17,9 @@ if (path === "/profile/view/index.html" || path === "/profile/view/") {
    postHandlers();
    postRequests();
    findPostsHandlers();
-} else if (path === "/profile/post/index.html" || path === "/profile/post/") {
+} else if (path === "/profile/post/index.html" || "/profile/post/" || "/profile/post/?id=109") {
    displaySinglePostById();
+   postRequests();
 } else {
    offlineFeedback();
    signupHandlers();
