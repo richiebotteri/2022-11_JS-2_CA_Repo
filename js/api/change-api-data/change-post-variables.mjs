@@ -1,4 +1,4 @@
-import { displayPosts } from "../../display-data/display-posts.mjs";
+import { changeToHtmlPost } from "../../html-data/html-content/post/html-post.mjs";
 import { changeAvatarData } from "./change-avatar-data.mjs";
 import { changeToHtmlComments } from "./change-comments-data.mjs";
 import { changeCreatedFormat } from "./date-changes/change-created-format.mjs";
@@ -23,7 +23,7 @@ export function changePostVariables(post, responseOk) {
       const newMedia = changeMediaData(media);
       const newAuthorAvatar = changeAvatarData(authorAvatar, authorName);
 
-      const updatedPost = {
+      const updatedPostVariables = {
          id: id,
          title: title,
          body: body,
@@ -38,6 +38,6 @@ export function changePostVariables(post, responseOk) {
          count: _count,
       };
 
-      displayPosts(updatedPost);
+      changeToHtmlPost(updatedPostVariables);
    }
 }

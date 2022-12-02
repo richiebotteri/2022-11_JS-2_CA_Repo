@@ -11,7 +11,7 @@ export function changeToHtmlComments(comments) {
       return `
             
                 <div class="w-100 d-flex flex-column gap-5 card">
-                   <div class="card-header bg-primary text-secondary d-flex align-items-center">
+                   <div class="card-header bg-primary text-secondary d-flex align-items-center p-4">
                      ${avatar}
                       <h4 id="post-author" class="d-flex align-items-center text-secondary">${comment.owner}</h4>
                    </div>
