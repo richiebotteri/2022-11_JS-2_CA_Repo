@@ -1,4 +1,5 @@
 import { displayPosts } from "../../../display-data/display-posts.mjs";
+import { displaySinglePostById } from "../../../display-data/display-single-post-by-id.mjs";
 import { createParseDoc } from "../createParseDoc.mjs";
 
 export function changeToHtmlPost(postVariables) {
@@ -119,4 +120,6 @@ export function changeToHtmlPost(postVariables) {
    const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
 
    displayPosts(parsedAuthorPost, parsedContactPost, author);
+
+   displaySinglePostById(parsedAuthorPost, parsedContactPost, id, author);
 }

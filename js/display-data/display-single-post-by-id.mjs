@@ -1,13 +1,17 @@
-export function displaySinglePostById(post, responseOk) {
+import { homePostContainer, profilePostContainer, singlePostField } from "../html-data/html-containers/post/post-containers.mjs";
+import { loadItem } from "../storage/local-storage.mjs";
+
+export function displaySinglePostById(authorPost, contactPost, postId, postAuthor) {
    // Get clicked post id from queryString
    const urlParameterString = window.location.search;
    const params = new URLSearchParams(urlParameterString);
-   const queryStringId = params.get("id");
-
-   if (responseOk) {
-      const { id } = post;
-      const singlePostField = document.querySelector("#single-post-field");
-      console.log(singlePostField);
-      // Display single-post if id match
+   const queryStringId = parseFloat(params.get("id"));
+   const signedInUsername = loadItem("profile").name;
+   if (postId === queryStringId) {
+      if (postAuthor === signedInUsername) {
+         singlePostField.appendChild(authorPost);
+      } else {
+         singlePostField.appendChild(contactPost);
+      }
    }
 }

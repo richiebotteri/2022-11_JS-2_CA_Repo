@@ -64,23 +64,11 @@
             </ul>
          </nav>
       </div>
-      <main class="container d-flex flex-column my-2 p-4">
+      <main class="container d-flex flex-column min-vh-100 my-2 p-4">
          <div class="grid gap-md-5 my-5 p-md-0">
+            <a href="/profile/home-feed" class="g-col-12">Go Back</a>
             <div id="single-post-field" class="g-col-12 grid">
                <!-- Generated Post -->
-               <div class="g-col-12 grid bg-primary p-5">
-                  ${editForm}
-                  <div class="g-col-10 d-flex align-items-center">
-                     ${avatar}
-                     <h4 id="post-author" class="text-white m-0">${author.name}</h4>
-                  </div>
-                  <!-- Post Filter -->
-                  ${filterBtn}
-                  <!-- Post Body -->
-                  ${postBodySection}
-                  <!-- Post Comment -->
-                  ${postCommentSection}
-               </div>
             </div>
          </div>
       </main>
