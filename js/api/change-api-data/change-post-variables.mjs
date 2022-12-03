@@ -6,7 +6,8 @@ import { changeUpdateFormat } from "./date-changes/change-update-format.mjs";
 import { onlyShowRealUpdates } from "./date-changes/only-show-real-updates.mjs";
 import { changeMediaData } from "./media-changes/change-media-data.mjs";
 import { changeToHtmlTag } from "./tag-changes/change-tag-to-html.mjs";
-import { changeTagsToSingleTags } from "./tag-changes/change-tags-to-singletags.mjs";
+import { changeTagsToSingleTag } from "./tag-changes/change-tags-to-singletag.mjs";
+import { changeTagsToString } from "./tag-changes/change-tags-to-String.mjs";
 
 export function changePostVariables(post, responseOk) {
    if (responseOk) {
@@ -14,8 +15,10 @@ export function changePostVariables(post, responseOk) {
       const authorName = author.name;
       const authorAvatar = author.avatar;
       // Manipulate data For display
-      const tag = changeTagsToSingleTags(tags);
-      const htmlTags = changeToHtmlTag(tags);
+      const tag = changeTagsToSingleTag(tags);
+      const tagString = changeTagsToString(tags);
+
+      const htmlTag = changeToHtmlTag(tag);
       const htmlComments = changeToHtmlComments(comments);
       const realDateUpdates = onlyShowRealUpdates(created, updated);
       const newDateCreated = changeCreatedFormat(created);
@@ -27,8 +30,9 @@ export function changePostVariables(post, responseOk) {
          id: id,
          title: title,
          body: body,
-         tag: htmlTags,
-         editTag: tag,
+         tag: tag,
+         editTag: tagString,
+         htmlTag: htmlTag,
          dateCreated: newDateCreated,
          dateUpdated: newDateUpdated,
          media: newMedia,
@@ -38,7 +42,7 @@ export function changePostVariables(post, responseOk) {
          reactions: reactions,
          count: _count,
       };
-
+      console.log(htmlTag);
       changeToHtmlPost(updatedPostVariables);
    }
 }

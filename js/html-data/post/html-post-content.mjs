@@ -1,11 +1,7 @@
-import { displayAuthorPost } from "../../display-data/display-author-posts.mjs";
-import { displayPosts } from "../../display-data/display-posts.mjs";
-import { displaySinglePostById } from "../../display-data/display-single-post-by-id.mjs";
-import { deleteSessionItem, loadSessionItem } from "../../storage/session-storage.mjs";
 import { createParseDoc } from "../createParseDoc.mjs";
-
+import { routePostDisplay } from "../../display-data/route-post-display.mjs";
 export function changeToHtmlPost(postVariables) {
-   const { id, title, body, tag, editTag, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
+   const { id, title, body, tag, editTag, htmlTag, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
 
    const editForm = `
     <form action="/posts" method="put" id="edit-post-form" class="g-col-12 d-none bg-secondary flex-column bg-secondary  p-5 z-index border-bottom  needs-validation" novalidate>
@@ -70,7 +66,7 @@ export function changeToHtmlPost(postVariables) {
           <img src="${media}" class="img-fluid" alt="" />
         </div>
         <div class="card-body border-top">
-          ${tag}
+          ${htmlTag}
           <p class="my-3 fs-5">${body}</p>
           <div class="d-flex gap-1 flex-wrap border-top pt-3">
               <button id="add-like-btn" class="btn btn-secondary p-1">
@@ -121,26 +117,5 @@ export function changeToHtmlPost(postVariables) {
    const parsedContactPost = createParseDoc(contactPost).querySelector(`.contact-post`);
    const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
 
-   const searchInput = loadSessionItem("searchInputValue");
-   const filterOptionClicked = loadSessionItem("filterOptionName");
-
-   if (searchInput) {
-      deleteSessionItem("filterOptionName");
-      if (searchInput == author) {
-         displayAuthorPost(parsedAuthorPost);
-      } else {
-         console.log("filtered out (A)");
-      }
-   } else if (filterOptionClicked) {
-      deleteSessionItem("searchInputValue");
-      if (filterOptionClicked == author) {
-         console.log("I clicked the filterOption: ", author);
-      } else {
-         console.log("filtered out (B)");
-      }
-   } else {
-      console.log("i am showing all posts");
-   }
-
-   displaySinglePostById(parsedAuthorPost, parsedContactPost, id, author);
+   routePostDisplay(parsedAuthorPost, parsedContactPost, author, id);
 }

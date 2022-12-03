@@ -1,12 +1,10 @@
 import { SOCIAL_URL } from "../../api-constants/index.mjs";
 import { toggleComments } from "../../../handlers/posts/comments-handler.mjs";
-import { displayPosts } from "../../../display-data/display-posts.mjs";
 import { postDropdownHandler } from "../../../handlers/posts/post-dropdown-handler.mjs";
 import { optionWithToken } from "../../api-options/only-auth.mjs";
 import { deleteSessionItem, loadSessionItem } from "../../../storage/session-storage.mjs";
 import { displayPostChangeFeedback } from "../../../display-data/display-post-change-feedback.mjs";
 import { displayFilterPostOptions } from "../../../display-data/display-filter-post-options.mjs";
-import { displaySinglePostById } from "../../../display-data/display-single-post-by-id.mjs";
 import { changePostVariables } from "../../change-api-data/change-post-variables.mjs";
 
 export async function downloadPostData(method, action) {
