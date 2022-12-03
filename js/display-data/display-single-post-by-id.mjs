@@ -7,6 +7,7 @@ export function displaySinglePostById(authorPost, contactPost, postId, postAutho
    const params = new URLSearchParams(urlParameterString);
    const queryStringId = parseFloat(params.get("id"));
    const signedInUsername = loadItem("profile").name;
+
    if (postId === queryStringId) {
       if (postAuthor === signedInUsername) {
          singlePostField.appendChild(authorPost);

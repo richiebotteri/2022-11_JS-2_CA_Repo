@@ -7,7 +7,12 @@ export function getRequest() {
    const withAuthor = `_author=true`;
    const withComments = `_comments=true`;
    const withReactions = `_reactions=true`;
-   const withAllFlags = `${action}/?${withAuthor}&${withComments}&${withReactions}`;
-
-   downloadPostData(method, withAllFlags);
+   const withAllData = `${action}/?${withAuthor}&${withComments}&${withReactions}`;
+   const sortByCreated = `sort=created`;
+   const sortByTitle = `sort=created`;
+   const sortOrderDescending = `sortOrder=desc`;
+   const sortOrderAscending = `sortOrder=asc`;
+   const actionConfiguration = `${withAllData}&${sortByCreated}&${sortOrderAscending}`;
+   console.log(actionConfiguration);
+   downloadPostData(method, actionConfiguration);
 }

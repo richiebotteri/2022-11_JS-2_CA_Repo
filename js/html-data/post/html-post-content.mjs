@@ -1,5 +1,7 @@
+import { displayAuthorPost } from "../../display-data/display-author-posts.mjs";
 import { displayPosts } from "../../display-data/display-posts.mjs";
 import { displaySinglePostById } from "../../display-data/display-single-post-by-id.mjs";
+import { deleteSessionItem, loadSessionItem } from "../../storage/session-storage.mjs";
 import { createParseDoc } from "../createParseDoc.mjs";
 
 export function changeToHtmlPost(postVariables) {
@@ -119,7 +121,26 @@ export function changeToHtmlPost(postVariables) {
    const parsedContactPost = createParseDoc(contactPost).querySelector(`.contact-post`);
    const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
 
-   displayPosts(parsedAuthorPost, parsedContactPost, author);
+   const searchInput = loadSessionItem("searchInputValue");
+   const filterOptionClicked = loadSessionItem("filterOptionName");
+
+   if (searchInput) {
+      deleteSessionItem("filterOptionName");
+      if (searchInput == author) {
+         displayAuthorPost(parsedAuthorPost);
+      } else {
+         console.log("filtered out (A)");
+      }
+   } else if (filterOptionClicked) {
+      deleteSessionItem("searchInputValue");
+      if (filterOptionClicked == author) {
+         console.log("I clicked the filterOption: ", author);
+      } else {
+         console.log("filtered out (B)");
+      }
+   } else {
+      console.log("i am showing all posts");
+   }
 
    displaySinglePostById(parsedAuthorPost, parsedContactPost, id, author);
 }

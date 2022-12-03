@@ -1,5 +1,5 @@
 import { loadItem } from "../storage/local-storage.mjs";
-import { loadSessionItem } from "../storage/session-storage.mjs";
+import { deleteSessionItem, loadSessionItem } from "../storage/session-storage.mjs";
 import * as postContainers from "../html-data/post/post-containers.mjs";
 
 export function displayPosts(authorPost, contactPost, author) {

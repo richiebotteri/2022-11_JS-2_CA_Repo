@@ -1,7 +1,11 @@
+import { saveSessionItem } from "../../storage/session-storage.mjs";
+
 export function searchInputHandler() {
-   const searchForum = document.querySelector("[data-search-form]");
-   searchForum.addEventListener("submit", (event) => {
+   const searchForm = document.querySelector("[data-search-form]");
+   searchForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      console.log(searchForum.search.value);
+      const searchInputValue = searchForm.search.value;
+      saveSessionItem("searchInputValue", searchInputValue);
+      window.location.reload();
    });
 }
