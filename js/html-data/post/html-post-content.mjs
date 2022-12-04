@@ -1,5 +1,5 @@
 import { createParseDoc } from "../createParseDoc.mjs";
-import { routePostDisplay } from "../../display-data/route-post-display.mjs";
+import { routeToDisplayPost } from "../../display-data/route-to-display-post.mjs";
 export function changeToHtmlPost(postVariables) {
    const { id, title, body, tagString, htmlTag, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
 
@@ -117,5 +117,5 @@ export function changeToHtmlPost(postVariables) {
    const parsedContactPost = createParseDoc(contactPost).querySelector(`.contact-post`);
    const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
 
-   routePostDisplay(parsedAuthorPost, parsedContactPost, author, id, tagString);
+   routeToDisplayPost(parsedAuthorPost, parsedContactPost, author, id, tagString);
 }

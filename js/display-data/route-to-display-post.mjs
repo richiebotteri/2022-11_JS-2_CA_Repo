@@ -4,7 +4,7 @@ import { deleteSessionItem, loadSessionItem } from "../storage/session-storage.m
 import { displayPost } from "./display-post.mjs";
 import { displaySinglePostById } from "./display-single-post-by-id.mjs";
 
-export function routePostDisplay(authorPost, contactPost, author, id, tagString) {
+export function routeToDisplayPost(authorPost, contactPost, author, id, tagString) {
    const searchInput = loadSessionItem("searchInputValue").toLowerCase();
    const doesSearchTagExist = tagString.includes(searchInput);
    const filterOptionClicked = loadSessionItem("filterOptionName");
