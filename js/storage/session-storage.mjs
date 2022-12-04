@@ -1,6 +1,7 @@
 // Save to session storage
 export function saveSessionItem(key, value) {
-   sessionStorage.setItem(key, JSON.stringify(value));
+   const changeValue = value.toLowerCase().trim();
+   sessionStorage.setItem(key, JSON.stringify(changeValue));
 }
 
 // load session storage item

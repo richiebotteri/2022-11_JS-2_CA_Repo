@@ -14,7 +14,6 @@ export async function downloadPostData(method, action) {
       const isPostId = parseFloat(loadSessionItem("postId"));
       const isPostDeleted = loadSessionItem("delete");
       const isFilterClicked = loadSessionItem("filterOptionName");
-
       // looping all posts in result array
       result.forEach((post) => {
          changePostVariables(post, response.ok);

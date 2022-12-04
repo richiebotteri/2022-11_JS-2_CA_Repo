@@ -13,6 +13,6 @@ export function createRequest(event) {
 
    const method = form.method;
    const action = form.attributes.action.value;
-
+   console.log(postObject, method, action);
    uploadPostData(postObject, method, action);
 }

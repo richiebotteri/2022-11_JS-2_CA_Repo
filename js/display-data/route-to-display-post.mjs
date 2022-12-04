@@ -5,7 +5,7 @@ import { displayPost } from "./display-post.mjs";
 import { displaySinglePostById } from "./display-single-post-by-id.mjs";
 
 export function routeToDisplayPost(authorPost, contactPost, author, id, tagString) {
-   const searchInput = loadSessionItem("searchInputValue").toLowerCase();
+   const searchInput = loadSessionItem("searchInputValue");
    const doesSearchTagExist = tagString.includes(searchInput);
    const filterOptionClicked = loadSessionItem("filterOptionName");
    const loggedInUser = loadItem("profile").name;
@@ -13,7 +13,7 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
 
    if (searchInput && path === "/profile/home-feed/") {
       deleteSessionItem("filterOptionName");
-      if (searchInput === author.toLowerCase()) {
+      if (searchInput === author) {
          if (loggedInUser === author) {
             displayPost(authorPost, homePostContainer);
          } else {
@@ -49,7 +49,7 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
       }
    } else if (path === "/profile/view/") {
       if (loggedInUser === author) {
-         displayPost(contactPost, profilePostContainer);
+         displayPost(authorPost, profilePostContainer);
       }
    } else {
       if (loggedInUser === author) {

@@ -1,6 +1,7 @@
 // Save to local storage
 export function saveItem(key, value) {
-   localStorage.setItem(key, JSON.stringify(value));
+   const changeValue = value.toLowerCase().trim();
+   localStorage.setItem(key, JSON.stringify(changeValue));
 }
 
 // load local storage item

@@ -8,6 +8,7 @@ export async function uploadPostData(postObject, method, action) {
       const response = await fetch(`${SOCIAL_URL}${action}`, optionWithContent(postObject, method));
       const result = await response.json();
       console.log("response:", response);
+      console.log("result:", result);
 
       if (method === "post" || method === "put") {
          console.log(result.id);

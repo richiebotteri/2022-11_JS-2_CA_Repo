@@ -12,7 +12,7 @@ import { changeTagsToString } from "./tag-changes/change-tags-to-String.mjs";
 export function changePostVariables(post, responseOk) {
    if (responseOk) {
       const { title, body, tags, media, created, id, updated, author, comments, reactions, _count } = post;
-      const authorName = author.name;
+      const authorName = author.name.toLowerCase();
       const authorAvatar = author.avatar;
       // Manipulate data For display
       const tag = changeTagsToSingleTag(tags);

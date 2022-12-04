@@ -16,6 +16,6 @@ export function getRequest() {
    const sortOrderAscending = `sortOrder=asc`;
 
    // Replace variables in actionConfig to change data-output
-   const actionConfig = `${withAllData}&${sortByCreated}&${sortOrderAscending}`;
+   const actionConfig = `${withAllData}&${sortByCreated}&${sortOrderDescending}`;
    downloadPostData(method, actionConfig);
 }
