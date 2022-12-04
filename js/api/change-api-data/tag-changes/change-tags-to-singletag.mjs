@@ -1,19 +1,21 @@
 export function changeTagsToSingleTag(tags) {
    const tagsObject = tags;
-   if (tagsObject[0] !== undefined) {
+   if (tagsObject[0]) {
       if (tagsObject[0] !== "") {
          for (let i = 0; i < tagsObject.length; i++) {
-            const tagString = tagsObject[i];
-            if (tagString.includes(", ")) {
-               const tagArray = tagString.split(",");
+            const tagItem = tagsObject[i];
+            if (tagItem.includes(", ")) {
+               const tagArray = tagItem.split(",");
                return tagArray;
-            } else if (tagString.includes(" ")) {
-               const tagArray = tagString.split(" ");
+            } else if (tagItem.includes(" ")) {
+               const tagArray = tagItem.split(" ");
                return tagArray;
             } else {
-               return tagString;
+               return tagItem;
             }
          }
       }
+   } else {
+      return "";
    }
 }

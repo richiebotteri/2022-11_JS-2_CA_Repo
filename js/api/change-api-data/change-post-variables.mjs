@@ -16,8 +16,7 @@ export function changePostVariables(post, responseOk) {
       const authorAvatar = author.avatar;
       // Manipulate data For display
       const tag = changeTagsToSingleTag(tags);
-      const tagString = changeTagsToString(tags);
-
+      const tagString = changeTagsToString(tag);
       const htmlTag = changeToHtmlTag(tag);
       const htmlComments = changeToHtmlComments(comments);
       const realDateUpdates = onlyShowRealUpdates(created, updated);
@@ -30,8 +29,7 @@ export function changePostVariables(post, responseOk) {
          id: id,
          title: title,
          body: body,
-         tag: tag,
-         editTag: tagString,
+         tagString: tagString,
          htmlTag: htmlTag,
          dateCreated: newDateCreated,
          dateUpdated: newDateUpdated,
@@ -42,7 +40,7 @@ export function changePostVariables(post, responseOk) {
          reactions: reactions,
          count: _count,
       };
-      console.log(htmlTag);
+
       changeToHtmlPost(updatedPostVariables);
    }
 }

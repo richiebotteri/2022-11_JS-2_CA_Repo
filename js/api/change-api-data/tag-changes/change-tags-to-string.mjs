@@ -1,16 +1,20 @@
-export function changeTagsToString(tags) {
-   let singleTag = "";
-   tags.forEach((tag) => {
-      singleTag += `${tag} `;
-   });
+import { removeStringSymbol } from "../remove-string-symbols/index.mjs";
 
-   if (singleTag.includes(", ")) {
-      const tagArray = singleTag.split(", ");
-      return tagArray;
-   } else if (singleTag.includes(",")) {
-      const tagArray = singleTag.split(",");
-      return tagArray;
+export function changeTagsToString(tag) {
+   if (typeof tag === "object") {
+      const joinAsString = Object.keys(tag)
+         .map((item) => {
+            return tag[item];
+         })
+         .join(" ");
+
+      return joinAsString.toLowerCase();
    } else {
-      return singleTag.trimEnd();
+      if (tag.includes(",")) {
+         const newString = removeStringSymbol(tag, ",", " ");
+         return newString.toLowerCase();
+      } else {
+         return tag.toLowerCase();
+      }
    }
 }

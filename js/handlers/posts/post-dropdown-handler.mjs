@@ -7,7 +7,6 @@ export function postDropdownHandler(responseOk) {
       let postDropdownBtn = document.querySelector("#post-dropdown-btn");
 
       if (postDropdownBtn === null) {
-         console.log("No Posts");
          postDropdownBtn = "";
       } else {
          postDropdownBtn.addEventListener("click", (event) => {

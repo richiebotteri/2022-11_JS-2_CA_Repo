@@ -1,7 +1,7 @@
 import { createParseDoc } from "../createParseDoc.mjs";
 import { routePostDisplay } from "../../display-data/route-post-display.mjs";
 export function changeToHtmlPost(postVariables) {
-   const { id, title, body, tag, editTag, htmlTag, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
+   const { id, title, body, tagString, htmlTag, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
 
    const editForm = `
     <form action="/posts" method="put" id="edit-post-form" class="g-col-12 d-none bg-secondary flex-column bg-secondary  p-5 z-index border-bottom  needs-validation" novalidate>
@@ -29,7 +29,7 @@ export function changeToHtmlPost(postVariables) {
       </div>
       <div id="tag-input-group" class="form-group mb-3">
           <label for="tag-input" class="form-label ps-1 mb-2">Tag</label>
-          <input type="text" class="g-col-12 form-control py-2 " id="edit-tag-input" name="tags" placeholder="No tags in the post" value="${editTag}"/>
+          <input type="text" class="g-col-12 form-control py-2 " id="edit-tag-input" name="tags" placeholder="No tags in the post" value="${tagString}"/>
       </div>
       <div class="invalid-feedback bg-danger p-3 mb-2 rounded-2 text-white fw-semibold inline">Please type in a message</div>
       <button type="submit" class="btn w-100 btn-primary mt-3">Update Post</button>
@@ -117,5 +117,5 @@ export function changeToHtmlPost(postVariables) {
    const parsedContactPost = createParseDoc(contactPost).querySelector(`.contact-post`);
    const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
 
-   routePostDisplay(parsedAuthorPost, parsedContactPost, author, id);
+   routePostDisplay(parsedAuthorPost, parsedContactPost, author, id, tagString);
 }
