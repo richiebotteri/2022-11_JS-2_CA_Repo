@@ -1,4 +1,6 @@
+import { scrollToViewPost } from "../../display-data/scroll-to-view-post.mjs";
 import { changeToHtmlPost } from "../../html-data/post/html-post-content.mjs";
+
 import { changeAvatarData } from "./change-avatar-data.mjs";
 import { changeToHtmlComments } from "./change-comments-data.mjs";
 import { changeCreatedFormat } from "./date-changes/change-created-format.mjs";
@@ -40,6 +42,8 @@ export function changePostVariables(post, responseOk) {
          reactions: reactions,
          count: _count,
       };
+
+      scrollToViewPost(id, authorName);
 
       changeToHtmlPost(updatedPostVariables);
    }

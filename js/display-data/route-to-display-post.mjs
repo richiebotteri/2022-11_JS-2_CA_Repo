@@ -1,6 +1,7 @@
 import { homePostContainer, profilePostContainer } from "../html-data/post/post-containers.mjs";
 import { loadItem } from "../storage/local-storage.mjs";
 import { deleteSessionItem, loadSessionItem } from "../storage/session-storage.mjs";
+import { displayFilterPostOptions } from "./display-filter-post-options.mjs";
 import { displayPost } from "./display-post.mjs";
 import { displaySinglePostById } from "./display-single-post-by-id.mjs";
 
@@ -33,6 +34,7 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
          }
       }
    } else if (filterOptionClicked && path === "/profile/home-feed/") {
+      displayFilterPostOptions(author);
       deleteSessionItem("searchInputValue");
       if (filterOptionClicked === author) {
          if (loggedInUser === author) {
@@ -52,6 +54,7 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
          displayPost(authorPost, profilePostContainer);
       }
    } else {
+      displayFilterPostOptions(author);
       if (loggedInUser === author) {
          displayPost(authorPost, homePostContainer);
       } else {

@@ -1,5 +1,5 @@
 const profilePostContainer = document.querySelector("#profile-post-field");
 const homePostContainer = document.querySelector("#home-post-field");
 const singlePostField = document.querySelector("#single-post-field");
-
-export { profilePostContainer, homePostContainer, singlePostField };
+const filterSearchContainer = document.querySelector("#contact-feed");
+export { profilePostContainer, homePostContainer, singlePostField, filterSearchContainer };
