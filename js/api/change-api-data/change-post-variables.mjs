@@ -1,4 +1,4 @@
-import { scrollToViewPost } from "../../display-data/scroll-to-view-post.mjs";
+import { scrollToViewPost } from "../../display/scroll-to-view-post.mjs";
 import { changeToHtmlPost } from "../../html-data/post/html-post-content.mjs";
 
 import { changeAvatarData } from "./change-avatar-data.mjs";

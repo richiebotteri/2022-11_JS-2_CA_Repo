@@ -1,9 +1,9 @@
 import { homePostContainer, profilePostContainer } from "../html-data/post/post-containers.mjs";
 import { loadItem } from "../storage/local-storage.mjs";
 import { deleteSessionItem, loadSessionItem } from "../storage/session-storage.mjs";
-import { displayFilterPostOptions } from "./display-filter-post-options.mjs";
-import { displayPost } from "./display-post.mjs";
-import { displaySinglePostById } from "./display-single-post-by-id.mjs";
+import { displayFilterPostOptions } from "./post/display-filter-post-options.mjs";
+import { displayPost } from "./post/display-post.mjs";
+import { displaySinglePostById } from "./post/display-single-post-by-id.mjs";
 
 export function routeToDisplayPost(authorPost, contactPost, author, id, tagString) {
    const searchInput = loadSessionItem("searchInputValue");

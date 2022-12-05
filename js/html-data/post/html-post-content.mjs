@@ -1,5 +1,5 @@
 import { createParseDoc } from "../createParseDoc.mjs";
-import { routeToDisplayPost } from "../../display-data/route-to-display-post.mjs";
+import { routeToDisplayPost } from "../../display/route-to-display-post.mjs";
 export function changeToHtmlPost(postVariables) {
    const { id, title, body, tagString, htmlTag, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
 

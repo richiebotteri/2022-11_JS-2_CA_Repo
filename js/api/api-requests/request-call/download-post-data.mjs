@@ -3,7 +3,7 @@ import { toggleComments } from "../../../handlers/posts/comments-handler.mjs";
 import { postDropdownHandler } from "../../../handlers/posts/post-dropdown-handler.mjs";
 import { optionWithToken } from "../../api-options/only-auth.mjs";
 import { deleteSessionItem, loadSessionItem } from "../../../storage/session-storage.mjs";
-import { displayPostChangeFeedback } from "../../../display-data/display-post-change-feedback.mjs";
+import { displayPostChangeFeedback } from "../../../display/post/post-feedback/display-post-change-feedback.mjs";
 import { changePostVariables } from "../../change-api-data/change-post-variables.mjs";
 
 export async function downloadPostData(method, action) {

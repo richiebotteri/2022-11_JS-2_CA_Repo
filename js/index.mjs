@@ -1,7 +1,7 @@
-import { validatedForms } from "./form-validation/index.mjs";
-import { offlineFeedback } from "./display-data/display-logout-feedback.mjs";
+import { validatedForms } from "./form/index.mjs";
+import { offlineFeedback } from "./display/signup/signup-feedback/display-logout-feedback.mjs";
 import { findPostsHandlers, postHandlers, signupHandlers } from "./handlers/index.mjs";
-import { displayProfileData } from "./display-data/display-profile-data.mjs";
+import { displayProfileData } from "./display/post/display-profile-data.mjs";
 import { getRequest } from "./api/api-requests/request-type/get-request.mjs";
 
 const path = location.pathname;

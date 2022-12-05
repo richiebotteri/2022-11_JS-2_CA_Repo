@@ -1,7 +1,7 @@
 import { optionWithContent } from "../api-options/auth-with-content.mjs";
 import { SOCIAL_URL } from "../api-constants/index.mjs";
-import { displayLoginFeedback } from "../../display-data/display-login-feedback.mjs";
-import { displayRegisterFeedback } from "../../display-data/display-register-feedback.mjs";
+import { displayLoginFeedback } from "../../display/signup/signup-feedback/display-login-feedback.mjs";
+import { displayRegisterFeedback } from "../../display/signup/signup-feedback/display-register-feedback.mjs";
 
 export async function authenticateProfile(profileCredentials, method, action) {
    try {

@@ -1,4 +1,4 @@
-import { singlePostField } from "../html-data/post/post-containers.mjs";
+import { singlePostField } from "../../html-data/post/post-containers.mjs";
 
 export function displaySinglePostById(post, postId) {
    // Get clicked post id from queryString

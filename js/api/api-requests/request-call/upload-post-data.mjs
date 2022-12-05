@@ -1,4 +1,4 @@
-import { displayCreatePostFeedback } from "../../../display-data/display-create-post-feedback.mjs";
+import { displayCreatePostFeedback } from "../../../display/post/post-feedback/display-create-post-feedback.mjs";
 import { SOCIAL_URL } from "../../api-constants/index.mjs";
 import { optionWithContent } from "../../api-options/auth-with-content.mjs";
 

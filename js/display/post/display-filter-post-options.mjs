@@ -1,5 +1,5 @@
-import { createParseDoc } from "../html-data/createParseDoc.mjs";
-import { deleteSessionItem, loadSessionItem } from "../storage/session-storage.mjs";
+import { createParseDoc } from "../../html-data/createParseDoc.mjs";
+import { deleteSessionItem, loadSessionItem } from "../../storage/session-storage.mjs";
 
 export function displayFilterPostOptions(postAuthor) {
    const filterDropdown = document.querySelector(".dropdown-menu");

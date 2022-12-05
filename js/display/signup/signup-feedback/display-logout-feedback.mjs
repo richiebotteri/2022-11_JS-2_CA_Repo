@@ -1,4 +1,4 @@
-import * as sessionStorage from "../storage/session-storage.mjs";
+import * as sessionStorage from "../../../storage/session-storage.mjs";
 
 // Function that gives feedback when logging out of session
 
