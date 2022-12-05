@@ -10,7 +10,6 @@ export async function downloadPostData(method, action) {
    try {
       const response = await fetch(`${SOCIAL_URL}${action}`, optionWithToken(method));
       const result = await response.json();
-
       const isPostDeleted = loadSessionItem("delete");
 
       // looping all posts in result array

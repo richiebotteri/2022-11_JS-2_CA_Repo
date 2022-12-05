@@ -1,3 +1,4 @@
+import { saveSessionItem } from "../../../storage/session-storage.mjs";
 import { uploadPostData } from "../request-call/upload-post-data.mjs";
 
 export function updateRequest(editFormSubmit, editBtn) {
@@ -13,6 +14,10 @@ export function updateRequest(editFormSubmit, editBtn) {
       tags: tagArray,
       media: media.value,
    };
+
+   if (window.location.pathname !== "/profile/post/") {
+      saveSessionItem("isUpdated", true);
+   }
 
    uploadPostData(updatedPostData, method, putAction);
 }

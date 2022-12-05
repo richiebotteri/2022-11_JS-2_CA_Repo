@@ -1,5 +1,5 @@
-import { deleteRequest } from "../../api/post/request-type/delete-request.mjs";
-import { updateRequest } from "../../api/post/request-type/update-request.mjs";
+import { deleteRequest } from "../../api/api-requests/request-type/delete-request.mjs";
+import { updateRequest } from "../../api/api-requests/request-type/update-request.mjs";
 import { closeEditPostHandler } from "./close-edit-post-handler.mjs";
 
 export function postDropdownHandler(responseOk) {

@@ -1,8 +1,9 @@
 // Save to session storage
 export function saveSessionItem(key, value) {
-   if (typeof value === "number") {
+   if (typeof value === "number" || "boolean") {
       sessionStorage.setItem(key, JSON.stringify(value));
    } else {
+      console.log(value);
       const changeValue = value.toLowerCase().trim();
       sessionStorage.setItem(key, JSON.stringify(changeValue));
    }
