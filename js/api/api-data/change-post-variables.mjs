@@ -8,8 +8,9 @@ import { changeUpdateFormat } from "./date-changes/change-update-format.mjs";
 import { onlyShowRealUpdates } from "./date-changes/only-show-real-updates.mjs";
 import { changeMediaData } from "./media-changes/change-media-data.mjs";
 import { changeToHtmlTag } from "./tag-changes/change-tag-to-html.mjs";
-import { changeTagsToSingleTag } from "./tag-changes/change-tags-to-singletag.mjs";
-import { changeTagsToString } from "./tag-changes/change-tags-to-String.mjs";
+import { changeTagsToStringChain } from "./tag-changes/change-tags-to-string-chain.mjs";
+
+import { changeToTagsWithContent } from "./tag-changes/change-to-tags-with-content.mjs";
 
 export function changePostVariables(post, responseOk) {
    if (responseOk) {
@@ -17,9 +18,10 @@ export function changePostVariables(post, responseOk) {
       const authorName = author.name.toLowerCase();
       const authorAvatar = author.avatar;
       // Manipulate data For display
-      const tag = changeTagsToSingleTag(tags);
-      const tagString = changeTagsToString(tag);
-      const htmlTag = changeToHtmlTag(tag);
+      const tagsWithContent = changeToTagsWithContent(tags);
+      const tagStringChain = changeTagsToStringChain(tagsWithContent);
+      const htmlTag = changeToHtmlTag(tagsWithContent);
+
       const htmlComments = changeToHtmlComments(comments);
       const realDateUpdates = onlyShowRealUpdates(created, updated);
       const newDateCreated = changeCreatedFormat(created);
@@ -31,7 +33,7 @@ export function changePostVariables(post, responseOk) {
          id: id,
          title: title,
          body: body,
-         tagString: tagString,
+         tagString: tagStringChain,
          htmlTag: htmlTag,
          dateCreated: newDateCreated,
          dateUpdated: newDateUpdated,

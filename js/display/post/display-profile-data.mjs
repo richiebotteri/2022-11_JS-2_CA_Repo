@@ -1,4 +1,4 @@
-import { changeAvatarData } from "../../api/change-api-data/change-avatar-data.mjs";
+import { changeAvatarData } from "../../api/api-data/change-avatar-data.mjs";
 import { loadItem } from "../../storage/local-storage.mjs";
 
 export function displayProfileData() {

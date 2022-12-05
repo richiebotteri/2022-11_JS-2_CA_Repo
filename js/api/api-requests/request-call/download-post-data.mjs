@@ -4,7 +4,7 @@ import { postDropdownHandler } from "../../../handlers/posts/post-dropdown-handl
 import { optionWithToken } from "../../api-options/only-auth.mjs";
 import { deleteSessionItem, loadSessionItem } from "../../../storage/session-storage.mjs";
 import { displayPostChangeFeedback } from "../../../display/post/post-feedback/display-post-change-feedback.mjs";
-import { changePostVariables } from "../../change-api-data/change-post-variables.mjs";
+import { changePostVariables } from "../../api-data/change-post-variables.mjs";
 
 export async function downloadPostData(method, action) {
    try {
