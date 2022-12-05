@@ -1,7 +1,7 @@
 import { createParseDoc } from "../createParseDoc.mjs";
 import { routeToDisplayPost } from "../../display/route-to-display-post.mjs";
 export function changeToHtmlPost(postVariables) {
-   const { id, title, body, tagString, htmlTag, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
+   const { id, title, body, stringTags, htmlTags, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
 
    const editForm = `
     <form action="/posts" method="put" id="edit-post-form" class="g-col-12 d-none bg-secondary flex-column bg-secondary  p-5 z-index border-bottom  needs-validation" novalidate>
@@ -14,14 +14,14 @@ export function changeToHtmlPost(postVariables) {
             Title
             <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
           </label>
-          <input type="text" class="form-control py-2" id="edit-title" name="title" placeholder="No title in the post." required maxlength="280" value="${title}"/>
+          <input type="text" class="form-control py-2" id="edit-title" name="title" placeholder="No title in the post."  maxlength="280" value="${title}"/>
       </div>
       <div class="form-group mb-3">
           <label for="textarea" class="form-label ps-1 mb-2">
             Content
             <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
           </label>
-          <textarea class="form-control py-2" id="edit-textarea" rows="5" name="textarea" placeholder="No content in the post." required>${body}</textarea>
+          <textarea class="form-control py-2" id="edit-textarea" rows="5" name="textarea" placeholder="No content in the post." >${body}</textarea>
       </div>
       <div id="media-input-group" class="form-group mb-3">
           <label for="media-input" class="form-label ps-1">Media</label>
@@ -29,7 +29,7 @@ export function changeToHtmlPost(postVariables) {
       </div>
       <div id="tag-input-group" class="form-group mb-3">
           <label for="tag-input" class="form-label ps-1 mb-2">Tag</label>
-          <input type="text" class="g-col-12 form-control py-2 " id="edit-tag-input" name="tags" placeholder="No tags in the post" value="${tagString}"/>
+          <input type="text" class="g-col-12 form-control py-2 " id="edit-tag-input" name="tags" placeholder="No tags in the post"    />
       </div>
       <div class="invalid-feedback bg-danger p-3 mb-2 rounded-2 text-white fw-semibold inline">Please type in a message</div>
       <button type="submit" class="btn w-100 btn-primary mt-3">Update Post</button>
@@ -66,7 +66,7 @@ export function changeToHtmlPost(postVariables) {
           <img src="${media}" class="img-fluid" alt="" />
         </div>
         <div class="card-body border-top">
-          ${htmlTag}
+          ${htmlTags}
           <p class="my-3 fs-5">${body}</p>
           <div class="d-flex gap-1 flex-wrap border-top pt-3">
               <button id="add-like-btn" class="btn btn-secondary p-1">
@@ -117,5 +117,5 @@ export function changeToHtmlPost(postVariables) {
    const parsedContactPost = createParseDoc(contactPost).querySelector(`.contact-post`);
    const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
 
-   routeToDisplayPost(parsedAuthorPost, parsedContactPost, author, id, tagString);
+   routeToDisplayPost(parsedAuthorPost, parsedContactPost, author, id, stringTags);
 }

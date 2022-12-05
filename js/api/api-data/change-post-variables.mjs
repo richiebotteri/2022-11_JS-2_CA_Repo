@@ -20,7 +20,7 @@ export function changePostVariables(post, responseOk) {
       // Manipulate data For display
       const tagsWithContent = changeToTagsWithContent(tags);
       const tagStringChain = changeTagsToStringChain(tagsWithContent);
-      const htmlTag = changeToHtmlTag(tagsWithContent);
+      const htmlTags = changeToHtmlTag(tagsWithContent);
 
       const htmlComments = changeToHtmlComments(comments);
       const realDateUpdates = onlyShowRealUpdates(created, updated);
@@ -33,8 +33,9 @@ export function changePostVariables(post, responseOk) {
          id: id,
          title: title,
          body: body,
-         tagString: tagStringChain,
-         htmlTag: htmlTag,
+         tags: tagsWithContent,
+         stringTags: tagStringChain,
+         htmlTags: htmlTags,
          dateCreated: newDateCreated,
          dateUpdated: newDateUpdated,
          media: newMedia,
@@ -45,7 +46,7 @@ export function changePostVariables(post, responseOk) {
          count: _count,
       };
 
-      scrollToViewPost(id, authorName);
+      scrollToViewPost(id);
 
       changeToHtmlPost(updatedPostVariables);
    }

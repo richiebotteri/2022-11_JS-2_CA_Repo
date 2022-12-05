@@ -1,14 +1,18 @@
-import { filterSearchContainer } from "../html-data/post/post-containers.mjs";
+import { filterSearchContainer, profilePostContainer } from "../html-data/post/post-containers.mjs";
 import { deleteSessionItem, loadSessionItem } from "../storage/session-storage.mjs";
 
-export function scrollToViewPost(postId, postAuthorName) {
+export function scrollToViewPost(postId) {
    const isSearchClicked = loadSessionItem("searchInputValue");
    const isPostId = parseFloat(loadSessionItem("postId"));
    const isFilterClicked = loadSessionItem("filterOptionName");
    const isUpdated = loadSessionItem("isUpdated");
    const isClicked = isSearchClicked || isFilterClicked || isUpdated || postId === isPostId;
    if (isClicked && window.location.pathname !== "/profile/post/") {
-      filterSearchContainer.scrollIntoView();
+      if (window.location.pathname === "/profile/view/") {
+         profilePostContainer.scrollIntoView();
+      } else {
+         filterSearchContainer.scrollIntoView();
+      }
       setInterval(() => {
          if (isSearchClicked) {
             deleteSessionItem("searchInputValue");

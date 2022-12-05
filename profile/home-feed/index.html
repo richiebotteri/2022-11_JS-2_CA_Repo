@@ -68,50 +68,50 @@
          <div class="post-change-feedback bg-accent-1 p-3 w-100 mb-3 text-primary fw-semibold d-none shadow"></div>
          <div class="grid bg-primary shadow">
             <h1 class="g-col-12 px-5 py-3 fw-semibold text-secondary">Home</h1>
-
             <!-- Create Posts -->
             <form action="/posts" method="post" id="create-post-form" class="g-col-12 d-flex gap-2 flex-column bg-secondary shadow p-5 needs-validation" novalidate>
                <h2>Create a post</h2>
-               <div class="bg-light p-3 rounded-2 border">
-                  <div class="form-group mb-5">
-                     <label for="title" class="form-label ps-1">
-                        Title
-                        <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
-                     </label>
-                     <input type="text" class="form-control py-2" id="title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" />
+               <div class="form-group">
+                  <label for="title" class="form-label ps-1 mb-2">
+                     Title
+                     <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                  </label>
+                  <input type="text" class="form-control py-2 mb-2" id="title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" />
+               </div>
+               <div class="form-group mb-2">
+                  <label for="textarea" class="form-label ps-1 mb-2">
+                     Content
+                     <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                  </label>
+                  <textarea class="form-control py-2 mb-2" id="textarea" rows="5" name="textarea" placeholder="Whats on your mind?" required></textarea>
+               </div>
+               <div class="grid gap-3 mb-1 border p-3 rounded bg-light-2">
+                  <div class="g-col-6">
+                     <button type="button" id="media-btn" class="btn btn-outline-primary w-100">
+                        Media
+                        <i class="fa-solid fa-photo-film ms-2"></i>
+                     </button>
                   </div>
-                  <div class="form-group mb-5">
-                     <label for="textarea" class="form-label ps-1 mb-2">
-                        Content
-                        <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
-                     </label>
-                     <textarea class="form-control py-2 mb-2" id="textarea" rows="5" name="textarea" placeholder="Whats on your mind?" required></textarea>
+                  <div class="g-col-6">
+                     <button type="button" id="tag-btn" class="btn btn-outline-primary w-100">
+                        tag
+                        <i class="fa-solid fa-photo-film ms-2"></i>
+                     </button>
                   </div>
-                  <div class="grid gap-3">
-                     <div class="g-col-6">
-                        <button type="button" id="media-btn" class="btn btn-primary w-100">
-                           Media
-                           <i class="fa-solid fa-photo-film ms-2"></i>
-                        </button>
-                     </div>
-                     <div class="g-col-6">
-                        <button type="button" id="tag-btn" class="btn btn-primary w-100">
-                           tag
-                           <i class="fa-solid fa-photo-film ms-2"></i>
-                        </button>
-                     </div>
-                  </div>
-                  <div id="media-input-group" class="form-group d-none">
+                  <div id="media-input-group" class="g-col-12 form-group d-none">
                      <label for="media-input" class="form-label ps-1 mt-4 mb-2">Media</label>
                      <input type="text" class="form-control py-2 my-2" id="media-input" name="media" placeholder="https://image.example/" />
                   </div>
-                  <div id="tag-input-group" class="form-group d-none">
-                     <label for="tag-input" class="form-label ps-1 mt-1 mb-2">Tag</label>
-                     <input type="text" class="g-col-12 form-control py-2 my-2" id="tag-input" name="tags" placeholder="#sunny, #vacation" />
+                  <div id="tag-input-group" class="g-col-12 form-group d-none">
+                     <label for="tags" class="form-label ps-1 mt-4 mb-2">Tag</label>
+                     <input type="tags" class="form-control py-2 mb-2" id="tags" name="tags" placeholder="write your tags" pattern="^[\w\s\-]+$" />
+                     <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                        <p class="p-3 m-0">Only whitespace allowed in between tags and no other special symbols like hashtag(#) or comma(,)</p>
+                     </div>
                   </div>
                </div>
                <div class="create-post-feedback card bg-success p-5 rounded-2 text-white fw-semibold mb-2 d-none"></div>
-               <button type="submit" class="btn w-100 mt-3 btn-accent-1 align-self-end">Post</button>
+               <button type="submit" class="btn w-100 mt-3 btn-primary">Post</button>
             </form>
          </div>
 

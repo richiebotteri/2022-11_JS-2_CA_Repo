@@ -1,3 +1,8 @@
 export function validateInputs(formArray) {
-   return formArray.every((formElement) => formElement.checkValidity());
+   const isValid = formArray.every((formElement) => {
+      console.log("check", formElement);
+      return formElement.checkValidity();
+   });
+
+   return isValid;
 }
