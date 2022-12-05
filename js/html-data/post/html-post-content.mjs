@@ -3,6 +3,7 @@ import { routeToDisplayPost } from "../../display/route-to-display-post.mjs";
 export function changeToHtmlPost(postVariables) {
    const { id, title, body, stringTags, htmlTags, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
 
+   const regEx = "^[\\w\\s\\-]+$";
    const editForm = `
     <form action="/posts" method="put" id="edit-post-form" class="g-col-12 d-none bg-secondary flex-column bg-secondary  p-5 z-index border-bottom  needs-validation" novalidate>
           <div class="form-group mb-3 d-flex justify-content-between align-items-center">
@@ -27,9 +28,12 @@ export function changeToHtmlPost(postVariables) {
           <label for="media-input" class="form-label ps-1">Media</label>
           <input type="text" class="form-control py-2" id="edit-media-input" name="media" placeholder="No media in the post." value="${media}"/>
       </div>
-      <div id="tag-input-group" class="form-group mb-3">
-          <label for="tag-input" class="form-label ps-1 mb-2">Tag</label>
-          <input type="text" class="g-col-12 form-control py-2 " id="edit-tag-input" name="tags" placeholder="No tags in the post"    />
+      <div id="tag-input-group" class="g-col-12 form-group ">
+        <label for="tags" class="form-label ps-1">Tag</label>
+        <input type="tags" class="form-control py-2" id="tags" name="tags" value="${stringTags}" placeholder="write your tags" pattern="${regEx}" />
+        <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+            <p class="p-3 m-0">Only whitespace allowed in between tags and no other special symbols like hashtag(#) or comma(,)</p>
+        </div>
       </div>
       <div class="invalid-feedback bg-danger p-3 mb-2 rounded-2 text-white fw-semibold inline">Please type in a message</div>
       <button type="submit" class="btn w-100 btn-primary mt-3">Update Post</button>
