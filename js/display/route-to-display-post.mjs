@@ -42,6 +42,12 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
          } else {
             displayPost(contactPost, homePostContainer);
          }
+      } else if (filterOptionClicked === "Show all posts") {
+         if (loggedInUser === author) {
+            displayPost(authorPost, homePostContainer);
+         } else {
+            displayPost(contactPost, homePostContainer);
+         }
       }
    } else if (path === `/profile/post/`) {
       if (loggedInUser === author) {

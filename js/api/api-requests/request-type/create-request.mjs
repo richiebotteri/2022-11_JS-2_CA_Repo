@@ -1,3 +1,4 @@
+import { saveSessionItem } from "../../../storage/session-storage.mjs";
 import { uploadPostData } from "../request-call/upload-post-data.mjs";
 
 export function createRequest(event) {
@@ -14,5 +15,6 @@ export function createRequest(event) {
    const method = form.method;
    const action = form.attributes.action.value;
    console.log(postObject, method, action);
+   saveSessionItem("isPostCreated", true);
    uploadPostData(postObject, method, action);
 }

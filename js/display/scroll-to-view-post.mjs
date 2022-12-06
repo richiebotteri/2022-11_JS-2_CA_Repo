@@ -5,9 +5,10 @@ export function scrollToViewPost(postId) {
    const isSearchClicked = loadSessionItem("searchInputValue");
    const isPostId = parseFloat(loadSessionItem("postId"));
    const isFilterClicked = loadSessionItem("filterOptionName");
-   const isUpdated = loadSessionItem("isUpdated");
-   const isClicked = isSearchClicked || isFilterClicked || isUpdated || postId === isPostId;
-   if (isClicked && window.location.pathname !== "/profile/post/") {
+   const isPostCreated = loadSessionItem("isPostCreated");
+   const isPostUpdated = loadSessionItem("isUpdated");
+   const isValueTrue = isSearchClicked || isFilterClicked || isPostUpdated || isPostCreated || postId === isPostId;
+   if (isValueTrue && window.location.pathname !== "/profile/post/") {
       if (window.location.pathname === "/profile/view/") {
          profilePostContainer.scrollIntoView();
       } else {
@@ -20,6 +21,8 @@ export function scrollToViewPost(postId) {
             deleteSessionItem("filterOptionName");
          } else if (isPostId) {
             deleteSessionItem("postId");
+         } else if (isPostCreated) {
+            deleteSessionItem("isPostCreated");
          } else {
             deleteSessionItem("isUpdated");
          }

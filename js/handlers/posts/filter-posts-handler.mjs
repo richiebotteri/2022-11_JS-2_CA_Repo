@@ -5,7 +5,7 @@ export function filterPostHandler() {
    filterDropdown.addEventListener("click", (event) => {
       const filterDropdownName = event.target.innerText;
       saveSessionItem("filterOptionName", filterDropdownName);
-      deleteSessionItem("searchInputValue");
+      // deleteSessionItem("searchInputValue");
       window.location.reload();
    });
 }
