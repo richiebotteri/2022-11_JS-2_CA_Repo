@@ -5,9 +5,10 @@ import { displayFilterPostOptions } from "./post/display-filter-post-options.mjs
 import { displayPost } from "./post/display-post.mjs";
 import { displaySinglePostById } from "./post/display-single-post-by-id.mjs";
 
-export function routeToDisplayPost(authorPost, contactPost, author, id, tagString) {
+export function routeToDisplayPost(authorPost, contactPost, author, id, tagString, title) {
    const searchInput = loadSessionItem("searchInputValue");
    const doesSearchTagExist = tagString.includes(searchInput);
+   const doesTitleWordExist = title.includes(searchInput);
    const filterOptionClicked = loadSessionItem("filterOptionName");
    const loggedInUser = loadItem("profile").name;
    const path = window.location.pathname;
@@ -21,6 +22,12 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
             displayPost(contactPost, homePostContainer);
          }
       } else if (parseFloat(searchInput) === id) {
+         if (loggedInUser === author) {
+            displayPost(authorPost, homePostContainer);
+         } else {
+            displayPost(contactPost, homePostContainer);
+         }
+      } else if (doesTitleWordExist) {
          if (loggedInUser === author) {
             displayPost(authorPost, homePostContainer);
          } else {

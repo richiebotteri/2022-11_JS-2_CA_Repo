@@ -121,5 +121,5 @@ export function changeToHtmlPost(postVariables) {
    const parsedContactPost = createParseDoc(contactPost).querySelector(`.contact-post`);
    const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
 
-   routeToDisplayPost(parsedAuthorPost, parsedContactPost, author, id, stringTags);
+   routeToDisplayPost(parsedAuthorPost, parsedContactPost, author, id, stringTags, title);
 }
