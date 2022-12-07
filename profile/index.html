@@ -5,6 +5,10 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="/dist/css/styles.css" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+      <link rel="manifest" href="/favicon/site.webmanifest" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
       <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
       <script type="module" src="/js/index.mjs" defer></script>
@@ -140,6 +144,10 @@
             <div class="g-col-12 my-6 my-md-5">
                <div class="border-2 border-top border-dark my-4 w-75 m-auto"></div>
                <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Your Post-Feed</div>
+            </div>
+            <div id="loader" class="g-col-12 d-flex flex-column gap-2 justify-content-center align-items-center">
+               <strong class="d-inline-block">Loading</strong>
+               <div class="spinner-border" role="status" aria-hidden="true"></div>
             </div>
             <div id="profile-post-field" class="g-col-12 grid"></div>
          </div>

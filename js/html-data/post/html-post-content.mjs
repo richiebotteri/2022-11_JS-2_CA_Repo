@@ -1,5 +1,6 @@
 import { createParseDoc } from "../createParseDoc.mjs";
 import { routeToDisplayPost } from "../../display/route-to-display-post.mjs";
+import { scrollToViewPost } from "../../display/scroll-to-view-post.mjs";
 export function changeToHtmlPost(postVariables) {
    const { id, title, body, stringTags, htmlTags, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
 
@@ -64,7 +65,7 @@ export function changeToHtmlPost(postVariables) {
   <div class="card">
         <div class="card-header py-3 d-flex justify-content-between">
           <h4 class="m-0 fw-semibold">${title}</h4>
-          <a href="/post/?id=${id}" class="d-flex align-items-center gap-2 nav-link">View post <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <a href="/post/?id=${id}" class="view-post-link d-flex align-items-center gap-2 nav-link">View post <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
         <div class="d-flex justify-content-center">
           <img src="${media}" class="img-fluid" alt="" />
@@ -90,7 +91,7 @@ export function changeToHtmlPost(postVariables) {
   `;
 
    const authorPost = `
-      <div class="author-post g-col-12 grid bg-primary shadow mb-6" data-id="${id}">
+      <div id="test" class="author-post g-col-12 grid bg-primary shadow mb-6" data-id="${id}">
         <div class="g-col-10 d-flex align-items-center p-5">
             ${avatar}
             <h4 id="post-author" class="text-white m-0">${author}</h4>
@@ -121,5 +122,6 @@ export function changeToHtmlPost(postVariables) {
    const parsedContactPost = createParseDoc(contactPost).querySelector(`.contact-post`);
    const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
 
+   scrollToViewPost(id, parsedAuthorPost);
    routeToDisplayPost(parsedAuthorPost, parsedContactPost, author, id, stringTags, title);
 }

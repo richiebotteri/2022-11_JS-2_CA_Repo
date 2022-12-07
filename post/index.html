@@ -6,6 +6,10 @@
          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
          <link rel="stylesheet" href="/dist/css/styles.css" />
+         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+         <link rel="manifest" href="/favicon/site.webmanifest" />
          <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
          <script type="module" src="/js/index.mjs" defer></script>
          <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
@@ -66,10 +70,12 @@
       </div>
       <main class="container d-flex flex-column min-vh-100 my-2 p-4">
          <div class="grid gap-md-5 my-5 p-md-0">
-            <a href="/profile/home-feed" class="g-col-12">Go Back</a>
-            <div id="single-post-field" class="g-col-12 grid">
-               <!-- Generated Post -->
+            <a href="/home/index.html" class="g-col-12">Go Back</a>
+            <div id="loader" class="g-col-12 d-flex flex-column gap-2 justify-content-center align-items-center">
+               <strong class="d-inline-block">Loading</strong>
+               <div class="spinner-border" role="status" aria-hidden="true"></div>
             </div>
+            <div id="single-post-field" class="g-col-12 grid"></div>
          </div>
       </main>
       <footer class="bg-dark">

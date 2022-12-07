@@ -14,6 +14,7 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
    const path = window.location.pathname;
 
    if (searchInput && path === "/home/") {
+      displayFilterPostOptions(author);
       deleteSessionItem("filterOptionName");
       if (searchInput === author) {
          if (loggedInUser === author) {
