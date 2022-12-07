@@ -13,7 +13,7 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
    const loggedInUser = loadItem("profile").name;
    const path = window.location.pathname;
 
-   if (searchInput && path === "/home-feed/") {
+   if (searchInput && path === "/home/") {
       deleteSessionItem("filterOptionName");
       if (searchInput === author) {
          if (loggedInUser === author) {
@@ -40,7 +40,7 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
             displayPost(contactPost, homePostContainer);
          }
       }
-   } else if (filterOptionClicked && path === "/home-feed/") {
+   } else if (filterOptionClicked && path === "/home/") {
       displayFilterPostOptions(author);
       deleteSessionItem("searchInputValue");
       if (filterOptionClicked === author) {

@@ -11,7 +11,7 @@ if (path === "/profile/index.html" || path === "/profile/") {
    postHandlers();
    getRequest();
    displayProfileData();
-} else if (path === "/home-feed/index.html" || path === "/home-feed/") {
+} else if (path === "/home/index.html" || path === "/home/") {
    postHandlers();
    getRequest();
    findPostsHandlers();
