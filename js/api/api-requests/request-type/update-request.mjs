@@ -15,8 +15,8 @@ export function updateRequest(editFormSubmit, editBtn) {
       media: media.value,
    };
 
-   if (window.location.pathname !== "/profile/post/") {
-      saveSessionItem("isUpdated", true);
+   if (window.location.pathname !== "/post/") {
+      saveSessionItem("isUpdated", postId);
    }
 
    uploadPostData(updatedPostData, method, putAction);

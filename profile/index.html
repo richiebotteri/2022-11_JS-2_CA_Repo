@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/dist/css/styles.css" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+      <link rel="manifest" href="/favicon/site.webmanifest" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
+      <script type="module" src="/js/index.mjs" defer></script>
+      <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+      <title>Profile | Meetzy</title>
+   </head>
+   <body class="bg-light">
+      <!-- Header Navbar -->
+      <header class="shadow bg-white">
+         <div class="container grid px-4 px-md-2">
+            <a href="homepage.html" class="navbar-brand g-col-6 g-col-md-2 d-flex px-0 px-xl-2 align-items-center">
+               <p class="text-black fw-semibold fs-1 mt-2">Meetzy</p>
+            </a>
+            <nav class="navbar g-col-6 d-none d-md-flex justify-content-center">
+               <ul class="nav d-flex gap-5">
+                  <li class="nav-item">
+                     <a href="/home/" class="nav-link link-dark p-1 nav-link-hover">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="/profile/" class="nav-link link-dark fw-semibold p-1">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="/index.html" id="desktop-logout-anchor" class="nav-link link-dark nav-link-hover p-1">Logout</a>
+                  </li>
+               </ul>
+            </nav>
+
+            <div class="g-col-6 d-flex justify-content-end d-md-none">
+               <button class="btn btn-outline-dark my-4" aria-label="close-menu" data-mobile-nav-btn><i class="fa-solid fa-bars"></i></button>
+            </div>
+         </div>
+      </header>
+
+      <!-- Mobile Navbar -->
+      <div class="d-flex d-none flex-column d-md-none justify-content-center" data-mobile-nav>
+         <nav>
+            <ul class="nav flex-column border-2">
+               <li class="nav-item d-flex justify-content-center bg-dark py-4">
+                  <a class="nav-link link-light d-flex align-items-center justify-content-center w-100" aria-current="page" href="/profile/">
+                     <span class="profile-icon bg-light d-inline-block rounded-circle me-3 text-dark d-flex align-items-center justify-content-center fw-bold">RB</span>
+                     Profile
+                  </a>
+               </li>
+               <li class="nav-item nav-item-hover d-flex justify-content-center border-3 border-bottom border-dark py-5">
+                  <a class="nav-link link-dark d-flex align-items-center justify-content-center w-100" href="/home/">
+                     <i class="fa-solid fa-house fs-2 me-3"></i>
+                     Home
+                  </a>
+               </li>
+               <li class="nav-item nav-item-hover d-flex justify-content-center border-3 border-bottom border-dark py-5">
+                  <a id="mobile-logout-anchor" class="nav-link link-dark d-flex align-items-center justify-content-center w-100" href="/index.html">
+                     <i class="fa-solid fa-right-from-bracket fs-2 me-3"></i>
+                     Logout
+                  </a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+
+      <!-- Main Content -->
+      <main class="container d-flex flex-column my-2 p-4">
+         <div class="grid gap-md-5 my-5 p-md-0">
+            <div class="post-change-feedback g-col-12 bg-accent-1 p-3 w-100 mb-3 text-primary fw-semibold d-none"></div>
+            <div id="profile-header" class="g-col-12 d-flex flex-column align-items-center m-0 p-5 bg-primary shadow"></div>
+            <div class="g-col-12 g-col-md-6 p-5 bg-secondary shadow">
+               <div class="grid d-flex flex-column gap-2">
+                  <div id="profile-about" class="d-flex flex-column mb-5">
+                     <h2>About</h2>
+                  </div>
+                  <h2>Contacts</h2>
+                  <div class="g-col mt-2">
+                     <ul class="list-group">
+                        <li class="list-group-item d-flex align-items-center ju">
+                           <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">CB</span>
+                           Catharin Brown
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                           <span class="profile-icon bg-dark d-inline-block rounded-circle me-2 text-white d-flex align-items-center justify-content-center fw-bold">BH</span>
+                           Brian Harper
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="g-col-12 g-col-md-6">
+               <!-- Create Posts -->
+               <form action="/posts" method="post" id="create-post-form" class="d-flex gap-2 flex-column bg-secondary shadow p-5 needs-validation" novalidate>
+                  <h2>Create a post</h2>
+                  <div class="form-group">
+                     <label for="title" class="form-label ps-1 mb-2">
+                        Title
+                        <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                     </label>
+                     <input type="text" class="form-control py-2 mb-2" id="title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" />
+                  </div>
+                  <div class="form-group mb-2">
+                     <label for="textarea" class="form-label ps-1 mb-2">
+                        Content
+                        <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                     </label>
+                     <textarea class="form-control py-2 mb-2" id="textarea" rows="5" name="textarea" placeholder="Whats on your mind?" required></textarea>
+                  </div>
+                  <div class="grid gap-3 mb-1 border p-3 rounded bg-light-2">
+                     <div class="g-col-6">
+                        <button type="button" id="media-btn" class="btn btn-outline-primary w-100">
+                           Media
+                           <i class="fa-solid fa-photo-film ms-2"></i>
+                        </button>
+                     </div>
+                     <div class="g-col-6">
+                        <button type="button" id="tag-btn" class="btn btn-outline-primary w-100">
+                           tag
+                           <i class="fa-solid fa-photo-film ms-2"></i>
+                        </button>
+                     </div>
+                     <div id="media-input-group" class="g-col-12 form-group d-none">
+                        <label for="media-input" class="form-label ps-1">Media</label>
+                        <input type="text" class="form-control py-2" id="media-input" name="media" placeholder="https://image.example/" />
+                     </div>
+                     <div id="tag-input-group" class="g-col-12 form-group d-none">
+                        <label for="tags" class="form-label ps-1">Tag</label>
+                        <input type="tags" class="form-control py-2" id="tags" name="tags" placeholder="write your tags" pattern="^[\w\s\-]+$" />
+                        <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                           <p class="p-3 m-0">Only whitespace allowed in between tags and no other special symbols like hashtag(#) or comma(,)</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="create-post-feedback card bg-success p-5 rounded-2 text-white fw-semibold mb-2 d-none"></div>
+                  <button type="submit" class="btn w-100 mt-3 btn-primary">Post</button>
+               </form>
+            </div>
+            <!-- Spacers -->
+            <div class="g-col-12 my-6 my-md-5">
+               <div class="border-2 border-top border-dark my-4 w-75 m-auto"></div>
+               <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Your Post-Feed</div>
+            </div>
+            <div id="loader" class="g-col-12 d-flex flex-column gap-2 justify-content-center align-items-center">
+               <strong class="d-inline-block">Loading</strong>
+               <div class="spinner-border" role="status" aria-hidden="true"></div>
+            </div>
+            <div id="profile-post-field" class="g-col-12 grid"></div>
+         </div>
+      </main>
+      <footer class="bg-dark">
+         <p class="text-center text-white mb-0 p-3">Copywrite &copy;</p>
+      </footer>
+   </body>
+</html>

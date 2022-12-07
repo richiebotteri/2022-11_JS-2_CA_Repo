@@ -6,6 +6,10 @@ export function displaySinglePostById(post, postId) {
    const params = new URLSearchParams(urlParameterString);
    const queryStringId = parseFloat(params.get("id"));
 
+   // removes view post link
+   const viewPostLink = post.querySelector(".view-post-link");
+   viewPostLink.classList.add("d-none");
+
    if (queryStringId === postId) {
       singlePostField.appendChild(post);
    }

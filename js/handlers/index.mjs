@@ -20,7 +20,7 @@ export function postHandlers() {
 
 export function findPostsHandlers() {
    searchInputHandler();
-   if (window.location.pathname === "/profile/home-feed/") {
+   if (window.location.pathname === "/home/") {
       filterPostHandler();
    }
 }

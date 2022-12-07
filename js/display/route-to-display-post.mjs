@@ -13,7 +13,8 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
    const loggedInUser = loadItem("profile").name;
    const path = window.location.pathname;
 
-   if (searchInput && path === "/profile/home-feed/") {
+   if (searchInput && path === "/home/") {
+      displayFilterPostOptions(author);
       deleteSessionItem("filterOptionName");
       if (searchInput === author) {
          if (loggedInUser === author) {
@@ -40,7 +41,7 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
             displayPost(contactPost, homePostContainer);
          }
       }
-   } else if (filterOptionClicked && path === "/profile/home-feed/") {
+   } else if (filterOptionClicked && path === "/home/") {
       displayFilterPostOptions(author);
       deleteSessionItem("searchInputValue");
       if (filterOptionClicked === author) {
@@ -56,13 +57,13 @@ export function routeToDisplayPost(authorPost, contactPost, author, id, tagStrin
             displayPost(contactPost, homePostContainer);
          }
       }
-   } else if (path === `/profile/post/`) {
+   } else if (path === `/post/`) {
       if (loggedInUser === author) {
          displaySinglePostById(authorPost, id);
       } else {
          displaySinglePostById(contactPost, id);
       }
-   } else if (path === "/profile/view/") {
+   } else if (path === "/profile/") {
       if (loggedInUser === author) {
          displayPost(authorPost, profilePostContainer);
       }

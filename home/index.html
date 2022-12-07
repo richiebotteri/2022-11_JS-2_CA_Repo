@@ -5,6 +5,10 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="/dist/css/styles.css" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+      <link rel="manifest" href="/favicon/site.webmanifest" />
       <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
       <script type="module" src="/js/index.mjs" defer></script>
       <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
@@ -20,13 +24,13 @@
             <nav class="navbar g-col-6 d-none d-md-flex justify-content-center">
                <ul class="nav d-flex gap-5">
                   <li class="nav-item">
-                     <a href="/profile/home-feed/" class="nav-link link-dark p-1 nav-link-hover fw-semibold">Home</a>
+                     <a href="/home/" class="nav-link link-dark p-1 nav-link-hover fw-semibold">Home</a>
                   </li>
                   <li class="nav-item">
-                     <a href="/profile/view/" class="nav-link link-dark p-1">Profile</a>
+                     <a href="/profile/" class="nav-link link-dark p-1">Profile</a>
                   </li>
                   <li class="nav-item">
-                     <a href="/profile/register/" id="desktop-logout-anchor" class="nav-link link-dark nav-link-hover p-1">Logout</a>
+                     <a href="/index.html" id="desktop-logout-anchor" class="nav-link link-dark nav-link-hover p-1">Logout</a>
                   </li>
                </ul>
             </nav>
@@ -42,19 +46,19 @@
          <nav>
             <ul class="nav flex-column border-2 border-top border-dark">
                <li class="nav-item d-flex justify-content-center bg-dark py-5">
-                  <a class="nav-link link-light d-flex align-items-center justify-content-center" href="/profile/home-feed/">
+                  <a class="nav-link link-light d-flex align-items-center justify-content-center" href="/home/">
                      <i class="fa-solid fa-house fs-2 me-3"></i>
                      Home
                   </a>
                </li>
                <li class="nav-item nav-item-hover d-flex justify-content-center border-3 border-bottom border-dark py-4">
-                  <a id="mobile-logout-anchor" class="nav-link link-dark d-flex align-items-center justify-content-center w-100" aria-current="page" href="/profile/view/">
+                  <a id="mobile-logout-anchor" class="nav-link link-dark d-flex align-items-center justify-content-center w-100" aria-current="page" href="/profile/">
                      <span class="profile-icon bg-dark d-inline-block rounded-circle me-3 text-light d-flex align-items-center justify-content-center fw-bold">RB</span>
                      Profile
                   </a>
                </li>
                <li class="nav-item d-flex nav-item-hover justify-content-center border-3 border-bottom border-dark py-5">
-                  <a class="nav-link link-dark d-flex align-items-center justify-content-center w-100" href="/profile/register/">
+                  <a class="nav-link link-dark d-flex align-items-center justify-content-center w-100" href="/index.html">
                      <i class="fa-solid fa-right-from-bracket fs-2 me-3"></i>
                      Logout
                   </a>
@@ -144,6 +148,10 @@
 
             <!-- Post Feed from Contacts -->
             <div class="grid pt-5 gap-5">
+               <div id="loader" class="g-col-12 d-flex flex-column gap-2 justify-content-center align-items-center">
+                  <strong class="d-inline-block">Loading</strong>
+                  <div class="spinner-border" role="status" aria-hidden="true"></div>
+               </div>
                <div id="home-post-field" class="g-col-12 w-100 m-auto grid"></div>
             </div>
          </div>

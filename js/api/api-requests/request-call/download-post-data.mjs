@@ -12,21 +12,25 @@ export async function downloadPostData(method, action) {
       const response = await fetch(`${SOCIAL_URL}${action}`, optionWithToken(method));
       const result = await response.json();
       const isPostDeleted = loadSessionItem("delete");
+      const loader = document.querySelector("#loader");
 
-      // looping all posts in result array
-      result.forEach((post) => {
-         changePostVariables(post, response.ok);
-      });
+      if (response.ok) {
+         loader.classList.add("d-none");
+         // looping all posts in result array
+         result.forEach((post) => {
+            changePostVariables(post, response.ok);
+         });
 
-      // display deleted post message
-      if (isPostDeleted) {
-         displayPostChangeFeedback(response.ok);
-         deleteSessionItem("delete");
+         // display deleted post message
+         if (isPostDeleted) {
+            displayPostChangeFeedback(response.ok);
+            deleteSessionItem("delete");
+         }
+
+         toggleComments();
+         postDropdownHandler();
+         validatedForms();
       }
-
-      toggleComments(response.ok);
-      postDropdownHandler(response.ok);
-      validatedForms(response.ok);
    } catch (error) {
       console.log(error);
    }
