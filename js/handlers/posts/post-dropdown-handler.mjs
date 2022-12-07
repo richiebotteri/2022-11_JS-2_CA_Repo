@@ -1,13 +1,12 @@
-import { deleteRequest } from "../../api/post/request-type/delete-request.mjs";
-import { updateRequest } from "../../api/post/request-type/update-request.mjs";
+import { deleteRequest } from "../../api/api-requests/request-type/delete-request.mjs";
 import { closeEditPostHandler } from "./close-edit-post-handler.mjs";
+import { editFormHandler } from "./edit-form-handler.mjs";
 
 export function postDropdownHandler(responseOk) {
    if (responseOk) {
       let postDropdownBtn = document.querySelector("#post-dropdown-btn");
 
       if (postDropdownBtn === null) {
-         console.log("No Posts");
          postDropdownBtn = "";
       } else {
          postDropdownBtn.addEventListener("click", (event) => {
@@ -16,17 +15,11 @@ export function postDropdownHandler(responseOk) {
                deleteRequest(dropdownOption);
             }
             if (dropdownOption.innerText === "Edit Post") {
+               const editBtn = dropdownOption;
                const editPostForm = document.querySelector("#edit-post-form");
                editPostForm.classList.replace("d-none", "d-flex");
                closeEditPostHandler(editPostForm);
-
-               editPostForm.addEventListener("submit", (event) => {
-                  event.preventDefault();
-
-                  const editFormSubmit = event.target;
-
-                  updateRequest(editFormSubmit, dropdownOption);
-               });
+               editFormHandler(editPostForm, editBtn);
             }
          });
       }

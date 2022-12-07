@@ -1,5 +1,5 @@
-import { loginAccount } from "../../api/signup/login-account.mjs";
-import { validateInputs } from "../../form-validation/validatedInput.mjs";
+import { loginAccount } from "../../api/api-authenticate/signup/login-account.mjs";
+import { validateInputs } from "../../form/validatedInput.mjs";
 
 export function loginFormHandler() {
    const loginForm = document.querySelector("#form-to-login");

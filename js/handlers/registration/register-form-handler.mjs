@@ -1,5 +1,5 @@
-import { registerAccount } from "../../api/signup/register-account.mjs";
-import { validateInputs } from "../../form-validation/validatedInput.mjs";
+import { registerAccount } from "../../api/api-authenticate/signup/register-account.mjs";
+import { validateInputs } from "../../form/validatedInput.mjs";
 
 export function registerFormHandler() {
    const formToRegister = document.querySelector("#form-to-register");

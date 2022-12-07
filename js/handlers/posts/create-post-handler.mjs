@@ -1,5 +1,5 @@
-import { createRequest } from "../../api/post/request-type/create-request.mjs";
-import { validateInputs } from "../../form-validation/validatedInput.mjs";
+import { createRequest } from "../../api/api-requests/request-type/create-request.mjs";
+import { validateInputs } from "../../form/validatedInput.mjs";
 
 export function createPostHandler() {
    const createPostForm = document.querySelector("#create-post-form");

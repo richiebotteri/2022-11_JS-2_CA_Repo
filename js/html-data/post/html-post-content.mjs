@@ -1,10 +1,9 @@
-import { displayPosts } from "../../display-data/display-posts.mjs";
-import { displaySinglePostById } from "../../display-data/display-single-post-by-id.mjs";
 import { createParseDoc } from "../createParseDoc.mjs";
-
+import { routeToDisplayPost } from "../../display/route-to-display-post.mjs";
 export function changeToHtmlPost(postVariables) {
-   const { id, title, body, tag, editTag, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
+   const { id, title, body, stringTags, htmlTags, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
 
+   const regEx = "^[\\w\\s\\-]+$";
    const editForm = `
     <form action="/posts" method="put" id="edit-post-form" class="g-col-12 d-none bg-secondary flex-column bg-secondary  p-5 z-index border-bottom  needs-validation" novalidate>
           <div class="form-group mb-3 d-flex justify-content-between align-items-center">
@@ -16,22 +15,25 @@ export function changeToHtmlPost(postVariables) {
             Title
             <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
           </label>
-          <input type="text" class="form-control py-2" id="edit-title" name="title" placeholder="No title in the post." required maxlength="280" value="${title}"/>
+          <input type="text" class="form-control py-2" id="edit-title" name="title" placeholder="No title in the post."  maxlength="280" value="${title}"/>
       </div>
       <div class="form-group mb-3">
           <label for="textarea" class="form-label ps-1 mb-2">
             Content
             <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
           </label>
-          <textarea class="form-control py-2" id="edit-textarea" rows="5" name="textarea" placeholder="No content in the post." required>${body}</textarea>
+          <textarea class="form-control py-2" id="edit-textarea" rows="5" name="textarea" placeholder="No content in the post." >${body}</textarea>
       </div>
       <div id="media-input-group" class="form-group mb-3">
           <label for="media-input" class="form-label ps-1">Media</label>
           <input type="text" class="form-control py-2" id="edit-media-input" name="media" placeholder="No media in the post." value="${media}"/>
       </div>
-      <div id="tag-input-group" class="form-group mb-3">
-          <label for="tag-input" class="form-label ps-1 mb-2">Tag</label>
-          <input type="text" class="g-col-12 form-control py-2 " id="edit-tag-input" name="tags" placeholder="No tags in the post" value="${editTag}"/>
+      <div id="tag-input-group" class="g-col-12 form-group ">
+        <label for="tags" class="form-label ps-1">Tag</label>
+        <input type="tags" class="form-control py-2" id="tags" name="tags" value="${stringTags}" placeholder="write your tags" pattern="${regEx}" />
+        <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+            <p class="p-3 m-0">Only whitespace allowed in between tags and no other special symbols like hashtag(#) or comma(,)</p>
+        </div>
       </div>
       <div class="invalid-feedback bg-danger p-3 mb-2 rounded-2 text-white fw-semibold inline">Please type in a message</div>
       <button type="submit" class="btn w-100 btn-primary mt-3">Update Post</button>
@@ -68,7 +70,7 @@ export function changeToHtmlPost(postVariables) {
           <img src="${media}" class="img-fluid" alt="" />
         </div>
         <div class="card-body border-top">
-          ${tag}
+          ${htmlTags}
           <p class="my-3 fs-5">${body}</p>
           <div class="d-flex gap-1 flex-wrap border-top pt-3">
               <button id="add-like-btn" class="btn btn-secondary p-1">
@@ -119,7 +121,5 @@ export function changeToHtmlPost(postVariables) {
    const parsedContactPost = createParseDoc(contactPost).querySelector(`.contact-post`);
    const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
 
-   displayPosts(parsedAuthorPost, parsedContactPost, author);
-
-   displaySinglePostById(parsedAuthorPost, parsedContactPost, id, author);
+   routeToDisplayPost(parsedAuthorPost, parsedContactPost, author, id, stringTags, title);
 }

@@ -1,6 +1,10 @@
 // Save to local storage
 export function saveItem(key, value) {
-   localStorage.setItem(key, JSON.stringify(value));
+   if (typeof value === "number") {
+      localStorage.setItem(key, JSON.stringify(value));
+   } else {
+      localStorage.setItem(key, JSON.stringify(value));
+   }
 }
 
 // load local storage item
