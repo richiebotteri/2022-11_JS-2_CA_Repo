@@ -7,17 +7,17 @@ import { getRequest } from "./api/api-requests/request-type/get-request.mjs";
 const path = location.pathname;
 
 validatedForms();
-if (path === "/profile/view/index.html" || path === "/profile/view/") {
+if (path === "/profile/index.html" || path === "/profile/") {
    postHandlers();
    getRequest();
    displayProfileData();
-} else if (path === "/profile/home-feed/index.html" || path === "/profile/home-feed/") {
+} else if (path === "/home-feed/index.html" || path === "/home-feed/") {
    postHandlers();
    getRequest();
    findPostsHandlers();
-} else if (path === "/profile/post/index.html" || path === "/profile/post/") {
+} else if (path === "/post/index.html" || path === "/post/") {
    getRequest();
-} else if (path === "/profile/register/index.html" || path === "/profile/register/") {
+} else {
    offlineFeedback();
    signupHandlers();
 }

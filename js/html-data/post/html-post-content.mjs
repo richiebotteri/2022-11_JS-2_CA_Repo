@@ -64,7 +64,7 @@ export function changeToHtmlPost(postVariables) {
   <div class="card">
         <div class="card-header py-3 d-flex justify-content-between">
           <h4 class="m-0 fw-semibold">${title}</h4>
-          <a href="/profile/post/?id=${id}" class="d-flex align-items-center gap-2 nav-link">View post <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <a href="/post/?id=${id}" class="d-flex align-items-center gap-2 nav-link">View post <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
         <div class="d-flex justify-content-center">
           <img src="${media}" class="img-fluid" alt="" />

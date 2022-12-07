@@ -15,7 +15,7 @@ export function updateRequest(editFormSubmit, editBtn) {
       media: media.value,
    };
 
-   if (window.location.pathname !== "/profile/post/") {
+   if (window.location.pathname !== "/post/") {
       saveSessionItem("isUpdated", true);
    }
 

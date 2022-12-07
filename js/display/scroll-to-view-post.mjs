@@ -8,8 +8,8 @@ export function scrollToViewPost(postId) {
    const isPostCreated = loadSessionItem("isPostCreated");
    const isPostUpdated = loadSessionItem("isUpdated");
    const isValueTrue = isSearchClicked || isFilterClicked || isPostUpdated || isPostCreated || postId === isPostId;
-   if (isValueTrue && window.location.pathname !== "/profile/post/") {
-      if (window.location.pathname === "/profile/view/") {
+   if (isValueTrue && window.location.pathname !== "/post/") {
+      if (window.location.pathname === "/profile/") {
          profilePostContainer.scrollIntoView();
       } else {
          filterSearchContainer.scrollIntoView();

@@ -10,7 +10,7 @@ export async function uploadPostData(postObject, method, action) {
       console.log("result:", result);
 
       if (method === "post" || method === "put") {
-         if (window.location.pathname !== "/profile/post/") {
+         if (window.location.pathname !== "/post/") {
             displayCreatePostFeedback(response.ok);
          }
 
