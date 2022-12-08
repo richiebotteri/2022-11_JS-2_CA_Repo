@@ -1,5 +1,7 @@
 /**
  * Save value-item to sessionStorage
+ * @export
+ * @module
  * @param {string} key add string key
  * @param {*} value add any param type
  * @example
@@ -30,6 +32,8 @@ export function saveSessionItem(key, value) {
 
 /**
  *Load value-item from sessionStorage
+ * @export
+ * @module
  * @param {string} key add string key from sessionStorage
  * @returns returns a javascript value, converted from JSON
  * @example
@@ -53,6 +57,8 @@ export function loadSessionItem(key) {
 
 /**
  * Delete value-item from sessionStorage
+ * @export
+ * @module
  * @param {string} key add string key from sessionStorage
  * @example
  * ```js

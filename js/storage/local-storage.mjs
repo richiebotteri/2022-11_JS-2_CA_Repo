@@ -1,5 +1,7 @@
 /**
  * Save value-item to localStorage
+ * @export
+ * @module
  * @param {string} key add string key
  * @param {*} value add any param type
  * @example
@@ -28,6 +30,8 @@ export function saveItem(key, value) {
 
 /**
  * Load value-item from localStorage
+ * @export
+ * @module
  * @param {string} key add string key from localStorage
  * @returns returns a javascript value, converted from JSON
  * @example
@@ -52,6 +56,8 @@ export function loadItem(key) {
 
 /**
  * Delete value-item from sessionStorage
+ * @export
+ * @module
  * @param {string} key add string key from localStorage
  * @example
  * ```js

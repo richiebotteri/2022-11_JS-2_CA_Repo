@@ -1,6 +1,18 @@
 import { createParseDoc } from "../createParseDoc.mjs";
 import { routeToDisplayPost } from "../../display/route-to-display-post.mjs";
 import { scrollToViewPost } from "../../display/scroll-to-view-post.mjs";
+
+/**
+ * Adds modified API data to ready-made HTML element posts with and without edit/delete button.
+ *
+ * Sends ready-made html-posts to routeToDisplayPost function to displayed them at the correct location.
+ *
+ * Triggers scrollToView function for the posts already rendered in the browser
+ * @export
+ * @module
+ * @param {object} postVariables has modified API data
+ */
+
 export function changeToHtmlPost(postVariables) {
    const { id, title, body, stringTags, htmlTags, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
 
