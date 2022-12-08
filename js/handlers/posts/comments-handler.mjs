@@ -1,3 +1,8 @@
+/**
+ * Toggles viewing comments when clicking on the comments button.
+ * @export
+ * @module
+ */
 export function toggleComments() {
    const showCommentBtns = document.querySelectorAll("#show-comments-btn");
    const commentsFields = document.querySelectorAll("[data-comments-id]");

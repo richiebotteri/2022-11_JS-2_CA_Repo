@@ -1,5 +1,10 @@
-import { deleteSessionItem, saveSessionItem } from "../../storage/session-storage.mjs";
+import { saveSessionItem } from "../../storage/session-storage.mjs";
 
+/**
+ * Saves the filter-option-name to the sessionStorage when the user clicks on a option in the filter-menu
+ * @export
+ * @module
+ */
 export function filterPostHandler() {
    const filterDropdown = document.querySelector(".dropdown-menu");
    filterDropdown.addEventListener("click", (event) => {
