@@ -1,0 +1,12 @@
+{
+   "tags": {
+      "allowUnknownTags": true,
+      "dictionaries": ["jsdoc", "closure"]
+   },
+   "source": {
+      "include": ["."],
+      "includePattern": ".(mjs)$",
+      "exclude": ["node_modules/", "fonts/"]
+   },
+   "sourceType": "module"
+}
