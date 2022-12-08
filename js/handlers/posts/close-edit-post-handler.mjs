@@ -1,7 +1,7 @@
 /**
  * Closes the edit-form when clicking on close-button in the form
  * @export
- * @module
+ * @module closeEditPostHandler
  */
 export function closeEditPostHandler(editForm) {
    const closeEditBtn = document.querySelector(".close-edit-btn");

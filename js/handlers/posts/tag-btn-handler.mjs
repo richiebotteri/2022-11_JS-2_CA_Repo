@@ -1,7 +1,7 @@
 /**
  * Toggles viewing tag-input when clicking on the media button.
  * @export
- * @module
+ * @module toggleTagBtn
  */
 export function toggleTagBtn() {
    const tagBtn = document.querySelector("#tag-btn");

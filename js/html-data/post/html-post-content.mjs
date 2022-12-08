@@ -9,7 +9,7 @@ import { scrollToViewPost } from "../../display/scroll-to-view-post.mjs";
  *
  * Triggers scrollToView function for the posts already rendered in the browser
  * @export
- * @module
+ * @module changeToHtmlPost
  * @param {object} postVariables has modified API data
  */
 

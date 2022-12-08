@@ -12,7 +12,7 @@ import { searchInputHandler } from "./search/search-input-handler.mjs";
 /**
  * Calls nav- & button-event-handlers for when user is logged in and toggles hamburger-menu, comments-btn, media-btn, tag-button, creates-post-btn or logout-btn.
  * @export
- * @module
+ * @module triggerPostHandlers
  */
 export function postHandlers() {
    toggleMobileNav();
@@ -26,7 +26,7 @@ export function postHandlers() {
 /**
  * Calls find posts event-handlers for when user is logged in and searches or chooses a filter-option to find specific posts.
  * @export
- * @module
+ * @module triggerFindPostHandlers
  */
 export function findPostsHandlers() {
    searchInputHandler();
@@ -36,7 +36,7 @@ export function findPostsHandlers() {
 /**
  * Calls signup event-handlers for when user logs in or register account
  * @export
- * @module
+ * @module triggerSignupHandlers
  */
 export function signupHandlers() {
    registerFormHandler();

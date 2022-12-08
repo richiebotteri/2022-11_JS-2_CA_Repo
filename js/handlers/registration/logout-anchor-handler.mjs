@@ -4,7 +4,7 @@ import { removeProfileFromStorage } from "../../storage/delete-stored-profile.mj
  * Logs out user by removing profile data stored in the localStorage to
  * prevent access, when user clicks on logout button.
  * @export
- * @module
+ * @module logoutAccount
  * @description
  * It gets the html logout buttons both on desktop and mobile navigation.
  *

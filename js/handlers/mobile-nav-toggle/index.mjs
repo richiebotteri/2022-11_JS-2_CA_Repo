@@ -1,7 +1,7 @@
 /**
  * Toggles viewing mobile-nav when clicking on the hamburger-menu button.
  * @export
- * @module
+ * @module toggleMobileNav
  */
 export function toggleMobileNav() {
    const toggleMenuBtn = document.querySelector("[data-mobile-nav-btn]");

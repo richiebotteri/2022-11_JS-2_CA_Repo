@@ -3,7 +3,7 @@ import * as sessionStorage from "./session-storage.mjs";
 
 /**
  * Removes profile-object from sessionStorage
- * @module
+ * @module removeProfileFromStorage
  * @example
  *```js
  * // deletes Token used to grant

@@ -5,7 +5,7 @@ import { editFormHandler } from "./edit-form-handler.mjs";
 /**
  * listens for clicks in the single-post dropdown-menu.
  * @export
- * @module
+ * @module postDropdownHandler
  * @description
  * if delete gets clicked it calls the deleteRequest function sending the delete-button element as param
  *

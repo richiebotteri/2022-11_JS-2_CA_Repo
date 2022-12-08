@@ -4,7 +4,7 @@ import { saveSessionItem } from "../../storage/session-storage.mjs";
 /**
  * Gets data typed inside the search-input when the form gets submitted.
  * @export
- * @module
+ * @module searchInputHandler
  * @description
  * It gets the html search-form and listens for a submit event.
  *

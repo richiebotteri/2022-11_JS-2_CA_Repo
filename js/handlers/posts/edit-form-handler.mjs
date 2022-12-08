@@ -4,7 +4,7 @@ import { validateInputs } from "../../form/validatedInput.mjs";
 /**
  * Gets data typed inside the edit-form inputs when the form gets submitted.
  * @export
- * @module
+ * @module editFormHandler
  * @description
  * It gets the html edit-form and than listens for a submit event.
  *

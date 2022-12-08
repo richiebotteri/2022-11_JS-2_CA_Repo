@@ -4,7 +4,7 @@ import { validateInputs } from "../../form/validatedInput.mjs";
 /**
  * Gets data typed inside the create-post-form inputs when the form gets submitted.
  * @export
- * @module
+ * @module createPostHandler
  * @description
  * It gets the html create-form-element and than listens for a submit event.
  *

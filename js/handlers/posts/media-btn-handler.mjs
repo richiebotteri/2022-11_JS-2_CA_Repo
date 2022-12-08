@@ -1,7 +1,7 @@
 /**
  * Toggles viewing media-input when clicking on the media button.
  * @export
- * @module
+ * @module toggleMediaBtn
  */
 export function toggleMediaBtn() {
    const mediaBtn = document.querySelector("#media-btn");

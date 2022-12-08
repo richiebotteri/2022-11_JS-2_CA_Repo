@@ -4,7 +4,7 @@ import { validateInputs } from "../../form/validatedInput.mjs";
 /**
  * Gets data typed inside the login-form inputs when the form gets submitted.
  * @export
- * @module
+ * @module loginFormHandler
  * @description
  * It gets the html login-form and than listens for a submit event.
  *

@@ -1,7 +1,7 @@
 /**
  * Converts plain stringHtml to html with DOMparser
  * @export
- * @module
+ * @module createParseDoc
  * @param {string} htmlString has a string of html that will be converted to html elements
  * @return sends back a parserDocument with the fully rendered html version of the htmlString.
  */
