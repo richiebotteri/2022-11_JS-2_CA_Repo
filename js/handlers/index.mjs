@@ -9,6 +9,11 @@ import { registerFormHandler } from "./registration/register-form-handler.mjs";
 import { filterPostHandler } from "./posts/filter-posts-handler.mjs";
 import { searchInputHandler } from "./search/search-input-handler.mjs";
 
+/**
+ * Calls nav- & button-event-handlers for when user is logged in and toggles hamburger-menu, comments-btn, media-btn, tag-button, creates-post-btn or logout-btn.
+ * @export
+ * @module
+ */
 export function postHandlers() {
    toggleMobileNav();
    toggleComments();
@@ -18,13 +23,21 @@ export function postHandlers() {
    logoutAnchorAccount();
 }
 
+/**
+ * Calls find posts event-handlers for when user is logged in and searches or chooses a filter-option to find specific posts.
+ * @export
+ * @module
+ */
 export function findPostsHandlers() {
    searchInputHandler();
-   if (window.location.pathname === "/home/") {
-      filterPostHandler();
-   }
+   filterPostHandler();
 }
 
+/**
+ * Calls signup event-handlers for when user logs in or register account
+ * @export
+ * @module
+ */
 export function signupHandlers() {
    registerFormHandler();
    loginFormHandler();
