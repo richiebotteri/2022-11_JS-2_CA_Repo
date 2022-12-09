@@ -5,9 +5,6 @@ import { optionWithContent } from "../../api-options/auth-with-content.mjs";
 export async function uploadPostData(postObject, method, action) {
    try {
       const response = await fetch(`${SOCIAL_URL}${action}`, optionWithContent(postObject, method));
-      const result = await response.json();
-      console.log("response:", response);
-      console.log("result:", result);
 
       if (method === "post" || method === "put") {
          if (window.location.pathname !== "/post/") {

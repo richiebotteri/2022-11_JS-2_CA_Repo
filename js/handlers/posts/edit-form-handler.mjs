@@ -27,8 +27,7 @@ export function editFormHandler(editForm, editBtn) {
 
       if (isValid) {
          updateRequest(editFormSubmit, editBtn);
-      } else {
-         console.log(isValid);
+         return;
       }
    });
 }

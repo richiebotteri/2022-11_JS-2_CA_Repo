@@ -4,7 +4,6 @@ import { optionWithToken } from "../../api-options/only-auth.mjs";
 export async function deletePostData(method, action) {
    try {
       const response = await fetch(`${SOCIAL_URL}${action}`, optionWithToken(method));
-      console.log("response", response);
 
       if (response.ok) {
          setInterval(() => {

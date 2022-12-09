@@ -14,7 +14,7 @@ export function createRequest(event) {
 
    const method = form.method;
    const action = form.attributes.action.value;
-   console.log(postObject, method, action);
+
    saveSessionItem("isPostCreated", true);
    uploadPostData(postObject, method, action);
 }
