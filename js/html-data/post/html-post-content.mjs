@@ -14,7 +14,7 @@ import { routePostToPage } from "../../display/route-post-to-page.mjs";
  */
 
 export function changeToHtmlPost(postVariables) {
-   const { id, title, body, stringTags, htmlTags, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
+   const { id, title, body, stringTags, htmlTags, htmlMedia, mediaUrl, dateCreated, dateUpdated, author, avatar, comments, reactions, count } = postVariables;
 
    const regEx = "^[\\w\\s\\-]+$";
    const editForm = `
@@ -39,7 +39,7 @@ export function changeToHtmlPost(postVariables) {
       </div>
       <div id="media-input-group" class="form-group mb-3">
           <label for="media-input" class="form-label ps-1">Media</label>
-          <input type="text" class="form-control py-2" id="edit-media-input" name="media" placeholder="No media in the post." value="${media}"/>
+          <input type="text" class="form-control py-2" id="edit-media-input" name="media" placeholder="No media in the post." value="${mediaUrl}"/>
       </div>
       <div id="tag-input-group" class="g-col-12 form-group ">
         <label for="tags" class="form-label ps-1">Tag</label>
@@ -78,9 +78,7 @@ export function changeToHtmlPost(postVariables) {
           <h4 class="g-col-11 g-col-md-10 m-0 fw-semibold pe-3">${title}</h4>
           <a href="/post/?id=${id}" class="g-col-1 g-col-md-2 view-post-link ps-4 d-flex justify-content-end align-items-center gap-2 nav-link"><span class="d-none d-md-inline">View post</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
-        <div class="d-flex justify-content-center ">
-          <img src="${media}" class="img-fluid text-secondary" alt="${title} Image" />
-        </div>
+        ${htmlMedia}
         <div class="card-body border-top">
           ${htmlTags}
           <p class="my-3 fs-5">${body}</p>

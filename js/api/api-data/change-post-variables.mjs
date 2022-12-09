@@ -4,7 +4,7 @@ import { changeToHtmlComments } from "./change-comments-data.mjs";
 import { changeCreatedFormat } from "./date-changes/change-created-format.mjs";
 import { changeUpdateFormat } from "./date-changes/change-update-format.mjs";
 import { onlyShowRealUpdates } from "./date-changes/only-show-real-updates.mjs";
-import { changeMediaData } from "./media-changes/change-media-data.mjs";
+import { changeMediaToHtml } from "./media-changes/change-media-to-html.mjs";
 import { changeToHtmlTag } from "./tag-changes/change-tag-to-html.mjs";
 import { changeTagsToStringChain } from "./tag-changes/change-tags-to-string-chain.mjs";
 import { changeToTagsWithContent } from "./tag-changes/change-to-tags-with-content.mjs";
@@ -18,12 +18,11 @@ export function changePostVariables(post, responseOk) {
       const tagsWithContent = changeToTagsWithContent(tags);
       const tagStringChain = changeTagsToStringChain(tagsWithContent);
       const htmlTags = changeToHtmlTag(tagsWithContent);
-
       const htmlComments = changeToHtmlComments(comments);
       const realDateUpdates = onlyShowRealUpdates(created, updated);
       const newDateCreated = changeCreatedFormat(created);
       const newDateUpdated = changeUpdateFormat(realDateUpdates);
-      const newMedia = changeMediaData(media);
+      const htmlMedia = changeMediaToHtml(media);
       const newAuthorAvatar = changeAvatarData(authorAvatar, authorName);
 
       const updatedPostVariables = {
@@ -33,9 +32,10 @@ export function changePostVariables(post, responseOk) {
          tags: tagsWithContent,
          stringTags: tagStringChain,
          htmlTags: htmlTags,
+         htmlMedia: htmlMedia,
+         mediaUrl: media,
          dateCreated: newDateCreated,
          dateUpdated: newDateUpdated,
-         media: newMedia,
          author: authorName,
          avatar: newAuthorAvatar,
          comments: htmlComments,
