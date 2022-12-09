@@ -5,7 +5,7 @@ import { optionWithToken } from "../../api-options/only-auth.mjs";
 import { deleteSessionItem, loadSessionItem } from "../../../storage/session-storage.mjs";
 import { displayPostChangeFeedback } from "../../../display/post/post-feedback/display-post-change-feedback.mjs";
 import { changePostVariables } from "../../api-data/change-post-variables.mjs";
-import { validatedForms } from "../../../form/index.mjs";
+import { validatedForms } from "../../../form/validate-form.mjs";
 
 export async function downloadPostData(method, action) {
    try {

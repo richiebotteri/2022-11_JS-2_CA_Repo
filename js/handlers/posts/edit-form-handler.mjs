@@ -1,5 +1,5 @@
 import { updateRequest } from "../../api/api-requests/request-type/update-request.mjs";
-import { validateInputs } from "../../form/validatedInput.mjs";
+import { validateInputs } from "../../form/validate-Input.mjs";
 
 /**
  * Gets data typed inside the edit-form inputs when the form gets submitted.

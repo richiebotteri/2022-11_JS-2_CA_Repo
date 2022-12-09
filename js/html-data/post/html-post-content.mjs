@@ -1,6 +1,6 @@
 import { createParseDoc } from "../createParseDoc.mjs";
-import { routeToDisplayPost } from "../../display/route-to-display-post.mjs";
 import { scrollToViewPost } from "../../display/scroll-to-view-post.mjs";
+import { routePostToPage } from "../../display/route-post-to-page.mjs";
 
 /**
  * Adds modified API data to ready-made HTML element posts with and without edit/delete button.
@@ -71,16 +71,16 @@ export function changeToHtmlPost(postVariables) {
       </div>
     </div>
      `;
-
+   console.log(media);
    const postBodySection = `
   <div class="g-col-12 w-100 m-auto p-5 p-md-5 bg-secondary">
   <div class="card">
-        <div class="card-header py-3 d-flex justify-content-between">
-          <h4 class="m-0 fw-semibold">${title}</h4>
-          <a href="/post/?id=${id}" class="view-post-link d-flex align-items-center gap-2 nav-link">View post <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <div class="card-header py-3 grid justify-content-between">
+          <h4 class="g-col-11 g-col-md-10 m-0 fw-semibold pe-3">${title}</h4>
+          <a href="/post/?id=${id}" class="g-col-1 g-col-md-2 view-post-link ps-4 d-flex justify-content-end align-items-center gap-2 nav-link"><span class="d-none d-md-inline">View post</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
-        <div class="d-flex justify-content-center">
-          <img src="${media}" class="img-fluid" alt="" />
+        <div class="d-flex justify-content-center ">
+          <img src="${media}" class="img-fluid text-secondary" alt="${title} Image" />
         </div>
         <div class="card-body border-top">
           ${htmlTags}
@@ -135,5 +135,5 @@ export function changeToHtmlPost(postVariables) {
    const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
 
    scrollToViewPost(id, parsedAuthorPost);
-   routeToDisplayPost(parsedAuthorPost, parsedContactPost, author, id, stringTags, title);
+   routePostToPage(parsedAuthorPost, parsedContactPost, postVariables);
 }
