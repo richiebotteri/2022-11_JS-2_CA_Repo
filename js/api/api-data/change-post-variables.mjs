@@ -24,7 +24,6 @@ export function changePostVariables(post, responseOk) {
       const newDateCreated = changeCreatedFormat(created);
       const newDateUpdated = changeUpdateFormat(realDateUpdates);
       const newMedia = changeMediaData(media);
-      // console.log(media);
       const newAuthorAvatar = changeAvatarData(authorAvatar, authorName);
 
       const updatedPostVariables = {

@@ -71,7 +71,6 @@ export function changeToHtmlPost(postVariables) {
       </div>
     </div>
      `;
-   console.log(media);
    const postBodySection = `
   <div class="g-col-12 w-100 m-auto p-5 p-md-5 bg-secondary">
   <div class="card">
