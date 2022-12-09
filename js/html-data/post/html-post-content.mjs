@@ -71,7 +71,7 @@ export function changeToHtmlPost(postVariables) {
       </div>
     </div>
      `;
-
+   console.log(media);
    const postBodySection = `
   <div class="g-col-12 w-100 m-auto p-5 p-md-5 bg-secondary">
   <div class="card">
@@ -79,8 +79,8 @@ export function changeToHtmlPost(postVariables) {
           <h4 class="g-col-11 g-col-md-10 m-0 fw-semibold pe-3">${title}</h4>
           <a href="/post/?id=${id}" class="g-col-1 g-col-md-2 view-post-link ps-4 d-flex justify-content-end align-items-center gap-2 nav-link"><span class="d-none d-md-inline">View post</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
-        <div class="d-flex justify-content-center">
-          <img src="${media}" class="img-fluid" alt="" />
+        <div class="d-flex justify-content-center ">
+          <img src="${media}" class="img-fluid text-secondary" alt="${title} Image" />
         </div>
         <div class="card-body border-top">
           ${htmlTags}
