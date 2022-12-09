@@ -22,7 +22,7 @@ export function changePostVariables(post, responseOk) {
       const realDateUpdates = onlyShowRealUpdates(created, updated);
       const newDateCreated = changeCreatedFormat(created);
       const newDateUpdated = changeUpdateFormat(realDateUpdates);
-      const htmlMedia = changeMediaToHtml(media);
+      const htmlMedia = changeMediaToHtml(media, title);
       const newAuthorAvatar = changeAvatarData(authorAvatar, authorName);
 
       const updatedPostVariables = {

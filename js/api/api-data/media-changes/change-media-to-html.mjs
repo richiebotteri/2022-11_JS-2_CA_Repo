@@ -1,4 +1,4 @@
-export function changeMediaToHtml(media) {
+export function changeMediaToHtml(media, title) {
    if (media === null || media === "") {
       return "";
    } else {
