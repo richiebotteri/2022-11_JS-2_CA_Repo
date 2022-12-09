@@ -13,7 +13,6 @@ export async function downloadPostData(method, action) {
       const result = await response.json();
       const isPostDeleted = loadSessionItem("delete");
       const loader = document.querySelector("#loader");
-
       if (response.ok) {
          loader.classList.add("d-none");
          // looping all posts in result array
