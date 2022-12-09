@@ -1,4 +1,4 @@
-import { validateInputs } from "../../form/validatedInput.mjs";
+import { validateInputs } from "../../form/validate-Input.mjs";
 import { saveSessionItem } from "../../storage/session-storage.mjs";
 
 /**

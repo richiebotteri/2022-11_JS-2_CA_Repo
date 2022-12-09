@@ -1,5 +1,5 @@
 import { createRequest } from "../../api/api-requests/request-type/create-request.mjs";
-import { validateInputs } from "../../form/validatedInput.mjs";
+import { validateInputs } from "../../form/validate-Input.mjs";
 
 /**
  * Gets data typed inside the create-post-form inputs when the form gets submitted.

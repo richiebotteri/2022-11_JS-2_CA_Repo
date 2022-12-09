@@ -1,5 +1,5 @@
 import { loginAccount } from "../../api/api-authenticate/signup/login-account.mjs";
-import { validateInputs } from "../../form/validatedInput.mjs";
+import { validateInputs } from "../../form/validate-Input.mjs";
 
 /**
  * Gets data typed inside the login-form inputs when the form gets submitted.

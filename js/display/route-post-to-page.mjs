@@ -1,4 +1,4 @@
-import { homePostContainer, profilePostContainer } from "../html-data/post/post-containers.mjs";
+import { profilePostContainer } from "../html-data/post/post-containers.mjs";
 import { loadItem } from "../storage/local-storage.mjs";
 import { deleteSessionItem, loadSessionItem } from "../storage/session-storage.mjs";
 import { displayCorrectPost } from "./display-correct-post.mjs";

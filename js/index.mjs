@@ -1,4 +1,4 @@
-import { validatedForms } from "./form/index.mjs";
+import { validatedForms } from "./form/validate-form.mjs";
 import { offlineFeedback } from "./display/signup-feedback/display-logout-feedback.mjs";
 import { findPostsHandlers, postHandlers, signupHandlers } from "./handlers/index.mjs";
 import { displayProfileData } from "./display/post/display-profile-data.mjs";
