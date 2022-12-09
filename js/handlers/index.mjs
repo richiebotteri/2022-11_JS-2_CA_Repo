@@ -10,12 +10,11 @@ import { filterPostHandler } from "./posts/filter-posts-handler.mjs";
 import { searchInputHandler } from "./search/search-input-handler.mjs";
 
 /**
- * Calls nav- & button-event-handlers for when user is logged in and toggles hamburger-menu, comments-btn, media-btn, tag-button, creates-post-btn or logout-btn.
+ * Calls nav- & button-event-handlers for when user is logged in and toggles comments-btn, media-btn, tag-button, creates-post-btn or logout-btn.
  * @export
  * @module triggerPostHandlers
  */
 export function postHandlers() {
-   toggleMobileNav();
    toggleComments();
    toggleMediaBtn();
    toggleTagBtn();

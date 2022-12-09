@@ -23844,6 +23844,10 @@ readers do not read off random characters that represent icons */
   height: 50px;
 }
 
+.view-post-link {
+  border-left: 1px solid black;
+}
+
 @media (min-width: 768px) {
   .menu-btn-hide {
     display: none;
