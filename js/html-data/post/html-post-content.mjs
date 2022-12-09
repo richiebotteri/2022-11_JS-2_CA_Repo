@@ -1,6 +1,6 @@
 import { createParseDoc } from "../createParseDoc.mjs";
-import { routeToDisplayPost } from "../../display/route-to-display-post.mjs";
 import { scrollToViewPost } from "../../display/scroll-to-view-post.mjs";
+import { routePostToPage } from "../../display/route-post-to-page.mjs";
 
 /**
  * Adds modified API data to ready-made HTML element posts with and without edit/delete button.
@@ -135,5 +135,5 @@ export function changeToHtmlPost(postVariables) {
    const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
 
    scrollToViewPost(id, parsedAuthorPost);
-   routeToDisplayPost(parsedAuthorPost, parsedContactPost, author, id, stringTags, title);
+   routePostToPage(parsedAuthorPost, parsedContactPost, postVariables);
 }

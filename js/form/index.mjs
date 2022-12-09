@@ -4,7 +4,6 @@ export function validatedForms() {
    const formField = document.querySelectorAll(".needs-validation");
    formField.forEach(function (formElements) {
       const validateForm = function (event) {
-         console.log("ssssssssss", event.target.tags);
          if (!formElements.checkValidity()) {
             event.preventDefault();
             event.stopPropagation();
