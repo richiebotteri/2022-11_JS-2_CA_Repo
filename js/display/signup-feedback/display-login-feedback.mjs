@@ -1,15 +1,7 @@
 import { redirectIfToken } from "../../api/api-authenticate/redirect-active-user.mjs";
 import { createParseDoc } from "../../html-data/createParseDoc.mjs";
-import { saveItem } from "../../storage/local-storage.mjs";
-import { saveSessionItem } from "../../storage/session-storage.mjs";
 
 export function displayLoginFeedback(response, result) {
-   // Save login token & profile
-   const { accessToken, ...profile } = result;
-   saveItem("loginToken", accessToken);
-   saveItem("profile", profile);
-   saveSessionItem("online", true);
-
    // Feedback on Login
    const loginFeedback = document.querySelector("#submit-feedback-login");
    const LoginFeedBackHtml = `
