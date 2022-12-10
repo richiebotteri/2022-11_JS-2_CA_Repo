@@ -18,7 +18,7 @@ export function routePostToPage(authorPost, contactPost, postVariables) {
    switch (true) {
       case path === "/home/":
          if (searchInput) {
-            // If searchInput get clicked
+            // If searchInput gets clicked
             displayFilterPostOptions(author);
             deleteSessionItem("filterOptionName");
             if (searchInput === author) {
@@ -53,11 +53,13 @@ export function routePostToPage(authorPost, contactPost, postVariables) {
 
          break;
       case path === "/profile/":
+         // if user is on profile page, display author posts
          if (loggedInUser === author) {
             displayPost(authorPost, profilePostContainer);
          }
          break;
       case path === "/post/":
+         // if user is on post page, display single-post
          displaySinglePostById(authorPost, contactPost, id, author);
          break;
       default:

@@ -1,4 +1,5 @@
 import { loadItem } from "../../../storage/local-storage.mjs";
+import { loadSessionItem } from "../../../storage/session-storage.mjs";
 // import { downloadAuthorPosts } from "../request-call/download-author-posts.mjs";
 import { downloadPostData } from "../request-call/download-post-data.mjs";
 
@@ -22,16 +23,33 @@ export function getRequest() {
    const sortOrderDescending = `sortOrder=desc`;
    const sortOrderAscending = `sortOrder=asc`;
 
+   const allPostActionConfig = `${action}/?${withAllData}&${sortByCreated}`;
    // Downloads all posts
-   const path = window.location.pathname;
-   if (path === "/home/" || path === "/post/") {
-      const allPostActionConfig = `${action}/?${withAllData}&${sortByCreated}&${sortOrderDescending}`;
+   const userIsLocatedOn = window.location.pathname;
+   const authorPostActionConfig = `${authorEndpoint}/?${withAllData}&${sortByCreated}`;
+
+   if (userIsLocatedOn === "/home/") {
       downloadPostData(method, allPostActionConfig);
    }
 
    // Downloads author posts
-   if (path === "/profile/" || path === "/post/") {
-      const authorPostActionConfig = `${authorEndpoint}/?${withAllData}&${sortByCreated}&${sortOrderDescending}`;
+   if (userIsLocatedOn === "/profile/") {
       downloadPostData(method, authorPostActionConfig);
+   }
+
+   const downloadLocation = loadSessionItem("downloadLocation");
+   const downloadResponseStatus = loadSessionItem("downloadResponseStatus");
+
+   // switching action-config to ensure single-post gets displays
+   if (downloadResponseStatus && userIsLocatedOn === "/post/") {
+      if (downloadLocation === "/home/") {
+         downloadPostData(method, allPostActionConfig);
+         return;
+      }
+      if (downloadLocation === "/profile/") {
+         console.log("here");
+         downloadPostData(method, authorPostActionConfig);
+         return;
+      }
    }
 }
