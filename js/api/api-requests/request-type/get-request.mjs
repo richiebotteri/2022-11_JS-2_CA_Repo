@@ -15,18 +15,21 @@ export function getRequest() {
    const withComments = `_comments=true`;
    const withReactions = `_reactions=true`;
    const withAllData = `${withAuthor}&${withComments}&${withReactions}`;
+
    //  Optional Sorting
    const sortByCreated = `sort=created`;
    const sortByTitle = `sort=created`;
    const sortOrderDescending = `sortOrder=desc`;
    const sortOrderAscending = `sortOrder=asc`;
 
-   // Replace variables in actionConfig to change data-output
+   // Downloads all posts
    const path = window.location.pathname;
    if (path === "/home/" || path === "/post/") {
       const allPostActionConfig = `${action}/?${withAllData}&${sortByCreated}&${sortOrderDescending}`;
       downloadPostData(method, allPostActionConfig);
    }
+
+   // Downloads author posts
    if (path === "/profile/" || path === "/post/") {
       const authorPostActionConfig = `${authorEndpoint}/?${withAllData}&${sortByCreated}&${sortOrderDescending}`;
       downloadPostData(method, authorPostActionConfig);

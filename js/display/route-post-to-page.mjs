@@ -12,7 +12,7 @@ export function routePostToPage(authorPost, contactPost, postVariables) {
    const doesSearchTagExist = stringTags.includes(searchInput);
    const doesTitleWordExist = title.includes(searchInput);
    const filterOptionClicked = loadSessionItem("filterOptionName");
-   const loggedInUser = loadItem("profile").name;
+   const loggedInUser = loadItem("profile").name.toLowerCase();
    const path = window.location.pathname;
 
    switch (true) {
