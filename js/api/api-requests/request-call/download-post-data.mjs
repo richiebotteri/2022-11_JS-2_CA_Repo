@@ -15,19 +15,19 @@ export async function downloadPostData(method, action) {
       const loader = document.querySelector("#loader");
       const path = window.location.pathname;
 
-      // saving location and response-status on home and profile page,
-      // to display all single-posts
-      if (path !== "/post/") {
-         saveSessionItem("downloadResponseStatus", response.ok);
-         saveSessionItem("downloadLocation", path);
-      }
-
       if (response.ok) {
          loader.classList.add("d-none");
          // looping all posts in result array
          result.forEach((post) => {
             changePostVariables(post, response.ok);
          });
+
+         // saving location and response-status on home and profile page,
+         // to display all single-posts
+         if (path !== "/post/") {
+            saveSessionItem("downloadResponseStatus", response.ok);
+            saveSessionItem("downloadLocation", path);
+         }
 
          // display deleted post message
          if (isPostDeleted) {

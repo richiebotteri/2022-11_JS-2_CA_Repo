@@ -22,5 +22,7 @@ export function toggleMobileNav() {
       return navMenu.classList.toggle("d-none");
    }
 
-   toggleMenuBtn.addEventListener("click", toggleMenu);
+   if (window.location.pathname !== "/post/") {
+      toggleMenuBtn.addEventListener("click", toggleMenu);
+   }
 }

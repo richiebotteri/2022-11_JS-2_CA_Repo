@@ -50,7 +50,6 @@ export function getRequest() {
       }
       if (downloadLocation === "/profile/") {
          displayGoBackLink(downloadLocation);
-         console.log("here");
          downloadPostData(method, authorPostActionConfig);
          return;
       }
