@@ -1,3 +1,4 @@
+import { displayGoBackLink } from "../../../display/display-go-back-link.mjs";
 import { loadItem } from "../../../storage/local-storage.mjs";
 import { loadSessionItem } from "../../../storage/session-storage.mjs";
 // import { downloadAuthorPosts } from "../request-call/download-author-posts.mjs";
@@ -43,10 +44,12 @@ export function getRequest() {
    // switching action-config to ensure single-post gets displays
    if (downloadResponseStatus && userIsLocatedOn === "/post/") {
       if (downloadLocation === "/home/") {
+         displayGoBackLink(downloadLocation);
          downloadPostData(method, allPostActionConfig);
          return;
       }
       if (downloadLocation === "/profile/") {
+         displayGoBackLink(downloadLocation);
          console.log("here");
          downloadPostData(method, authorPostActionConfig);
          return;
