@@ -5,13 +5,13 @@ import { optionWithContent } from "../../api-options/auth-with-content.mjs";
 export async function uploadPostData(postObject, method, action) {
    try {
       const response = await fetch(`${SOCIAL_URL}${action}`, optionWithContent(postObject, method));
-
       if (method === "post" || method === "put") {
+         console.log("here");
          if (window.location.pathname !== "/post/") {
             displayCreatePostFeedback(response.ok);
          }
 
-         setInterval(() => {
+         setTimeout(() => {
             window.location.reload();
          }, 1500);
       }

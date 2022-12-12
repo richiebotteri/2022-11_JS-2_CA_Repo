@@ -7,9 +7,15 @@ export async function deletePostData(method, action) {
       console.log(response);
 
       if (response.ok) {
-         setInterval(() => {
-            window.location = window.location.pathname;
-         }, 1500);
+         if (window.location.pathname !== "/post/") {
+            setTimeout(() => {
+               window.location.reload;
+            }, 1500);
+         } else {
+            setTimeout(() => {
+               window.location = "/profile/";
+            }, 1500);
+         }
       }
    } catch (error) {
       console.log(error);
