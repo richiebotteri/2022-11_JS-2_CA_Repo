@@ -56,7 +56,7 @@ export function changeToHtmlPost(postVariables) {
    const filterBtn = `
     <div class="g-col-2 d-flex justify-content-end align-items-center pe-5">
         <button type="button" class="btn btn-outline-light d-flex h-50 align-items-center dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-gear"></i></button>
-        <ul id="post-dropdown-btn" class="dropdown-menu" data-post-id="${id}">
+        <ul class="post-dropdown dropdown-menu" data-post-id="${id}">
           <li  class="dropdown-item">Delete Post</li>
           <li class="dropdown-item">Edit Post</li>
         </ul>
