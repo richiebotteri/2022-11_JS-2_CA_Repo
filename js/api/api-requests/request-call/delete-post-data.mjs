@@ -9,7 +9,7 @@ export async function deletePostData(method, action) {
       if (response.ok) {
          if (window.location.pathname !== "/post/") {
             setTimeout(() => {
-               window.location.reload;
+               window.location.reload();
             }, 1500);
          } else {
             setTimeout(() => {
