@@ -8,24 +8,26 @@ import { displaySinglePostById } from "./post/display-single-post-by-id.mjs";
 
 export function routePostToPage(authorPost, contactPost, postVariables) {
    const { author, id, stringTags, title } = postVariables;
-   const searchInput = loadSessionItem("searchInputValue");
-   const doesSearchTagExist = stringTags.includes(searchInput);
-   const doesTitleWordExist = title.includes(searchInput);
-   const filterOptionClicked = loadSessionItem("filterOptionName");
-   const loggedInUser = loadItem("profile").name.toLowerCase();
+   const loggedInUser = loadItem("profile").name;
    const path = window.location.pathname;
 
    switch (true) {
       case path === "/home/":
-         if (searchInput) {
+         let searchInput = loadSessionItem("searchInputValue");
+         const filterOptionClicked = loadSessionItem("filterOptionName");
+
+         if (typeof searchInput !== "object") {
+            const searchValue = searchInput.toLowerCase();
+            const doesTitleWordExist = title.includes(searchValue);
+            const doesSearchTagExist = stringTags.includes(searchValue);
             // If searchInput gets clicked
             displayFilterPostOptions(author);
             deleteSessionItem("filterOptionName");
-            if (searchInput === author) {
+            if (searchValue === author.toLowerCase()) {
                displayCorrectPost(authorPost, contactPost, author);
                return;
             }
-            if (parseFloat(searchInput) === id) {
+            if (parseFloat(searchValue) === id) {
                displayCorrectPost(authorPost, contactPost, author);
                return;
             }
@@ -46,6 +48,8 @@ export function routePostToPage(authorPost, contactPost, postVariables) {
                return;
             }
          } else {
+            searchInput = "";
+
             // If filter and search are not used
             displayFilterPostOptions(author);
             displayCorrectPost(authorPost, contactPost, author);
