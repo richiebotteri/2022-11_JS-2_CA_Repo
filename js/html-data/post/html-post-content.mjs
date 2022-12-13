@@ -73,9 +73,6 @@ export function changeToHtmlPost(postVariables) {
      `;
    const postBodySection = `
   <div class="g-col-12 w-100 m-auto p-5 p-md-5 bg-secondary">
-    <div class="post-deleting-feedback g-col-12 d-none d-flex justify-content-center align-items-center card bg-danger rounded-2 text-white fw-semibold p-2 mb-5">
-      <p class="m-0">Proceed to delete posts...</p>
-    </div>
     <div class="card">
         <div class="card-header py-3 grid justify-content-between">
           <h4 class="g-col-11 g-col-md-10 m-0 fw-semibold pe-3">${title}</h4>
