@@ -7,5 +7,5 @@ export function deleteRequest(deleteBtn) {
    const action = `/posts/${postId}`;
    const method = "delete";
 
-   deletePostData(method, action);
+   deletePostData(method, action, postId);
 }

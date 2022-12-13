@@ -73,7 +73,10 @@ export function changeToHtmlPost(postVariables) {
      `;
    const postBodySection = `
   <div class="g-col-12 w-100 m-auto p-5 p-md-5 bg-secondary">
-  <div class="card">
+    <div class="post-deleting-feedback g-col-12 d-none d-flex justify-content-center align-items-center card bg-danger rounded-2 text-white fw-semibold p-2 mb-5">
+      <p class="m-0">Proceed to delete posts...</p>
+    </div>
+    <div class="card">
         <div class="card-header py-3 grid justify-content-between">
           <h4 class="g-col-11 g-col-md-10 m-0 fw-semibold pe-3">${title}</h4>
           <a href="/post/?id=${id}" class="view-post-link g-col-1 g-col-md-2  ps-4 d-flex justify-content-end align-items-center gap-2 nav-link"><span class="d-none d-md-inline">View post</span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
@@ -100,15 +103,15 @@ export function changeToHtmlPost(postVariables) {
   `;
 
    const authorPost = `
-      <div id="test" class="author-post g-col-12 grid bg-primary shadow mb-6" data-id="${id}">
-        <div class="g-col-10 d-flex align-items-center p-5">
-            ${avatar}
-            <h4 id="post-author" class="text-white m-0">${author}</h4>
-        </div>
-        <!-- Post Filter -->
-        ${filterBtn}
-        <!-- Post Body -->
-        ${editForm}
+   <div id="test" class="author-post g-col-12 grid bg-primary shadow mb-6" data-id="${id}">
+   <div class="g-col-10 d-flex align-items-center p-5">
+   ${avatar}
+   <h4 id="post-author" class="text-white m-0">${author}</h4>
+   </div>
+   <!-- Post Filter -->
+   ${filterBtn}
+   <!-- Post Body -->
+   ${editForm}
         ${postBodySection}
         <!-- Post Comment -->
         ${postCommentSection}
@@ -116,6 +119,9 @@ export function changeToHtmlPost(postVariables) {
    `;
 
    const contactPost = `
+      <div class="post-deleting-feedback card bg-success p-5 rounded-2 text-white fw-semibold mb-2 d-none">
+        <p>testing</p>
+      </div>
       <div class="contact-post g-col-12 grid bg-primary shadow mb-6 position-relative" data-id="${id}">
         <div class="g-col-10 d-flex align-items-center p-5">
             ${avatar}

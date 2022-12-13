@@ -1,4 +1,5 @@
 import { deleteRequest } from "../../api/api-requests/request-type/delete-request.mjs";
+import { displayDeletePostFeedback } from "../../display/post/post-feedback/display-delete-post-feedback.mjs";
 import { closeEditPostHandler } from "./close-edit-post-handler.mjs";
 import { editFormHandler } from "./edit-form-handler.mjs";
 
@@ -19,7 +20,7 @@ export function postDropdownHandler() {
          postMenu.addEventListener("click", (event) => {
             const dropdownOption = event.target;
             if (dropdownOption.innerText === "Delete Post") {
-               console.log(dropdownOption);
+               displayDeletePostFeedback("before post deleted");
                deleteRequest(dropdownOption);
             }
             if (dropdownOption.innerText === "Edit Post") {

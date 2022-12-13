@@ -3,15 +3,15 @@ import { toggleComments } from "../../../handlers/posts/comments-handler.mjs";
 import { postDropdownHandler } from "../../../handlers/posts/post-dropdown-handler.mjs";
 import { optionWithToken } from "../../api-options/only-auth.mjs";
 import { deleteSessionItem, loadSessionItem, saveSessionItem } from "../../../storage/session-storage.mjs";
-import { displayPostChangeFeedback } from "../../../display/post/post-feedback/display-post-change-feedback.mjs";
 import { changePostVariables } from "../../api-data/change-post-variables.mjs";
 import { validatedForms } from "../../../form/validate-form.mjs";
+// import { displayDeletePostFeedback } from "../../../display/post/post-feedback/display-delete-post-feedback.mjs";
 
 export async function downloadPostData(method, action) {
    try {
       const response = await fetch(`${SOCIAL_URL}${action}`, optionWithToken(method));
       const result = await response.json();
-      const isPostDeleted = loadSessionItem("delete");
+
       const loader = document.querySelector("#loader");
       const path = window.location.pathname;
 
@@ -27,12 +27,6 @@ export async function downloadPostData(method, action) {
          if (path !== "/post/") {
             saveSessionItem("downloadResponseStatus", response.ok);
             saveSessionItem("downloadLocation", path);
-         }
-
-         // display deleted post message
-         if (isPostDeleted) {
-            displayPostChangeFeedback(response.ok);
-            deleteSessionItem("delete");
          }
 
          toggleComments();

@@ -1,3 +1,5 @@
+import { createParseDoc } from "../../../html-data/createParseDoc.mjs";
+
 export function displayCreatePostFeedback(responseOk) {
    const feedbackContainer = document.querySelector(".create-post-feedback");
    const feedbackContent = `
@@ -8,7 +10,6 @@ export function displayCreatePostFeedback(responseOk) {
    `;
 
    const parseDocument = createParseDoc(feedbackContent);
-
    if (responseOk) {
       feedbackContainer.classList.remove("d-none");
       feedbackContainer.appendChild(parseDocument.getElementById("create-success"));
