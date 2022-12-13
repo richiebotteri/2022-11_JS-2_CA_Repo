@@ -21,8 +21,8 @@ export function createPostHandler() {
       event.preventDefault();
 
       const createPostArray = [];
-      const { title, textarea } = event.target;
-      createPostArray.push(title, textarea);
+      const { title, textarea, tags } = event.target;
+      createPostArray.push(title, textarea, tags);
       const isValid = validateInputs(createPostArray);
 
       if (isValid) {
