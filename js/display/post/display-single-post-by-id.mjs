@@ -11,7 +11,7 @@ export function displaySinglePostById(authorPost, contactPost, postId, author) {
    let viewPostLink = "";
 
    // Displaying correct post
-   const loggedInUser = loadItem("profile").name;
+   const loggedInUser = loadItem("profile").name.toLowerCase();
 
    if (queryStringId === postId) {
       if (loggedInUser === author) {
