@@ -21,8 +21,9 @@ export function routePostToPage(authorPost, contactPost, postVariables) {
 
          if (typeof searchInput !== "object") {
             const searchValue = searchInput.toLowerCase();
-            const doesTitleWordExist = title.includes(searchValue);
-            const doesSearchTagExist = stringTags.includes(searchValue);
+            const doesTitleWordExist = title.toLowerCase().includes(searchValue);
+            const doesSearchTagExist = stringTags.toLowerCase().includes(searchValue);
+            console.log(doesSearchTagExist);
             // If searchInput gets clicked
             displayFilterPostOptions(author);
             deleteSessionItem("filterOptionName");
@@ -34,7 +35,11 @@ export function routePostToPage(authorPost, contactPost, postVariables) {
                displayCorrectPost(authorPost, contactPost, author);
                return;
             }
-            if (doesSearchTagExist || doesTitleWordExist) {
+            if (doesSearchTagExist) {
+               displayCorrectPost(authorPost, contactPost, author);
+               return;
+            }
+            if (doesTitleWordExist) {
                displayCorrectPost(authorPost, contactPost, author);
                return;
             }
