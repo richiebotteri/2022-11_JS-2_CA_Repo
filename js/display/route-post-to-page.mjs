@@ -23,7 +23,7 @@ export function routePostToPage(authorPost, contactPost, postVariables) {
             const searchValue = searchInput.toLowerCase();
             const doesTitleWordExist = title.toLowerCase().includes(searchValue);
             const doesSearchTagExist = stringTags.toLowerCase().includes(searchValue);
-            console.log(doesSearchTagExist);
+
             // If searchInput gets clicked
             displayFilterPostOptions(author);
             deleteSessionItem("filterOptionName");
