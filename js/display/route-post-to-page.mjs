@@ -9,9 +9,7 @@ import { displaySinglePostById } from "./post/display-single-post-by-id.mjs";
 export function routePostToPage(authorPost, contactPost, postVariables) {
    const { author, id, stringTags, title } = postVariables;
    let loggedInUser = loadItem("profile").name.toLowerCase();
-   if (!loggedInUser) {
-      loggedInUser = "";
-   }
+
    const path = window.location.pathname;
 
    switch (true) {
@@ -66,7 +64,6 @@ export function routePostToPage(authorPost, contactPost, postVariables) {
          break;
       case path === "/profile/":
          // if user is on profile page, display author posts
-         console.log(author);
          if (loggedInUser === author) {
             displayPost(authorPost, profilePostContainer);
          }
