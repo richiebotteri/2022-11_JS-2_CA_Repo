@@ -4,7 +4,7 @@
  * @module closeEditPostHandler
  */
 export function closeEditPostHandler(editForm) {
-   const closeEditBtn = document.querySelector(".close-edit-btn");
+   const closeEditBtn = editForm.closeBtn;
    closeEditBtn.addEventListener("click", (event) => {
       editForm.classList.replace("d-flex", "d-none");
    });

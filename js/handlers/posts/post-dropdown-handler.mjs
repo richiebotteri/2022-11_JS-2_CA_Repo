@@ -25,10 +25,19 @@ export function postDropdownHandler() {
             }
             if (dropdownOption.innerText === "Edit Post") {
                const editBtn = dropdownOption;
-               const editPostForm = document.querySelector("#edit-post-form");
-               editPostForm.classList.replace("d-none", "d-flex");
-               closeEditPostHandler(editPostForm);
-               editFormHandler(editPostForm, editBtn);
+               const editBtnId = editBtn.parentElement.dataset.postId;
+               const editPostForms = document.querySelectorAll(".edit-post-form");
+
+               editPostForms.forEach((editPostForm) => {
+                  const editFormId = editPostForm.dataset.editPostId;
+
+                  // Only opening editForm with same id as clicked post
+                  if (editFormId === editBtnId) {
+                     editPostForm.classList.replace("d-none", "d-flex");
+                     closeEditPostHandler(editPostForm);
+                     editFormHandler(editPostForm, editBtn);
+                  }
+               });
             }
          });
       } else {

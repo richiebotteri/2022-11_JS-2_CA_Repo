@@ -18,10 +18,10 @@ export function changeToHtmlPost(postVariables) {
 
    const regEx = "^[\\w\\s\\-]+$";
    const editForm = `
-    <form action="/posts" method="put" id="edit-post-form" class="g-col-12 d-none bg-secondary flex-column bg-secondary  p-5 z-index border-bottom  needs-validation" novalidate>
+    <form action="/posts" method="put" class="edit-post-form g-col-12 d-none bg-secondary flex-column bg-secondary  p-5 z-index border-bottom  needs-validation" novalidate data-edit-post-id="${id}">
           <div class="form-group mb-3 d-flex justify-content-between align-items-center">
             <h2 class="mb-3">Edit post</h2>
-            <button type="button" class="btn btn-outline-primary close-edit-btn rounded-circle"><i class="fa-solid fa-xmark"></i></button>
+            <button type="button" name="closeBtn" class="btn btn-outline-primary close-edit-btn rounded-circle"><i class="fa-solid fa-xmark"></i></button>
           </div>
       <div class="form-group mb-3">
           <label for="title" class="form-label ps-1 mb-2">
