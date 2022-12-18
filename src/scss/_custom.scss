@@ -1,0 +1,142 @@
+// -----------------------------------------------------------
+// Redefined Skin Classes Varaibles
+
+//My-Color-Pallet
+$color-light-1: #fff;
+$color-light-2: #f8faff;
+$color-light-3: #f7f7f7;
+$color-dark: #1a2238;
+$color-red: #830713;
+$accent-light-1: #a2e3f8;
+$accent-light-2: #9ce4c6;
+
+// Theme-colors:
+$primary: #1a2238;
+$secondary: $color-light-1; // text color above primary
+$dark: $color-dark;
+$light: $color-light-2;
+$danger: $color-red;
+
+// -----------------------------------------------------------
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+$custom-theme-colors: (
+   "accent-1": $accent-light-1,
+   "accent-2": $accent-light-2,
+   "light-2": $color-light-3,
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+.nav-item-hover {
+   background-color: $secondary;
+}
+
+.nav-item-hover:hover {
+   background-color: $accent-light-1;
+}
+
+.nav-link-hover:hover {
+   box-shadow: 0 5px 0px $primary;
+}
+
+// Font-Size
+
+$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+$p1-font-size: calc($font-size-base * 0.75);
+$p2-font-size: calc($font-size-base * 0.5);
+
+$font-sizes: (
+   1: $h1-font-size,
+   2: $h2-font-size,
+   3: $h3-font-size,
+   4: $h4-font-size,
+   5: $h5-font-size,
+   6: $h6-font-size,
+   7: $p1-font-size,
+   8: $p2-font-size,
+);
+
+// Border-radius
+
+$border-radius-none: none;
+$border-radius-sm: 0.25rem;
+$input-border-radius: $border-radius-sm;
+
+// -----------------------------------------------------------
+// Custom Structure from Bootstrap Classes
+
+// Width
+
+$utilities: ();
+$utilities: map-merge(
+   (
+      // Sizing utilities
+      "width":
+         (
+            property: width,
+            class: w,
+            values: (
+               25: 25%,
+               49: 49%,
+               50: 50%,
+               75: 75%,
+               90: 90%,
+               100: 100%,
+               auto: auto,
+            ),
+         )
+   ),
+   $utilities
+);
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+   0: 0,
+   1: $spacer * 0.25,
+   2: $spacer * 0.5,
+   3: $spacer * 0.75,
+   4: $spacer,
+   5: $spacer * 1.5,
+   6: $spacer * 3,
+);
+
+// Container
+
+$variable-prefix: bs-; // Deprecated in v5.2.0 for the shorter `$prefix`
+$prefix: $variable-prefix;
+
+$grid-gutter-width: 0rem;
+$container-padding-x: $grid-gutter-width;
+
+@mixin make-container($gutter: $container-padding-x) {
+   --#{$prefix}gutter-x: #{$gutter};
+   --#{$prefix}gutter-y: 0;
+   width: 100%;
+   padding-right: calc(var(--#{$prefix}gutter-x) * 0.5); // stylelint-disable-line function-disallowed-list
+   padding-left: calc(var(--#{$prefix}gutter-x) * 0.5); // stylelint-disable-line function-disallowed-list
+   margin-right: auto;
+   margin-left: auto;
+}
+
+$container-max-widths: (
+   sm: 540px,
+   md: 720px,
+   lg: 800px,
+);
+
+// -----------------------------------------------------------
+// Enabling Css Grid
+
+$enable-grid-classes: false;
+$enable-cssgrid: true;
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";

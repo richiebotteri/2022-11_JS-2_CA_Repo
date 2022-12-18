@@ -1,0 +1,77 @@
+@use "custom";
+
+@import "../../fonts/scss/fontawesome.scss";
+@import "../../fonts/scss/solid.scss";
+@import "../../fonts/scss/brands.scss";
+@import "../../fonts/scss/v4-shims.scss";
+
+// -----------------------------------------------------------
+// Structure Classes (Not Bootstrap)
+
+.box {
+   height: 100%;
+}
+
+.fa-star-of-life {
+   top: -5px;
+   left: -2px;
+}
+
+.login-box-content {
+   height: fit-content;
+   min-width: 300px;
+}
+
+.search-btn {
+   right: 4px;
+   top: 4px;
+}
+
+.header-menu {
+   top: 30px;
+}
+
+.header-dropdown-position {
+   top: 30px;
+}
+
+.profile-icon {
+   width: 45px;
+   height: 45px;
+   object-fit: cover;
+}
+
+.profile-img {
+   width: 150px;
+   height: 150px;
+   object-fit: cover;
+}
+
+.vp-h-100 {
+   height: 100vh;
+}
+
+.z-index {
+   z-index: 10;
+}
+
+.close-edit-btn {
+   width: 45px;
+   height: 45px;
+}
+
+#edit-content {
+   height: 50px;
+}
+
+.view-post-link {
+   border-left: 1px solid black;
+}
+// -----------------------------------------------------------
+// Custom Skin Classes
+
+@media (min-width: 768px) {
+   .menu-btn-hide {
+      display: none;
+   }
+}

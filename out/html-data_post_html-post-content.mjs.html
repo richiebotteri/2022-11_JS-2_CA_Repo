@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: html-data/post/html-post-content.mjs</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: html-data/post/html-post-content.mjs</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { createParseDoc } from "../createParseDoc.mjs";
+import { scrollToViewPost } from "../../display/scroll-to-view-post.mjs";
+import { routePostToPage } from "../../display/route-post-to-page.mjs";
+
+/**
+ * Adds modified API data to ready-made HTML element posts with and without edit/delete button.
+ *
+ * Sends ready-made html-posts to routeToDisplayPost function to displayed them at the correct location.
+ *
+ * Triggers scrollToView function for the posts already rendered in the browser
+ * @export
+ * @module changeToHtmlPost
+ * @param {object} postVariables has modified API data
+ */
+
+export function changeToHtmlPost(postVariables) {
+   const { id, title, body, stringTags, htmlTags, dateCreated, dateUpdated, media, author, avatar, comments, reactions, count } = postVariables;
+
+   const regEx = "^[\\w\\s\\-]+$";
+   const editForm = `
+    &lt;form action="/posts" method="put" id="edit-post-form" class="g-col-12 d-none bg-secondary flex-column bg-secondary  p-5 z-index border-bottom  needs-validation" novalidate>
+          &lt;div class="form-group mb-3 d-flex justify-content-between align-items-center">
+            &lt;h2 class="mb-3">Edit post&lt;/h2>
+            &lt;button type="button" class="btn btn-outline-primary close-edit-btn rounded-circle">&lt;i class="fa-solid fa-xmark">&lt;/i>&lt;/button>
+          &lt;/div>
+      &lt;div class="form-group mb-3">
+          &lt;label for="title" class="form-label ps-1 mb-2">
+            Title
+            &lt;i class="fa-solid fa-star-of-life position-relative fs-8">&lt;/i>
+          &lt;/label>
+          &lt;input type="text" class="form-control py-2" id="edit-title" name="title" placeholder="No title in the post."  maxlength="280" value="${title}"/>
+      &lt;/div>
+      &lt;div class="form-group mb-3">
+          &lt;label for="textarea" class="form-label ps-1 mb-2">
+            Content
+            &lt;i class="fa-solid fa-star-of-life position-relative fs-8">&lt;/i>
+          &lt;/label>
+          &lt;textarea class="form-control py-2" id="edit-textarea" rows="5" name="textarea" placeholder="No content in the post." >${body}&lt;/textarea>
+      &lt;/div>
+      &lt;div id="media-input-group" class="form-group mb-3">
+          &lt;label for="media-input" class="form-label ps-1">Media&lt;/label>
+          &lt;input type="text" class="form-control py-2" id="edit-media-input" name="media" placeholder="No media in the post." value="${media}"/>
+      &lt;/div>
+      &lt;div id="tag-input-group" class="g-col-12 form-group ">
+        &lt;label for="tags" class="form-label ps-1">Tag&lt;/label>
+        &lt;input type="tags" class="form-control py-2" id="tags" name="tags" value="${stringTags}" placeholder="write your tags" pattern="${regEx}" />
+        &lt;div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+            &lt;p class="p-3 m-0">Only whitespace allowed in between tags and no other special symbols like hashtag(#) or comma(,)&lt;/p>
+        &lt;/div>
+      &lt;/div>
+      &lt;div class="invalid-feedback bg-danger p-3 mb-2 rounded-2 text-white fw-semibold inline">Please type in a message&lt;/div>
+      &lt;button type="submit" class="btn w-100 btn-primary mt-3">Update Post&lt;/button>
+    &lt;/form>   
+    `;
+
+   const filterBtn = `
+    &lt;div class="g-col-2 d-flex justify-content-end align-items-center pe-5">
+        &lt;button type="button" class="btn btn-outline-light d-flex h-50 align-items-center dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">&lt;i class="fa-solid fa-gear">&lt;/i>&lt;/button>
+        &lt;ul id="post-dropdown-btn" class="dropdown-menu" data-post-id="${id}">
+          &lt;li  class="dropdown-item">Delete Post&lt;/li>
+          &lt;li class="dropdown-item">Edit Post&lt;/li>
+        &lt;/ul>
+    &lt;/div>
+    `;
+
+   const postCommentSection = `
+    &lt;div class="g-col-12 p-5 border-top d-none bg-secondary" data-comments-id="${id}">
+      &lt;div class="d-flex flex-column gap-5 p-5">
+        &lt;h4>Comments&lt;/h4>
+        ${comments}
+      &lt;/div>
+    &lt;/div>
+     `;
+
+   const postBodySection = `
+  &lt;div class="g-col-12 w-100 m-auto p-5 p-md-5 bg-secondary">
+  &lt;div class="card">
+        &lt;div class="card-header py-3 d-flex justify-content-between">
+          &lt;h4 class="m-0 fw-semibold">${title}&lt;/h4>
+          &lt;a href="/post/?id=${id}" class="view-post-link d-flex align-items-center gap-2 nav-link">View post &lt;i class="fa-solid fa-arrow-up-right-from-square">&lt;/i>&lt;/a>
+        &lt;/div>
+        &lt;div class="d-flex justify-content-center">
+          &lt;img src="${media}" class="img-fluid" alt="" />
+        &lt;/div>
+        &lt;div class="card-body border-top">
+          ${htmlTags}
+          &lt;p class="my-3 fs-5">${body}&lt;/p>
+          &lt;div class="d-flex gap-1 flex-wrap border-top pt-3">
+              &lt;button id="add-like-btn" class="btn btn-secondary p-1">
+                &lt;i class="fa-regular fa-thumbs-up text-primary">&lt;span class="px-2 fs-7">${count.reactions}&lt;/span>&lt;/i>
+              &lt;/button>
+              &lt;button id="show-comments-btn" class="btn btn-secondary p-1" data-btn-id="${id}">
+                &lt;i class="fa-solid fa-comment text-primary">&lt;span class="px-2 fs-7">${count.comments}&lt;/span>&lt;/i>
+              &lt;/button>
+          &lt;/div>
+        &lt;/div>
+        &lt;div class="bg-light-2 border-top d-flex flex-wrap justify-content-between px-5 py-3">
+          &lt;p class="fw-light mb-2">${dateCreated}&lt;/p>
+          &lt;p class="fw-light m-0">${dateUpdated}&lt;/p>
+        &lt;/div>
+    &lt;/div>
+  &lt;/div>
+  `;
+
+   const authorPost = `
+      &lt;div id="test" class="author-post g-col-12 grid bg-primary shadow mb-6" data-id="${id}">
+        &lt;div class="g-col-10 d-flex align-items-center p-5">
+            ${avatar}
+            &lt;h4 id="post-author" class="text-white m-0">${author}&lt;/h4>
+        &lt;/div>
+        &lt;!-- Post Filter -->
+        ${filterBtn}
+        &lt;!-- Post Body -->
+        ${editForm}
+        ${postBodySection}
+        &lt;!-- Post Comment -->
+        ${postCommentSection}
+      &lt;/div>
+   `;
+
+   const contactPost = `
+      &lt;div class="contact-post g-col-12 grid bg-primary shadow mb-6 position-relative" data-id="${id}">
+        &lt;div class="g-col-10 d-flex align-items-center p-5">
+            ${avatar}
+            &lt;h4 id="post-author" class="text-white m-0">${author}&lt;/h4>
+        &lt;/div>
+        &lt;!-- Post Body -->
+        ${postBodySection}
+        &lt;!-- Post Comment -->
+        ${postCommentSection}
+      &lt;/div>
+`;
+
+   const parsedContactPost = createParseDoc(contactPost).querySelector(`.contact-post`);
+   const parsedAuthorPost = createParseDoc(authorPost).querySelector(`.author-post`);
+
+   scrollToViewPost(id, parsedAuthorPost);
+   routePostToPage(parsedAuthorPost, parsedContactPost, postVariables);
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-changeToHtmlPost.html">changeToHtmlPost</a></li><li><a href="module-closeEditPostHandler.html">closeEditPostHandler</a></li><li><a href="module-createParseDoc.html">createParseDoc</a></li><li><a href="module-createPostHandler.html">createPostHandler</a></li><li><a href="module-deleteItem.html">deleteItem</a></li><li><a href="module-deleteSessionItem.html">deleteSessionItem</a></li><li><a href="module-editFormHandler.html">editFormHandler</a></li><li><a href="module-filterPostHandler.html">filterPostHandler</a></li><li><a href="module-loadItem.html">loadItem</a></li><li><a href="module-loadSessionItem.html">loadSessionItem</a></li><li><a href="module-loginFormHandler.html">loginFormHandler</a></li><li><a href="module-logoutAccount.html">logoutAccount</a></li><li><a href="module-postDropdownHandler.html">postDropdownHandler</a></li><li><a href="module-removeProfileFromStorage.html">removeProfileFromStorage</a></li><li><a href="module-saveItem.html">saveItem</a></li><li><a href="module-saveSessionItem.html">saveSessionItem</a></li><li><a href="module-searchInputHandler.html">searchInputHandler</a></li><li><a href="module-toggleComments.html">toggleComments</a></li><li><a href="module-toggleMediaBtn.html">toggleMediaBtn</a></li><li><a href="module-toggleMobileNav.html">toggleMobileNav</a></li><li><a href="module-toggleTagBtn.html">toggleTagBtn</a></li><li><a href="module-triggerFindPostHandlers.html">triggerFindPostHandlers</a></li><li><a href="module-triggerPostHandlers.html">triggerPostHandlers</a></li><li><a href="module-triggerSignupHandlers.html">triggerSignupHandlers</a></li></ul><h3>Global</h3><ul><li><a href="global.html#filterSearchContainer">filterSearchContainer</a></li><li><a href="global.html#homePostContainer">homePostContainer</a></li><li><a href="global.html#profilePostContainer">profilePostContainer</a></li><li><a href="global.html#singlePostField">singlePostField</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Fri Dec 09 2022 13:09:49 GMT+0100 (sentraleuropeisk normaltid)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

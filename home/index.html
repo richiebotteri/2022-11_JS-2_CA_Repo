@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/dist/css/styles.css" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+      <link rel="manifest" href="/favicon/site.webmanifest" />
+      <meta name="description" content="social-media, chat, talk, connect, friends, collaboration" />
+      <script type="module" src="/js/index.mjs" defer></script>
+      <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+      <title>Homepage | Meetzy</title>
+   </head>
+   <body class="bg-light">
+      <!-- Header Navbar -->
+      <header class="bg-secondary shadow">
+         <div class="container grid px-4 px-md-2">
+            <a href="/home/" class="navbar-brand g-col-6 g-col-md-2 d-flex px-0 px-xl-2 align-items-center">
+               <p class="text-black fw-semibold fs-1 mt-2">Meetzy</p>
+            </a>
+            <nav class="navbar g-col-6 d-none d-md-flex justify-content-center">
+               <ul class="nav d-flex gap-5">
+                  <li class="nav-item">
+                     <a href="/home/" class="nav-link link-dark p-1 nav-link-hover fw-semibold">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="/profile/" class="nav-link link-dark p-1">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                     <a href="/index.html" id="desktop-logout-anchor" class="nav-link link-dark nav-link-hover p-1">Logout</a>
+                  </li>
+               </ul>
+            </nav>
+
+            <div class="g-col-6 d-flex justify-content-end d-md-none">
+               <button class="btn btn-outline-dark my-4" aria-label="close-menu" data-mobile-nav-btn><i class="fa-solid fa-bars"></i></button>
+            </div>
+         </div>
+      </header>
+
+      <!-- Mobile Navbar -->
+      <div class="d-flex flex-column d-none d-md-none justify-content-center" data-mobile-nav>
+         <nav>
+            <ul class="nav flex-column border-2 border-top border-dark">
+               <li class="nav-item d-flex justify-content-center bg-dark py-5">
+                  <a class="nav-link link-light d-flex align-items-center justify-content-center" href="/home/">
+                     <i class="fa-solid fa-house fs-2 me-3"></i>
+                     Home
+                  </a>
+               </li>
+               <li class="nav-item nav-item-hover d-flex justify-content-center border-3 border-bottom border-dark py-4">
+                  <a id="mobile-logout-anchor" class="nav-link link-dark d-flex align-items-center justify-content-center w-100" aria-current="page" href="/profile/">
+                     <span class="profile-icon bg-dark d-inline-block rounded-circle me-3 text-light d-flex align-items-center justify-content-center fw-bold">RB</span>
+                     Profile
+                  </a>
+               </li>
+               <li class="nav-item d-flex nav-item-hover justify-content-center border-3 border-bottom border-dark py-5">
+                  <a class="nav-link link-dark d-flex align-items-center justify-content-center w-100" href="/index.html">
+                     <i class="fa-solid fa-right-from-bracket fs-2 me-3"></i>
+                     Logout
+                  </a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+
+      <!-- Main Content-->
+      <main class="container flex-grow-1 d-flex flex-column justify-content-center p-4 gap-6 my-6">
+         <div class="post-change-feedback bg-accent-1 p-3 w-100 mb-3 text-primary fw-semibold d-none shadow"></div>
+         <div class="grid bg-primary shadow">
+            <h1 class="g-col-12 px-5 py-3 fw-semibold text-secondary">Home</h1>
+            <!-- Create Posts -->
+            <form action="/posts" method="post" id="create-post-form" class="g-col-12 d-flex gap-2 flex-column bg-secondary shadow p-5 needs-validation" novalidate>
+               <h2>Create a post</h2>
+               <div class="form-group">
+                  <label for="title" class="form-label ps-1 mb-2">
+                     Title
+                     <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                  </label>
+                  <input type="text" class="form-control py-2 mb-2" id="title" name="title" placeholder="user_name@stud.noroff.no" required maxlength="280" />
+               </div>
+               <div class="form-group mb-2">
+                  <label for="textarea" class="form-label ps-1 mb-2">
+                     Content
+                     <i class="fa-solid fa-star-of-life position-relative fs-8"></i>
+                  </label>
+                  <textarea class="form-control py-2 mb-2" id="textarea" rows="5" name="textarea" placeholder="Whats on your mind?" required></textarea>
+               </div>
+               <div class="grid gap-3 mb-1 border p-3 rounded bg-light-2">
+                  <div class="g-col-6">
+                     <button type="button" id="media-btn" class="btn btn-outline-primary w-100">
+                        Media
+                        <i class="fa-solid fa-photo-film ms-2"></i>
+                     </button>
+                  </div>
+                  <div class="g-col-6">
+                     <button type="button" id="tag-btn" class="btn btn-outline-primary w-100">
+                        tag
+                        <i class="fa-solid fa-photo-film ms-2"></i>
+                     </button>
+                  </div>
+                  <div id="media-input-group" class="g-col-12 form-group d-none">
+                     <label for="media-input" class="form-label ps-1 mt-4 mb-2">Media</label>
+                     <input type="text" class="form-control py-2 my-2" id="media-input" name="media" placeholder="https://image.example/" />
+                  </div>
+                  <div id="tag-input-group" class="g-col-12 form-group d-none">
+                     <label for="tags" class="form-label ps-1 mt-4 mb-2">Tag</label>
+                     <input type="tags" class="form-control py-2 mb-2" id="tags" name="tags" placeholder="write your tags" pattern="^[\w\s\-]+$" />
+                     <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                        <p class="p-3 m-0">Only whitespace allowed in between tags and no other special symbols like hashtag(#) or comma(,)</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="create-post-feedback card bg-success p-5 rounded-2 text-white fw-semibold mb-2 d-none"></div>
+               <button type="submit" class="btn w-100 mt-3 btn-primary">Post</button>
+            </form>
+         </div>
+
+         <div>
+            <!-- Spacers -->
+            <div class="w-90 m-auto mb-6">
+               <div class="border-2 border-top border-dark my-4 m-auto"></div>
+               <div class="border-2 border-top border-dark my-4 pt-2 w-50 d-flex m-auto justify-content-center fw-semibold">Contact Post-Feed</div>
+            </div>
+            <div id="contact-feed" class="grid p-5 gap-3 bg-secondary shadow gap-sm-3 justify-content-between rounded-top">
+               <!-- Filter Button -->
+               <div class="g-col-3 g-col-sm-3 btn-group">
+                  <button id="filter-btn" type="button" class="btn btn-outline-dark dropdown-toggle py-3" data-bs-toggle="dropdown" aria-expanded="false">
+                     <span class="d-none d-sm-inline">Filter</span>
+                  </button>
+
+                  <ul class="dropdown-menu">
+                     <li class="dropdown-item border-bottom pb-3">Show all posts</li>
+                  </ul>
+               </div>
+               <!-- Search Button -->
+               <form class="g-col-9 g-col-sm-9 searchfield align-items-center justify-content-end position-relative needs-validation" role="search" data-search-form novalidate>
+                  <input class="form-control me-2 py-3 border-dark rounded-2" type="search" name="search" placeholder="Search for Username, ID, Tag or Title-Words" aria-label="Search" pattern="^\S+$" />
+                  <button class="btn btn-primary search-btn px-5 py-2 position-absolute" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                  <div class="invalid-feedback bg-danger rounded-2 text-white fw-semibold mb-2">
+                     <p class="p-3 m-0">No whitespace( ) is allowed. You can only write one tag, id, user-name or title-word</p>
+                  </div>
+               </form>
+            </div>
+
+            <!-- Post Feed from Contacts -->
+            <div class="grid pt-5 gap-5">
+               <div id="loader" class="g-col-12 d-flex flex-column gap-2 justify-content-center align-items-center">
+                  <strong class="d-inline-block">Loading</strong>
+                  <div class="spinner-border" role="status" aria-hidden="true"></div>
+               </div>
+               <div id="home-post-field" class="g-col-12 w-100 m-auto grid"></div>
+            </div>
+         </div>
+      </main>
+      <footer class="bg-dark">
+         <p class="text-center text-white mb-0 p-3">Copyright &copy;</p>
+      </footer>
+   </body>
+</html>
